@@ -23,4 +23,8 @@ class User extends Authenticatable {
 	protected $hidden = [
 		'password', 'remember_token',
 	];
+
+	public function roles() {
+		return $this->belongsToMany('Tis\Account\Entities\Role', 'y_user_role');
+	}
 }
