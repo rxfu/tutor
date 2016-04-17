@@ -13,16 +13,20 @@ class RolesTableSeeder extends Seeder {
 		Role::truncate();
 
 		Role::create([
-			'name' => '管理员',
+			'role_slug' => 'admin',
+			'name'      => '管理员',
 		]);
 		Role::create([
-			'name' => '教学秘书',
+			'role_slug' => 'college',
+			'name'      => '教学秘书',
 		]);
 		Role::create([
-			'name' => '学位办',
+			'cole_slug' => 'manager',
+			'name'      => '学位办',
 		]);
 		Role::create([
-			'name' => '导师',
+			'role_slug' => 'tutor',
+			'name'      => '导师',
 		]);
 	}
 }

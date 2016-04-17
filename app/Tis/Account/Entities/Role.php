@@ -3,12 +3,17 @@
 namespace Tis\Account\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Role extends Model {
 
 	public $timestamps = false;
 
+	public function setRoleSlugAttribute($value) {
+		$this->attributes['role_slug'] = Str::lower($value);
+	}
+
 	public function users() {
-		return $this->belongsToMany('Tis\Account\Entities\User', 'y_user_role');
+		return $this->hasMany('Tis\Account\Entities\User');
 	}
 }

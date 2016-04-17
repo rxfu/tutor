@@ -12,7 +12,7 @@ class User extends Authenticatable {
 	 * @var array
 	 */
 	protected $fillable = [
-		'username', 'password', 'xm', 'sfzh',
+		'username', 'password', 'xm', 'sfzh', 'is_super',
 	];
 
 	/**
@@ -24,7 +24,11 @@ class User extends Authenticatable {
 		'password', 'remember_token',
 	];
 
+	protected $casts = [
+		'is_super' => 'boolean',
+	];
+
 	public function roles() {
-		return $this->belongsToMany('Tis\Account\Entities\Role', 'y_user_role');
+		return $this->belongsTo('Tis\Account\Entities\Role');
 	}
 }
