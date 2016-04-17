@@ -37,15 +37,6 @@
             <header class="header" role="banner"></header>
             <!-- /.header -->
 
-            <!-- Browser alert -->
-            <!--section id="browserAlert" class="alert alert-danger">
-               <a href="#" class="close" data-dismiss="alert" aria-lable="关闭">
-                  <span aria-hidden="true">&times;</span>
-               </a>
-               <strong>注意！</strong> 你现在使用的是<strong>360浏览器</strong>，将不能正确提交成绩，请更换其他浏览器以便正确提交成绩！
-            </section-->
-            <!-- /#browserAlert -->
-
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0">
                 <div class="navbar-header">
@@ -55,221 +46,13 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a href="{{ route('home') }}" class="navbar-brand">广西师范大学学生选课系统</a>
+                    <a href="{{ route('home') }}" class="navbar-brand">广西师范大学研究生导师信息管理系统</a>
                 </div>
                 <!-- /.navbar-header -->
 
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>欢迎{{ $user->college->mc . $user->nj }}级{{ $user->major->mc }}专业{{ $user->xm }}同学使用选课系统！</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user fa-fw"></i>
-                            <span>{{ $user->xm }}</span>
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="{{ url('profile') }}"><i class="fa fa-user fa-fw"></i> 个人资料</a></li>
-                            <li><a href="{{ url('password/change') }}"><i class="fa fa-unlock fa-fw"></i> 修改密码</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 登出</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- /.navbar-top-links -->
+                @include('layouts._topnav')
 
-                <!-- Menu -->
-                <aside class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul id="side-menu" class="nav">
-                            @if ($is_fresh)
-                                <li>
-                                    <a href="{{ route('fresh.edit', $user->xh) }}"><i class="fa fa-ticket fa-fw"></i> 新生信息填写</a>
-                                </li>
-                            @endif
-                            @if ($is_student)
-                            <li>
-                                <a href="{{ url('home') }}"><i class="fa fa-dashboard fa-fw"></i> 综合管理系统</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 教学计划<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="{{ url('course') }}">课程信息</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('plan') }}">教学计划</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('requirement') }}">毕业要求</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('course/major') }}">本学期专业课程表</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">选课情况表</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-table fa-fw"></i> 选课管理<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    @if ($allowed_select)
-                                        <li>
-                                            <a href="{{ route('selcourse.show','public') }}">公共课程</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('selcourse.show','require') }}">必修课程</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('selcourse.show','elect') }}">选修课程</a>
-                                        </li>
-                                        @if ($allowed_general)
-                                            <li>
-                                                <a href="#"> 通识素质课程<span class="fa arrow"></span></a>
-                                                <ul class="nav nav-third-level">
-                                                    <li>
-                                                        <a href="{{ route('selcourse.show','human') }}">人文社科通识素质课程</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('selcourse.show','nature') }}">自然科学通识素质课程</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('selcourse.show','art') }}">艺术体育通识素质课程</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{{ route('selcourse.show','other') }}">其他专项通识素质课程</a>
-                                                    </li>
-                                                </ul>
-                                                <!-- /.nav-third-level -->
-                                            </li>
-                                        @endif
-                                        <li>
-                                            <a href="{{ url('selcourse/deletable') }}">可退选课程列表</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('selcourse/search') }}">课程申请</a>
-                                        </li>
-                                    @endif
-                                    <li>
-                                        <a href="{{ url('application') }}">课程申请进度</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-calendar fa-fw"></i> 课表管理<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="{{ url('selcourse/timetable') }}">课程表</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('selcourse') }}">已选课程列表</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-tasks fa-fw"></i> 成绩管理<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="{{ url('score/unconfirmed') }}">待确认成绩单</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('score') }}">综合成绩单</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('score/exam') }}">国家考试成绩单</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-tablet fa-fw"></i> 考试报名<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="{{ url('exam') }}">考试列表</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('exam/history') }}">历史报名信息</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <!--li>
-                                <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> 教学评价<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#">未评课程</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">已评课程</a>
-                                    </li>
-                                </ul>
-                            </li-->
-                            <!--li>
-                                <a href="#"><i class="fa fa-apple fa-fw"></i> 学分申请<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#">课程转换申请<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="#">课程转换</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">申请进度</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">创新学分申请<span class="fa arrow"></span></a>
-                                        <ul class="nav nav-third-level">
-                                            <li>
-                                                <a href="#">学科竞赛获奖</a>
-                                                <a href="#">发表科研论文</a>
-                                                <a href="#">专利授权</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li-->
-                            <!--li>
-                                <a href="#"><i class="fa fa-university fa-fw"></i> 教室管理<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="#">空教室查询</a>
-                                        <a href="#">空教室申请</a>
-                                    </li>
-                                </ul>
-                            </li-->
-                            @endif
-                            <li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="{{ url('profile') }}">个人资料</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('log') }}">选课日志</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('message') }}">系统消息</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('password/change') }}">修改密码</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
-                            </li>
-                        </ul>
-                        <!-- /#side-menu -->
-                    </div>
-                    <!-- /.sidebar-nav -->
-                </aside>
-                <!-- /.navbar-sidebar -->
+                @include('layouts._sidebar')
             </nav>
             <!-- /.navbar -->
 
@@ -279,15 +62,9 @@
 
                 <article class="row">
                     <header class="col-sm-12">
-                        <h1 class="page-header">{{ $title or '默认页面' }}</h1>
+                        <h1 class="page-header">{{ isset($title) ? $title . ' - ' : ''}}</h1>
                     </header>
                     <!-- /.col-sm-12 -->
-
-                    <!-- Loading -->
-                    <!--section id="loading">
-                        <img src="{{ asset('images/loading.gif') }}" alt="加载中">
-                        <p>加载中……请稍后</p>
-                    </section-->
 
                     @yield('content')
                 </article>

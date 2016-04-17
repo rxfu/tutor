@@ -21,6 +21,7 @@ class Tutor extends Model {
 		'sfsh'   => 'boolean',
 		'sftg'   => 'boolean',
 		'sfpy'   => 'boolean',
+		'sfgs'   => 'boolean',
 	];
 
 	public function gender() {
