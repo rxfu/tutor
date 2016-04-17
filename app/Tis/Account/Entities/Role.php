@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 class Role extends Model {
 
+	protected $table = 'y_role';
+
 	public $timestamps = false;
 
 	public function setRoleSlugAttribute($value) {

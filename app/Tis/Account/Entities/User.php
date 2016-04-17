@@ -24,6 +24,8 @@ class User extends Authenticatable {
 		'password', 'remember_token',
 	];
 
+	protected $table = 'y_user';
+
 	protected $casts = [
 		'is_super' => 'boolean',
 	];
