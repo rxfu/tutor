@@ -10,7 +10,7 @@
             <!-- /.panel-heading -->
 
             <div class="panel-body">
-                <form id="loginForm" name="loginForm" action="{{ route('auth.login') }}" role="form" method="post" class="form-horizontal">
+                <form id="loginForm" name="loginForm" action="{{ url('login') }}" role="form" method="post" class="form-horizontal">
                 	{!! csrf_field() !!}
                     <fieldset>
                         <div class="form-group">

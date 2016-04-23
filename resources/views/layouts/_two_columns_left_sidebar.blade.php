@@ -1,12 +1,16 @@
-@extends('default')
+@extends('layouts.default')
 
 @section('styles')
+    @parent
+
 	<link rel="stylesheet" href="{{ asset('css/metisMenu.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
 @stop
 
 @section('scripts')
+    @parent
+
     <script src="{{ asset('js/bootstrap-paginator.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap-typeahead.js') }}"></script>
     <script src="{{ asset('js/jquery.stacktable.js') }}"></script>

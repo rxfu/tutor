@@ -1,4 +1,4 @@
-@extends('default')
+@extends('layouts.default')
 
 @section('page')
 <main class="container">

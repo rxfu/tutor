@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder {
 			'username' => 'admin',
 			'password' => bcrypt('admin888'),
 			'xm'       => '管理员',
+			'role_id'  => 1,
 			'is_super' => true,
 		]);
 	}

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Tis\Account\Entities\Role;
 
 class RolesTableSeeder extends Seeder {
 
@@ -21,7 +22,7 @@ class RolesTableSeeder extends Seeder {
 			'name'      => '教学秘书',
 		]);
 		Role::create([
-			'cole_slug' => 'manager',
+			'role_slug' => 'manager',
 			'name'      => '学位办',
 		]);
 		Role::create([

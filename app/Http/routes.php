@@ -12,13 +12,11 @@
  */
 
 Route::get('/', function () {
-	return redirect('home');
+	return redirect()->route('home');
 });
 
-Route::group(['middleware' => ['web']], function () {
-	Route::auth();
+Route::auth();
 
-	Route::group(['middelware' => ['auth']], function () {
-		Route::get('dashboard', ['as' => 'home', 'uses' => 'HomeController@index']);
-	});
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('dashboard', ['as' => 'home', 'uses' => 'HomeController@index']);
 });
