@@ -27,7 +27,7 @@
 
 @section('page')
 <!-- Page wrapper -->
-<main id="page-wrapper">
+<main id="page-wrapper" style="margin-top: -20px">
     @include('layouts._flash')
 
     <article class="row">

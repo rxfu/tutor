@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+class UserController extends Controller {
 
-use App\Http\Requests;
+	public function showPasswordForm() {
+		$title = '修改密码';
 
-class UserController extends Controller
-{
-    //
+		return view('user.password', compact('title'));
+	}
 }

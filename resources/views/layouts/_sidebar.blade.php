@@ -102,7 +102,7 @@
                 <a href="#"><i class="fa fa-gear fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">修改密码</a>
+                        <a href="{{ route('user.password') }}">修改密码</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
