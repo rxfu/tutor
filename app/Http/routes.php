@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('dashboard', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 	Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
-		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showPasswordForm']);
+		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
+		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changPassword']);
 	});
 });
