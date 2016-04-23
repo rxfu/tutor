@@ -156,6 +156,11 @@ return [
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
 
+		/**
+		 * Contribution Service Providers...
+		 */
+		Barryvdh\Debugbar\ServiceProvider::class,
+
 	],
 
 	/**
@@ -201,6 +206,11 @@ return [
 		'URL'       => Illuminate\Support\Facades\URL::class,
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
+
+		/**
+		 * Contribution Facades...
+		 */
+		'Debugbar'  => Barryvdh\Debugbar\Facades::class,
 
 	],
 
