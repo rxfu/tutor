@@ -32,7 +32,19 @@
         </header>
         <!-- /.col-sm-12 -->
 
-        @yield('content')
+        <section class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    @if (isset($subtitle))
+                        <div class="panel-heading">{{ $subtitle }}</div>
+                    @endif
+
+                    <div class="panel-body">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+        </section>
     </article>
     <!-- /.row -->
 </main>
