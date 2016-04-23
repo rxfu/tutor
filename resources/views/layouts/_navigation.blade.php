@@ -11,8 +11,10 @@
     </div>
     <!-- /.navbar-header -->
 
-    @include('layouts._topnav')
+    @if (Auth::check())
+      @include('layouts._topnav')
+    @endif
 
-    @include('layouts._sidebar')
+    @yield('sidebar')
 </nav>
 <!-- /.navbar -->

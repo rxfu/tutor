@@ -14,13 +14,8 @@
         @section('styles')
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/formValidation.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
             <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/metisMenu.min.css') }}">
             <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/plugins/dataTables/dataTables.bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/timeline.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         @show
 
@@ -37,21 +32,7 @@
 
             @include('layouts._navigation')
 
-            <!-- Page wrapper -->
-            <main id="page-wrapper">
-                @include('layouts._flash')
-
-                <article class="row">
-                    <header class="col-sm-12">
-                        <h1 class="page-header">{{ isset($title) ? $title . ' - ' : ''}}</h1>
-                    </header>
-                    <!-- /.col-sm-12 -->
-
-                    @yield('content')
-                </article>
-                <!-- /.row -->
-            </main>
-            <!-- /#page-wrapper -->
+            @yield('page')
 
             @include('layouts._footer')
         </div>
@@ -64,18 +45,7 @@
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('js/formValidation.min.js') }}"></script>
             <script src="{{ asset('js/language/zh_CN.js') }}"></script>
-            <script src="{{ asset('js/bootstrap-paginator.min.js') }}"></script>
-            <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
-            <script src="{{ asset('js/bootstrap-switch.js') }}"></script>
-            <script src="{{ asset('js/bootstrap-typeahead.js') }}"></script>
             <script src="{{ asset('js/jquery.placeholder.js') }}"></script>
-            <script src="{{ asset('js/jquery.stacktable.js') }}"></script>
-            <script src="{{ asset('js/jquery.chained.min.js') }}"></script>
-            <script src="{{ asset('js/metisMenu.min.js') }}"></script>
-            <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap.min.js') }}"></script>
-            <script src="{{ asset('js/sb-admin-2.js') }}"></script>
-            <script src="{{ asset('js/app.js') }}"></script>
         @show
     </body>
 </html>
