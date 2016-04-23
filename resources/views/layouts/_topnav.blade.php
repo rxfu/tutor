@@ -1,6 +1,6 @@
 <!-- Topnav -->
 <ul class="nav navbar-top-links navbar-right">
-    <li>欢迎xxx老师使用导师信息管理系统！</li>
+    <li>欢迎{{ $user->xm }}老师使用导师信息管理系统！</li>
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-user fa-fw"></i>

@@ -32,7 +32,7 @@
 
     <article class="row">
         <header class="col-sm-12">
-            <h1 class="page-header">{{ isset($title) ? $title : ''}}</h1>
+            <h1 class="page-header">{{ isset($title) ? $title : '' }}</h1>
         </header>
         <!-- /.col-sm-12 -->
 

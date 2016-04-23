@@ -12,7 +12,7 @@
     <!-- /.navbar-header -->
 
     @if (Auth::check())
-      @include('layouts._topnav')
+      @include('layouts._topnav', ['user' => Auth::user()])
     @endif
 
     @yield('sidebar')
