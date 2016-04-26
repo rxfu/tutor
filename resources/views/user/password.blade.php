@@ -1,7 +1,7 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('content')
-<form id="passwordForm" name="passwordForm" action="{{ url('password/change') }}" role="form" method="post" class="form-horizontal">
+<form id="passwordForm" name="passwordForm" action="{{ route('user.change') }}" role="form" method="post" class="form-horizontal">
     {!! method_field('put') !!}
 	{!! csrf_field() !!}
     <fieldset>

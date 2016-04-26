@@ -22,6 +22,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
 		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
-		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changPassword']);
+		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
 	});
 });
