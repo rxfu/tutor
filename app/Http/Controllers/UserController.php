@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
+use Illuminate\Support\Facades\Auth;
 use Tis\Account\Services\UserService;
 
 class UserController extends Controller {
@@ -22,7 +23,7 @@ class UserController extends Controller {
 	public function changePassword(ChangePasswordRequest $request) {
 		if ($request->isMethod('put')) {
 			if ($this->userService->changePassword(Auth::user(), $request->input('old_password'), $request->input('password'))) {
-				return redirect()->route('user.password')->withStatus('修改密码成功');
+				return redirect()->route('user.password')->withSuccess('修改密码成功');
 			} else {
 				return redirect()->back()
 					->withInput()

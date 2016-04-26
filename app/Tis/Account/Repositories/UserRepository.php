@@ -12,9 +12,4 @@ class UserRepository {
 		$this->user = $user;
 	}
 
-	public function exists($username, $password) {
-		return $this->user->whereUsername($username)
-			->wherePassword($password)
-			->exists();
-	}
 }

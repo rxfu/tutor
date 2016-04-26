@@ -2,6 +2,8 @@
 
 namespace Tis\Account\Services;
 
+use Illuminate\Support\Facades\Auth;
+use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
 
 class UserService {
@@ -13,12 +15,15 @@ class UserService {
 	}
 
 	public function changePassword(User $user, $oldPassword, $newPassword) {
-		if ($user instanceof User) {
-			if ($this->users->exists($user->username, $oldPassword)) {
-				$user->password = $newPassword;
+		$credentials = [
+			'username' => $user->username,
+			'password' => $oldPassword,
+		];
 
-				return $user->save();
-			}
+		if (Auth::guard()->validate($credentials)) {
+			$user->password = bcrypt($newPassword);
+
+			return $user->save();
 		}
 
 		return false;
