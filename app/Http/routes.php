@@ -24,4 +24,10 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
 		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
 	});
+
+	Route::group(['prefix' => 'metadata', 'as' => 'metadata.'], function () {
+		Route::group(['prefix' => 'gender', 'as' => 'gender.'], function () {
+			Route::get('list', ['as' => 'list', 'uses' => 'MetadataController@getGenderList']);
+		});
+	});
 });

@@ -72,7 +72,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 数据维护<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">性别</a>
+                        <a href="{{ route('metadata.gender.list') }}">性别</a>
                     </li>
                     <li>
                         <a href="#">国籍</a>

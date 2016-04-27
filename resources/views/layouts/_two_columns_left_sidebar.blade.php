@@ -18,7 +18,6 @@
     <script src="{{ asset('js/plugins/dataTables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 @stop
 
 @section('sidebar')
