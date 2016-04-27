@@ -15,8 +15,9 @@ class MetadataController extends Controller {
 	public function getGenderList() {
 		$fields  = $this->genders->getAll();
 		$title   = '性别';
+		$type    = 'gender';
 		$columns = ['代码', '名称'];
 
-		return view('meta.list', compact('title', 'columns', 'fields'));
+		return view('meta.list', compact('title', 'type', 'columns', 'fields'));
 	}
 }

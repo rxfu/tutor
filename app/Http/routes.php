@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'metadata', 'as' => 'metadata.'], function () {
 		Route::group(['prefix' => 'gender', 'as' => 'gender.'], function () {
 			Route::get('list', ['as' => 'list', 'uses' => 'MetadataController@getGenderList']);
+			Route::get('create', ['as' => 'create', 'uses' => 'MetadataController@createGender']);
+			Route::post('store', ['as' => 'store', 'uses' => 'MetadataController@storeGender']);
+			Route::get('{gender}', ['as' => 'show', 'uses' => 'MetadataController@showGender']);
+			Route::get('{gender}/edit', ['as' => 'edit', 'uses' => 'MetadataController@editGender']);
+			Route::put('{gender}', ['as' => 'update', 'uses' => 'MetadataController@updateGender']);
+			Route::delete('{gender}', ['as' => 'delete', 'uses' => 'MetadataController@deleteGender']);
 		});
 	});
 });
