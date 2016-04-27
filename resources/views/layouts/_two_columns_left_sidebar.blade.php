@@ -38,9 +38,7 @@
         <section class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
-                    @if (isset($subtitle))
-                        <div class="panel-heading">{{ $subtitle }}</div>
-                    @endif
+                    <div class="panel-heading">@yield('subtitle')</div>
 
                     <div class="panel-body">
                         @yield('content')

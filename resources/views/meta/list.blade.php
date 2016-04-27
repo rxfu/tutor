@@ -1,5 +1,9 @@
 @extends('layouts._two_columns_left_sidebar')
 
+@section('subtitle')
+	<a href="{{ route('metadata.' . $type . '.create') }}" class="btn btn-success" role="button" title="添加{{ $title }}"><i class="fa fa-plus fa-fw"></i>添加{{ $title }}</a>
+@stop
+
 @section('content')
 <div class="table-responsive">
     <table id="meta-table" class="table table-bordered table-striped table-hover">
