@@ -24,7 +24,7 @@ class MetadataController extends Controller {
 	}
 
 	public function showGender($id) {
-		$object     = $this->genders->getGender($id);
+		$object     = $this->genders->get($id);
 		$attributes = $this->genders->getAttributes();
 		$type       = 'gender';
 		$title      = '性别';
@@ -51,7 +51,7 @@ class MetadataController extends Controller {
 	}
 
 	public function editGender($id) {
-		$object     = $this->genders->getGender($id);
+		$object     = $this->genders->get($id);
 		$attributes = $this->genders->getAttributes();
 		$type       = 'gender';
 		$title      = '性别';
@@ -65,6 +65,14 @@ class MetadataController extends Controller {
 			return redirect()->route('metadata.gender.list')->withSuccess('更新性别成功！');
 		} else {
 			return back()->withInput()->withError('更新性别失败');
+		}
+	}
+
+	public function deleteGender($id) {
+		if ($this->genders->delete($id)) {
+			return redirect()->route('metadata.gender.list')->withSuccess('删除性别成功！');
+		} else {
+			return back()->withInput()->withError('删除性别失败');
 		}
 	}
 }

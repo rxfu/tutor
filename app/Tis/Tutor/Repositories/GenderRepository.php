@@ -22,7 +22,7 @@ class GenderRepository {
 		return $this->gender->orderBy('xbdm')->get();
 	}
 
-	public function getGender($id) {
+	public function get($id) {
 		return $this->gender->find($id);
 	}
 
@@ -33,9 +33,15 @@ class GenderRepository {
 	}
 
 	public function update($id, $data) {
-		$gender = $this->gender->find($id);
+		$gender = $this->gender->findOrFail($id);
 		$gender->fill($data);
 
 		return $gender->save();
+	}
+
+	public function delete($id) {
+		$gender = $this->gender->findOrFail($id);
+
+		return $gender->delete();
 	}
 }
