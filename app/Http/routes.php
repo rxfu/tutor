@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 
 	Route::group(['prefix' => 'metadata', 'as' => 'metadata.'], function () {
-		foreach (['gender'] as $type) {
+		foreach (['gender', 'country', 'nation', 'party', 'college', 'position', 'discipline', 'subdiscipline'] as $type) {
 			Route::group(['prefix' => $type, 'as' => $type . '.'], function () use ($type) {
 				Route::get('list', ['as' => 'list', 'uses' => 'MetadataController@get' . str_plural(ucfirst($type))]);
 				Route::get('create', ['as' => 'create', 'uses' => 'MetadataController@create' . ucfirst($type)]);

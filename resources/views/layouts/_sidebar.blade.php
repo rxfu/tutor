@@ -75,25 +75,25 @@
                         <a href="{{ route('metadata.gender.list') }}">性别</a>
                     </li>
                     <li>
-                        <a href="#">国籍</a>
+                        <a href="{{ route('metadata.country.list') }}">国籍</a>
                     </li>
                     <li>
-                        <a href="#">民族</a>
+                        <a href="{{ route('metadata.nation.list') }}">民族</a>
                     </li>
                     <li>
-                        <a href="#">政治面貌</a>
+                        <a href="{{ route('metadata.party.list') }}">政治面貌</a>
                     </li>
                     <li>
-                        <a href="#">学院</a>
+                        <a href="{{ route('metadata.college.list') }}">学院</a>
                     </li>
                     <li>
-                        <a href="#">职称</a>
+                        <a href="{{ route('metadata.position.list') }}">职称</a>
                     </li>
                     <li>
-                        <a href="#">一级学科</a>
+                        <a href="{{ route('metadata.discipline.list') }}">一级学科</a>
                     </li>
                     <li>
-                        <a href="#">二级学科</a>
+                        <a href="{{ route('metadata.subdiscipline.list') }}">二级学科</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

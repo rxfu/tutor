@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveGenderRequest;
+use Tis\Tutor\Repositories\CountryRepository;
 use Tis\Tutor\Repositories\GenderRepository;
 
 class MetadataController extends Controller {
 
 	protected $genders;
 
-	public function __construct(GenderRepository $genders) {
-		$this->genders = $genders;
+	protected $countries;
+
+	public function __construct(
+		GenderRepository $genders,
+		CountryRepository $countries) {
+		$this->genders   = $genders;
+		$this->countries = $countries;
 	}
 
 	public function getGenders() {
@@ -71,6 +77,69 @@ class MetadataController extends Controller {
 	public function deleteGender($id) {
 		if ($this->genders->delete($id)) {
 			return redirect()->route('metadata.gender.list')->withSuccess('删除性别成功！');
+		} else {
+			return back()->withInput()->withError('删除性别失败');
+		}
+	}
+
+	public function getCountries() {
+		$attributes = $this->countries->getAttributes();
+		$items      = $this->countries->getAll();
+		$type       = 'country';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.list', compact('title', 'type', 'columns', 'attributes', 'items'));
+	}
+
+	public function showCountry($id) {
+		$object     = $this->countries->get($id);
+		$attributes = $this->countries->getAttributes();
+		$type       = 'country';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.show', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function createCountry() {
+		$attributes = $this->countries->getAttributes();
+		$type       = 'country';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
+	}
+
+	public function storeCountry(SaveCountryRequest $request) {
+		if ($this->countries->store($request->all())) {
+			return redirect()->route('metadata.country.list')->withSuccess('添加性别成功！');
+		} else {
+			return back()->withInput()->withError('添加性别失败');
+		}
+	}
+
+	public function editCountry($id) {
+		$object     = $this->countries->get($id);
+		$attributes = $this->countries->getAttributes();
+		$type       = 'country';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.edit', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function updateCountry(SaveCountryRequest $request, $id) {
+		if ($this->countries->update($id, $request->all())) {
+			return redirect()->route('metadata.country.list')->withSuccess('更新性别成功！');
+		} else {
+			return back()->withInput()->withError('更新性别失败');
+		}
+	}
+
+	public function deleteCountry($id) {
+		if ($this->countries->delete($id)) {
+			return redirect()->route('metadata.country.list')->withSuccess('删除性别成功！');
 		} else {
 			return back()->withInput()->withError('删除性别失败');
 		}
