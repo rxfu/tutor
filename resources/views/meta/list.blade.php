@@ -24,15 +24,15 @@
             </tr>
         </tfoot>
         <tbody>
-        	@foreach ($fields as $items)
+        	@foreach ($items as $item)
         		<tr>
-        			@foreach ($items as $item)
-        				<td>{{ $item }}</td>
+        			@foreach ($attributes as $attribute)
+        				<td>{{ $item->{$attribute} }}</td>
         			@endforeach
-					<td><a href="{{ route('metadata.' . $type . '.show', reset($items)) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
-					<td><a href="{{ route('metadata.' . $type . '.edit', reset($items)) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
+					<td><a href="{{ route('metadata.' . $type . '.show', $item->{$attributes[0]}) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
+					<td><a href="{{ route('metadata.' . $type . '.edit', $item->{$attributes[0]}) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>
-						<form id="delete" name="delete" method="post" action="{{ route('metadata.' . $type . '.delete', reset($items)) }}" role="form" onsubmit="return confirm('你确定要删除这条记录吗？')">
+						<form id="delete" name="delete" method="post" action="{{ route('metadata.' . $type . '.delete', $item->{$attributes[0]}) }}" role="form" onsubmit="return confirm('你确定要删除这条记录吗？')">
 							{{ method_field('delete') }}
 							{{ csrf_field() }}
 							<button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>

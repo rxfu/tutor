@@ -38,7 +38,9 @@
         <section class="row">
             <div class="col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">@yield('subtitle')</div>
+                    @hasSection('subtitle')
+                        <div class="panel-heading">@yield('subtitle')</div>
+                    @endif
 
                     <div class="panel-body">
                         @yield('content')

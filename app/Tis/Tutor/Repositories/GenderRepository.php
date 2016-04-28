@@ -12,9 +12,13 @@ class GenderRepository {
 		$this->gender = $gender;
 	}
 
+	public function getAttributes() {
+		return $this->gender->getConnection()
+			->getSchemaBuilder()
+			->getColumnListing($this->gender->getTable());
+	}
+
 	public function getAll() {
-		return $this->gender->orderBy('xbdm')
-			->get()
-			->toArray();
+		return $this->gender->orderBy('xbdm')->get();
 	}
 }

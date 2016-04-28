@@ -26,14 +26,16 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 
 	Route::group(['prefix' => 'metadata', 'as' => 'metadata.'], function () {
-		Route::group(['prefix' => 'gender', 'as' => 'gender.'], function () {
-			Route::get('list', ['as' => 'list', 'uses' => 'MetadataController@getGenderList']);
-			Route::get('create', ['as' => 'create', 'uses' => 'MetadataController@createGender']);
-			Route::post('store', ['as' => 'store', 'uses' => 'MetadataController@storeGender']);
-			Route::get('{gender}', ['as' => 'show', 'uses' => 'MetadataController@showGender']);
-			Route::get('{gender}/edit', ['as' => 'edit', 'uses' => 'MetadataController@editGender']);
-			Route::put('{gender}', ['as' => 'update', 'uses' => 'MetadataController@updateGender']);
-			Route::delete('{gender}', ['as' => 'delete', 'uses' => 'MetadataController@deleteGender']);
-		});
+		foreach (['gender'] as $type) {
+			Route::group(['prefix' => $type, 'as' => $type . '.'], function () use ($type) {
+				Route::get('list', ['as' => 'list', 'uses' => 'MetadataController@get' . str_plural(ucfirst($type))]);
+				Route::get('create', ['as' => 'create', 'uses' => 'MetadataController@create' . ucfirst($type)]);
+				Route::post('store', ['as' => 'store', 'uses' => 'MetadataController@store' . ucfirst($type)]);
+				Route::get('{' . $type . '}', ['as' => 'show', 'uses' => 'MetadataController@show' . ucfirst($type)]);
+				Route::get('{' . $type . '}/edit', ['as' => 'edit', 'uses' => 'MetadataController@edit' . ucfirst($type)]);
+				Route::put('{' . $type . '}', ['as' => 'update', 'uses' => 'MetadataController@update' . ucfirst($type)]);
+				Route::delete('{' . $type . '}', ['as' => 'delete', 'uses' => 'MetadataController@delete' . ucfirst($type)]);
+			});
+		}
 	});
 });
