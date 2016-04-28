@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGenderRequest;
 use Tis\Tutor\Repositories\GenderRepository;
 
 class MetadataController extends Controller {
@@ -32,4 +33,11 @@ class MetadataController extends Controller {
 		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
 	}
 
+	public function storeGender(StoreGenderRequest $request) {
+		if ($this->genders->save($request->all())) {
+			return redirect()->route('metadata.gender.list')->withSuccess('添加性别成功！');
+		} else {
+			return back()->withInput()->withError('添加性别失败');
+		}
+	}
 }

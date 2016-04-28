@@ -21,4 +21,10 @@ class GenderRepository {
 	public function getAll() {
 		return $this->gender->orderBy('xbdm')->get();
 	}
+
+	public function save($data) {
+		$this->gender->fill($data);
+
+		return $this->gender->save();
+	}
 }
