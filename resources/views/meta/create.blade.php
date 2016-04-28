@@ -8,11 +8,11 @@
 <form action="{{ route('metadata.' . $type . '.store') }}" method="post" role="form" class="form-horizontal">
 	{{ csrf_field() }}
 	<fieldset>
-		@foreach ($attributes as $attribute => $name)
+		@foreach ($attributes as $id => $attribute)
 			<div class="form-group">
-				<label for="{{ $attribute }}" class="control-label col-sm-2">{{ $name }}</label>
+				<label for="{{ $attribute }}" class="control-label col-sm-2">{{ $columns[$id] }}</label>
 				<div class="col-sm-10">
-					<input type="text" name="{{ $attribute }}" id="{{ $attribute }}" class="form-control" placeholder="{{ $name }}" value="{{ old($attribute) }}">
+					<input type="text" name="{{ $attribute }}" id="{{ $attribute }}" class="form-control" placeholder="{{ $columns[$id] }}" value="{{ old($attribute) }}">
 				</div>
 			</div>
 		@endforeach

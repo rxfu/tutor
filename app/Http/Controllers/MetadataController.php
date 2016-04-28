@@ -29,7 +29,6 @@ class MetadataController extends Controller {
 		$type       = 'gender';
 		$title      = '性别';
 		$columns    = ['代码', '名称'];
-		$attributes = array_combine($attributes, $columns);
 
 		return view('meta.show', compact('title', 'type', 'columns', 'attributes', 'object'));
 	}
@@ -39,7 +38,6 @@ class MetadataController extends Controller {
 		$type       = 'gender';
 		$title      = '性别';
 		$columns    = ['代码', '名称'];
-		$attributes = array_combine($attributes, $columns);
 
 		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
 	}
@@ -50,5 +48,15 @@ class MetadataController extends Controller {
 		} else {
 			return back()->withInput()->withError('添加性别失败');
 		}
+	}
+
+	public function editGender($id) {
+		$object     = $this->genders->getGender($id);
+		$attributes = $this->genders->getAttributes();
+		$type       = 'gender';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.edit', compact('title', 'type', 'columns', 'attributes', 'object'));
 	}
 }
