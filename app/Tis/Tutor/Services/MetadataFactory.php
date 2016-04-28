@@ -1,6 +1,6 @@
 <?php
 
-namespace Tis\Tutor\Service;
+namespace Tis\Tutor\Services;
 
 use Tis\Core\Factory;
 
