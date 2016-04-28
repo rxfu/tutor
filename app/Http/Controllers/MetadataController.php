@@ -23,6 +23,17 @@ class MetadataController extends Controller {
 		return view('meta.list', compact('title', 'type', 'columns', 'attributes', 'items'));
 	}
 
+	public function showGender($id) {
+		$gender     = $this->genders->getGender($id);
+		$attributes = $this->genders->getAttributes();
+		$type       = 'gender';
+		$title      = '性别';
+		$columns    = ['代码', '名称'];
+		$attributes = array_combine($attributes, $columns);
+
+		return view('meta.show', compact('title', 'type', 'columns', 'attributes', 'gender'));
+	}
+
 	public function createGender() {
 		$attributes = $this->genders->getAttributes();
 		$type       = 'gender';
