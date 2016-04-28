@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SaveGenderRequest;
 use Tis\Tutor\Repositories\CountryRepository;
 use Tis\Tutor\Repositories\GenderRepository;
+use Tis\Tutor\Repositories\NationRepository;
 
 class MetadataController extends Controller {
 
@@ -12,11 +13,15 @@ class MetadataController extends Controller {
 
 	protected $countries;
 
+	protected $nations;
+
 	public function __construct(
 		GenderRepository $genders,
-		CountryRepository $countries) {
+		CountryRepository $countries,
+		NationRepository $nations) {
 		$this->genders   = $genders;
 		$this->countries = $countries;
+		$this->nations   = $nations;
 	}
 
 	public function getGenders() {
@@ -144,4 +149,68 @@ class MetadataController extends Controller {
 			return back()->withInput()->withError('删除国籍失败');
 		}
 	}
+
+	public function getNations() {
+		$attributes = $this->nations->getAttributes();
+		$items      = $this->nations->getAll();
+		$type       = 'nation';
+		$title      = '民族';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.list', compact('title', 'type', 'columns', 'attributes', 'items'));
+	}
+
+	public function showNation($id) {
+		$object     = $this->nations->get($id);
+		$attributes = $this->nations->getAttributes();
+		$type       = 'nation';
+		$title      = '民族';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.show', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function createNation() {
+		$attributes = $this->nations->getAttributes();
+		$type       = 'nation';
+		$title      = '民族';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
+	}
+
+	public function storeNation(SaveNationRequest $request) {
+		if ($this->nations->store($request->all())) {
+			return redirect()->route('metadata.nation.list')->withSuccess('添加民族成功！');
+		} else {
+			return back()->withInput()->withError('添加民族失败');
+		}
+	}
+
+	public function editNation($id) {
+		$object     = $this->nations->get($id);
+		$attributes = $this->nations->getAttributes();
+		$type       = 'nation';
+		$title      = '民族';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.edit', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function updateNation(SaveNationRequest $request, $id) {
+		if ($this->nations->update($id, $request->all())) {
+			return redirect()->route('metadata.nation.list')->withSuccess('更新民族成功！');
+		} else {
+			return back()->withInput()->withError('更新民族失败');
+		}
+	}
+
+	public function deleteNation($id) {
+		if ($this->nations->delete($id)) {
+			return redirect()->route('metadata.nation.list')->withSuccess('删除民族成功！');
+		} else {
+			return back()->withInput()->withError('删除民族失败');
+		}
+	}
+
 }
