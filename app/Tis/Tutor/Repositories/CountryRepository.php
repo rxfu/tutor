@@ -19,7 +19,7 @@ class CountryRepository {
 	}
 
 	public function getAll() {
-		return $this->country->orderBy('xbdm')->get();
+		return $this->country->orderBy('dm')->get();
 	}
 
 	public function get($id) {

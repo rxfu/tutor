@@ -12,7 +12,9 @@
             	@foreach ($columns as $column)
                 	<th class="active">{{ $column }}</th>
             	@endforeach
-            	<th class="active" colspan="3">操作</th>
+                <th class="active">查看记录</th>
+                <th class="active">编辑记录</th>
+            	<th class="active">删除记录</th>
             </tr>
         </thead>
         <tfoot>
@@ -20,7 +22,9 @@
             	@foreach ($columns as $column)
                 	<th>{{ $column }}</th>
             	@endforeach
-            	<th colspan="3">操作</th>
+                <th>查看记录</th>
+                <th>编辑记录</th>
+                <th>删除记录</th>
             </tr>
         </tfoot>
         <tbody>
@@ -56,6 +60,7 @@
 					[10, 25, 50, "全部"]
 				],
 				"pagingType": "full_numbers",
+                "ordering": false,
 				"language": {
 					"url": "/tutor/js/plugins/dataTables/i18n/zh_cn.lang"
 				}
