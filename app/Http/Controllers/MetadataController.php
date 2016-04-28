@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveGenderRequest;
+use Tis\Tutor\Repositories\CollegeRepository;
 use Tis\Tutor\Repositories\CountryRepository;
+use Tis\Tutor\Repositories\DisciplineRepository;
 use Tis\Tutor\Repositories\GenderRepository;
 use Tis\Tutor\Repositories\NationRepository;
+use Tis\Tutor\Repositories\PartyRepository;
+use Tis\Tutor\Repositories\PositionRepository;
 
 class MetadataController extends Controller {
 
@@ -15,13 +19,25 @@ class MetadataController extends Controller {
 
 	protected $nations;
 
+	protected $parties;
+
 	public function __construct(
 		GenderRepository $genders,
 		CountryRepository $countries,
-		NationRepository $nations) {
-		$this->genders   = $genders;
-		$this->countries = $countries;
-		$this->nations   = $nations;
+		NationRepository $nations,
+		PartyRepository $parties
+		CollegeRepository $colleges,
+		PositionRepository $positions,
+		DisciplineRepository $disciplines,
+		SubdisciplineRepository $subdisciplines) {
+		$this->genders        = $genders;
+		$this->countries      = $countries;
+		$this->nations        = $nations;
+		$this->parties        = $parties;
+		$this->colleges       = $colleges;
+		$this->positions      = $positions;
+		$this->disciplines    = $disciplines;
+		$this->subdisciplines = $subdisciplines;
 	}
 
 	public function getGenders() {
@@ -210,6 +226,69 @@ class MetadataController extends Controller {
 			return redirect()->route('metadata.nation.list')->withSuccess('删除民族成功！');
 		} else {
 			return back()->withInput()->withError('删除民族失败');
+		}
+	}
+
+	public function getParties() {
+		$attributes = $this->parties->getAttributes();
+		$items      = $this->parties->getAll();
+		$type       = 'party';
+		$title      = '国籍';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.list', compact('title', 'type', 'columns', 'attributes', 'items'));
+	}
+
+	public function showParty($id) {
+		$object     = $this->parties->get($id);
+		$attributes = $this->parties->getAttributes();
+		$type       = 'party';
+		$title      = '国籍';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.show', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function createParty() {
+		$attributes = $this->parties->getAttributes();
+		$type       = 'party';
+		$title      = '国籍';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
+	}
+
+	public function storeParty(SavePartyRequest $request) {
+		if ($this->parties->store($request->all())) {
+			return redirect()->route('metadata.party.list')->withSuccess('添加国籍成功！');
+		} else {
+			return back()->withInput()->withError('添加国籍失败');
+		}
+	}
+
+	public function editParty($id) {
+		$object     = $this->parties->get($id);
+		$attributes = $this->parties->getAttributes();
+		$type       = 'party';
+		$title      = '国籍';
+		$columns    = ['代码', '名称'];
+
+		return view('meta.edit', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function updateParty(SavePartyRequest $request, $id) {
+		if ($this->parties->update($id, $request->all())) {
+			return redirect()->route('metadata.party.list')->withSuccess('更新国籍成功！');
+		} else {
+			return back()->withInput()->withError('更新国籍失败');
+		}
+	}
+
+	public function deleteParty($id) {
+		if ($this->parties->delete($id)) {
+			return redirect()->route('metadata.party.list')->withSuccess('删除国籍成功！');
+		} else {
+			return back()->withInput()->withError('删除国籍失败');
 		}
 	}
 
