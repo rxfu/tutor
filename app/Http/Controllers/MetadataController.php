@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreGenderRequest;
+use App\Http\Requests\SaveGenderRequest;
 use Tis\Tutor\Repositories\GenderRepository;
 
 class MetadataController extends Controller {
@@ -42,8 +42,8 @@ class MetadataController extends Controller {
 		return view('meta.create', compact('title', 'type', 'columns', 'attributes'));
 	}
 
-	public function storeGender(StoreGenderRequest $request) {
-		if ($this->genders->save($request->all())) {
+	public function storeGender(SaveGenderRequest $request) {
+		if ($this->genders->store($request->all())) {
 			return redirect()->route('metadata.gender.list')->withSuccess('添加性别成功！');
 		} else {
 			return back()->withInput()->withError('添加性别失败');
@@ -58,5 +58,13 @@ class MetadataController extends Controller {
 		$columns    = ['代码', '名称'];
 
 		return view('meta.edit', compact('title', 'type', 'columns', 'attributes', 'object'));
+	}
+
+	public function updateGender(SaveGenderRequest $request, $id) {
+		if ($this->genders->update($id, $request->all())) {
+			return redirect()->route('metadata.gender.list')->withSuccess('更新性别成功！');
+		} else {
+			return back()->withInput()->withError('更新性别失败');
+		}
 	}
 }

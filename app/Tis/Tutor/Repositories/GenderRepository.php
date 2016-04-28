@@ -26,9 +26,16 @@ class GenderRepository {
 		return $this->gender->find($id);
 	}
 
-	public function save($data) {
+	public function store($data) {
 		$this->gender->fill($data);
 
 		return $this->gender->save();
+	}
+
+	public function update($id, $data) {
+		$gender = $this->gender->find($id);
+		$gender->fill($data);
+
+		return $gender->save();
 	}
 }
