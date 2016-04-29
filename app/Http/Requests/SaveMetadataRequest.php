@@ -5,8 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SaveGenderRequest extends Request {
-
+class SaveMetadataRequest extends Request {
 	/**
 	 * Determine if the user is authorized to make this request.
 	 *
@@ -23,6 +22,8 @@ class SaveGenderRequest extends Request {
 	 */
 	public function rules() {
 		return [
+			'dm'   => 'required',
+			'mc'   => 'required',
 			'xbdm' => 'required',
 			'xbmc' => 'required',
 		];

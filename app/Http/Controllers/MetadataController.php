@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SaveGenderRequest;
+use App\Http\Requests\SaveMetadataRequest;
 use Tis\Tutor\Services\MetadataFactory;
 
 class MetadataController extends Controller {
@@ -39,7 +39,7 @@ class MetadataController extends Controller {
 		return view('meta.create', compact('title', 'type', 'attributes'));
 	}
 
-	public function store(SaveGenderRequest $request, $type) {
+	public function store(SaveMetadataRequest $request, $type) {
 		$repository = $this->factory->build($type);
 		$title      = trans('database.' . $repository->getTable());
 
@@ -59,7 +59,7 @@ class MetadataController extends Controller {
 		return view('meta.edit', compact('title', 'type', 'attributes', 'item'));
 	}
 
-	public function update(SaveGenderRequest $request, $type, $id) {
+	public function update(SaveMetadataRequest $request, $type, $id) {
 		$repository = $this->factory->build($type);
 		$title      = trans('database.' . $repository->getTable());
 
