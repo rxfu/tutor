@@ -25,6 +25,16 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
 	});
 
+	Route::group(['prefix' => 'role', 'as' => 'role.'], function () {
+		Route::get('list', ['as' => 'list', 'uses' => 'RoleController@getList']);
+		Route::get('create', ['as' => 'create', 'uses' => 'RoleController@create']);
+		Route::post('store', ['as' => 'store', 'uses' => 'RoleController@store']);
+		Route::get('{id}', ['as' => 'show', 'uses' => 'RoleController@show']);
+		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'RoleController@edit']);
+		Route::put('{id}', ['as' => 'update', 'uses' => 'RoleController@update']);
+		Route::delete('{id}', ['as' => 'delete', 'uses' => 'RoleController@delete']);
+	});
+
 	Route::group(['prefix' => 'metadata/{type}', 'as' => 'metadata.'], function () {
 		Route::pattern('type', '(gender|country|nation|party|college|position|discipline|subdiscipline)');
 

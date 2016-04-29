@@ -63,7 +63,7 @@
                         <a href="#">用户列表</a>
                     </li>
                     <li>
-                        <a href="#">角色列表</a>
+                        <a href="{{ route('role.list') }}">角色列表</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

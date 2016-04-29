@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SaveMetadataRequest extends Request {
+class SaveRoleRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -23,10 +23,9 @@ class SaveMetadataRequest extends Request {
 	 */
 	public function rules() {
 		return [
-			'dm'   => 'sometimes|required',
-			'mc'   => 'sometimes|required',
-			'xbdm' => 'sometimes|required',
-			'xbmc' => 'sometimes|required',
+			'id'   => 'required|unique:y_role',
+			'slug' => 'required|unique:y_role',
+			'name' => 'required|unique:y_role',
 		];
 	}
 }
