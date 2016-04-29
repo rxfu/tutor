@@ -30,7 +30,7 @@ class User extends Authenticatable {
 		'is_super' => 'boolean',
 	];
 
-	public function roles() {
+	public function role() {
 		return $this->belongsTo('Tis\Account\Entities\Role');
 	}
 }
