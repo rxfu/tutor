@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-<form action="{{ route('role.store') }}" method="post" role="form" class="form-horizontal">
+<form action="{{ route('user.store') }}" method="post" role="form" class="form-horizontal">
 	{{ csrf_field() }}
 	<fieldset>
 		<div class="form-group">

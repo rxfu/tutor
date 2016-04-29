@@ -60,7 +60,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">用户列表</a>
+                        <a href="{{ route('user.list') }}">用户列表</a>
                     </li>
                     <li>
                         <a href="{{ route('role.list') }}">角色列表</a>

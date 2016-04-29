@@ -11,7 +11,7 @@ class Role extends Model {
 
 	public $timestamps = false;
 
-	protected $fillable = ['id', 'slug', 'name', 'description'];
+	protected $fillable = ['slug', 'name', 'description'];
 
 	public function setRoleSlugAttribute($value) {
 		$this->attributes['role_slug'] = Str::lower($value);

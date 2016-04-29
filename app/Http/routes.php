@@ -23,6 +23,13 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
 		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
 		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
+		Route::get('list', ['as' => 'list', 'uses' => 'UserController@getList']);
+		Route::get('create', ['as' => 'create', 'uses' => 'UserController@create']);
+		Route::post('store', ['as' => 'store', 'uses' => 'UserController@store']);
+		Route::get('{id}', ['as' => 'show', 'uses' => 'UserController@show']);
+		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'UserController@edit']);
+		Route::put('{id}', ['as' => 'update', 'uses' => 'UserController@update']);
+		Route::delete('{id}', ['as' => 'delete', 'uses' => 'UserController@delete']);
 	});
 
 	Route::group(['prefix' => 'role', 'as' => 'role.'], function () {

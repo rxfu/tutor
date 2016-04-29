@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="table-responsive">
-    <table id="meta-table" class="table table-bordered table-striped table-hover">
+    <table id="role-table" class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
                 <th class="active">ID</th>
@@ -54,7 +54,7 @@
 
 	<script>
 		$(function() {
-			$('#meta-table').dataTable({
+			$('#role-table').dataTable({
 				"lengthMenu": [
 					[10, 25, 50, -1],
 					[10, 25, 50, "全部"]

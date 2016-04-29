@@ -10,9 +10,9 @@
 	{{ csrf_field() }}
 	<fieldset>
 		<div class="form-group">
-			<label for="id" class="control-label col-sm-2">ID</label>
+			<label class="control-label col-sm-2">ID</label>
 			<div class="col-sm-10">
-				<input type="text" name="id" id="id" class="form-control" placeholder="ID" value="{{ $item->id }}">
+				<p class="form-control-static">{{ $item->id }}</p>
 			</div>
 		</div>
 		<div class="form-group">
