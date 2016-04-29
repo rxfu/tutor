@@ -22,10 +22,10 @@ class SaveMetadataRequest extends Request {
 	 */
 	public function rules() {
 		return [
-			'dm'   => 'required',
-			'mc'   => 'required',
-			'xbdm' => 'required',
-			'xbmc' => 'required',
+			'dm'   => 'sometimes|required',
+			'mc'   => 'sometimes|required',
+			'xbdm' => 'sometimes|required',
+			'xbmc' => 'sometimes|required',
 		];
 	}
 }
