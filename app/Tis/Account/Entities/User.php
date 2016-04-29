@@ -3,8 +3,13 @@
 namespace Tis\Account\Entities;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laracasts\Presenter\PresentableTrait;
 
 class User extends Authenticatable {
+
+	use PresentableTrait;
+
+	protected $presenter = 'Tis\Account\Presenters\UserPresenter';
 
 	/**
 	 * The attributes that are mass assignable.

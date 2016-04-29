@@ -38,7 +38,7 @@
                     <td>{{ $item->xm }}</td>
                     <td>{{ $item->sfzh }}</td>
                     <td>{{ $item->role->name }}</td>
-        			<td>{{ $item->is_super }}</td>
+        			<td>{{ $item->present()->super }}</td>
 					<td><a href="{{ route('user.show', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('user.edit', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>

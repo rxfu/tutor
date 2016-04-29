@@ -13,8 +13,8 @@ class Role extends Model {
 
 	protected $fillable = ['slug', 'name', 'description'];
 
-	public function setRoleSlugAttribute($value) {
-		$this->attributes['role_slug'] = Str::lower($value);
+	public function setSlugAttribute($value) {
+		$this->attributes['slug'] = Str::lower($value);
 	}
 
 	public function users() {
