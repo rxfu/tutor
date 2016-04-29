@@ -72,28 +72,28 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 数据维护<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('metadata.gender.list') }}">性别</a>
+                        <a href="{{ route('metadata.list', 'gender') }}">性别</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.country.list') }}">国籍</a>
+                        <a href="{{ route('metadata.list', 'country') }}">国籍</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.nation.list') }}">民族</a>
+                        <a href="{{ route('metadata.list', 'nation') }}">民族</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.party.list') }}">政治面貌</a>
+                        <a href="{{ route('metadata.list', 'party') }}">政治面貌</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.college.list') }}">学院</a>
+                        <a href="{{ route('metadata.list', 'college') }}">学院</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.position.list') }}">职称</a>
+                        <a href="{{ route('metadata.list', 'position') }}">职称</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.discipline.list') }}">一级学科</a>
+                        <a href="{{ route('metadata.list', 'discipline') }}">一级学科</a>
                     </li>
                     <li>
-                        <a href="{{ route('metadata.subdiscipline.list') }}">二级学科</a>
+                        <a href="{{ route('metadata.list', 'subdiscipline') }}">二级学科</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

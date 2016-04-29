@@ -10,7 +10,7 @@ abstract class Factory {
 		$class = $this->namespace . $classname;
 
 		if (class_exists($class)) {
-			return new $class;
+			return app()->make($class);
 		} else {
 			throw new Exception('Invalid Class Name');
 		}

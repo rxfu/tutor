@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
+use App\Tis\Tutor\Entities\Gender;
 use Tis\Core\Repository;
-use Tis\Tutor\Entities\Gender;
 
 class GenderRepository extends Repository {
 

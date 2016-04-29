@@ -5,14 +5,14 @@
 @stop
 
 @section('content')
-<form action="{{ route('metadata.' . $type . '.store') }}" method="post" role="form" class="form-horizontal">
+<form action="{{ route('metadata.store', $type) }}" method="post" role="form" class="form-horizontal">
 	{{ csrf_field() }}
 	<fieldset>
-		@foreach ($attributes as $id => $attribute)
+		@foreach ($attributes as $attribute)
 			<div class="form-group">
-				<label for="{{ $attribute }}" class="control-label col-sm-2">{{ $columns[$id] }}</label>
+				<label for="{{ $attribute }}" class="control-label col-sm-2">{{ trans('database.' . $attribute) }}</label>
 				<div class="col-sm-10">
-					<input type="text" name="{{ $attribute }}" id="{{ $attribute }}" class="form-control" placeholder="{{ $columns[$id] }}" value="{{ old($attribute) }}">
+					<input type="text" name="{{ $attribute }}" id="{{ $attribute }}" class="form-control" placeholder="{{ trans('database.' . $attribute) }}" value="{{ old($attribute) }}">
 				</div>
 			</div>
 		@endforeach

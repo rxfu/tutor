@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
+use App\Tis\Tutor\Entities\College;
 use Tis\Core\Repository;
-use Tis\Tutor\Entities\College;
 
 class CollegeRepository extends Repository {
 

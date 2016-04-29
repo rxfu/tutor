@@ -10,6 +10,10 @@ abstract class Repository {
 		$this->object = $object;
 	}
 
+	public function getTable() {
+		return $this->object->getTable();
+	}
+
 	public function getAttributes() {
 		return $this->object->getConnection()
 			->getSchemaBuilder()
