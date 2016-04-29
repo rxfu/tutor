@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
-use App\Tis\Tutor\Entities\Party;
 use Tis\Core\Repository;
+use Tis\Tutor\Entities\Party;
 
 class PartyRepository extends Repository {
 

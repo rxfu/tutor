@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
-use App\Tis\Tutor\Entities\Country;
 use Tis\Core\Repository;
+use Tis\Tutor\Entities\Country;
 
 class CountryRepository extends Repository {
 

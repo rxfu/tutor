@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tis\Tutor\Entities;
+namespace Tis\Tutor\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 

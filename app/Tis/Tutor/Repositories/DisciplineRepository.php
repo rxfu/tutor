@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
-use App\Tis\Tutor\Entities\Discipline;
 use Tis\Core\Repository;
+use Tis\Tutor\Entities\Discipline;
 
 class DisciplineRepository extends Repository {
 

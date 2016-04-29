@@ -2,8 +2,8 @@
 
 namespace Tis\Tutor\Repositories;
 
-use App\Tis\Tutor\Entities\Position;
 use Tis\Core\Repository;
+use Tis\Tutor\Entities\Position;
 
 class PositionRepository extends Repository {
 
