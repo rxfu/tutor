@@ -23,9 +23,9 @@ class SaveRoleRequest extends Request {
 	 */
 	public function rules() {
 		return [
-			'id'   => 'required|unique:y_role',
-			'slug' => 'required|unique:y_role',
-			'name' => 'required|unique:y_role',
+			'id'   => 'required',
+			'slug' => 'required',
+			'name' => 'required',
 		];
 	}
 }
