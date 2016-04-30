@@ -9,6 +9,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
+                        <a href="{{ route('tutor.list') }}">导师列表</a>
                         <a href="#">导师申请</a>
                     </li>
                 </ul>

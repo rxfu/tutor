@@ -53,4 +53,14 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::put('{id}', ['as' => 'update', 'uses' => 'MetadataController@update']);
 		Route::delete('{id}', ['as' => 'delete', 'uses' => 'MetadataController@delete']);
 	});
+
+	Route::group(['prefix' => 'tutor', 'as' => 'tutor.'], function () {
+		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
+		Route::get('create', ['as' => 'create', 'uses' => 'TutorController@create']);
+		Route::post('store', ['as' => 'store', 'uses' => 'TutorController@store']);
+		Route::get('{id}', ['as' => 'show', 'uses' => 'TutorController@show']);
+		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
+		Route::put('{id}', ['as' => 'update', 'uses' => 'TutorController@update']);
+		Route::delete('{id}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
+	});
 });
