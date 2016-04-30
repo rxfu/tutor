@@ -26,7 +26,7 @@
 		<div class="form-group">
 			<label for="yjxkdm" class="control-label col-sm-2">一级学科</label>
 			<div class="col-sm-10">
-				@inject('disciplines', 'Tis\Tutor\Entities\DisciplineRepository')
+				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="yjxkdm" id="yjxkdm" class="form-control">
 					@foreach ($disciplines->getAll() as $discipline)
 						{!! $discipline->present()->option(old('yjxkdm')) !!}
@@ -37,7 +37,7 @@
 		<div class="form-group">
 			<label for="ejxkdm" class="control-label col-sm-2">二级学科</label>
 			<div class="col-sm-10">
-				@inject('subdisciplines', 'Tis\Tutor\Entities\SubdisciplineRepository')
+				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="ejxkdm" id="ejxkdm" class="form-control">
 					@foreach ($subdisciplines->getAll() as $subdiscipline)
 						{!! $subdiscipline->present()->option(old('ejxkdm')) !!}
@@ -80,7 +80,7 @@
 		<div class="form-group">
 			<label for="xb" class="control-label col-sm-2">性别</label>
 			<div class="col-sm-10">
-				@inject('genders', 'Tis\Tutor\Entities\GenderRepository')
+				@inject('genders', 'Tis\Tutor\Repositories\GenderRepository')
 				<select name="xb" id="xb" class="form-control">
 					@foreach ($genders->getAll() as $gender)
 						{!! $gender->present()->option(old('xb')) !!}
@@ -97,7 +97,7 @@
 		<div class="form-group">
 			<label for="gbm" class="control-label col-sm-2">国籍</label>
 			<div class="col-sm-10">
-				@inject('countries', 'Tis\Tutor\Entities\CountryRepository')
+				@inject('countries', 'Tis\Tutor\Repositories\CountryRepository')
 				<select name="gbm" id="gbm" class="form-control">
 					@foreach ($countries->getAll() as $country)
 						{!! $country->present()->option(old('gbm')) !!}
@@ -108,7 +108,7 @@
 		<div class="form-group">
 			<label for="mzm" class="control-label col-sm-2">民族</label>
 			<div class="col-sm-10">
-				@inject('nations', 'Tis\Tutor\Entities\NationRepository')
+				@inject('nations', 'Tis\Tutor\Repositories\NationRepository')
 				<select name="mzm" id="mzm" class="form-control">
 					@foreach ($nations->getAll() as $nation)
 						{!! $nation->present()->option(old('mzm')) !!}
@@ -119,7 +119,7 @@
 		<div class="form-group">
 			<label for="zzmmm" class="control-label col-sm-2">政治面貌</label>
 			<div class="col-sm-10">
-				@inject('parties', 'Tis\Tutor\Entities\PartyRepository')
+				@inject('parties', 'Tis\Tutor\Repositories\PartyRepository')
 				<select name="zzmmm" id="zzmmm" class="form-control">
 					@foreach ($parties->getAll() as $party)
 						{!! $party->present()->option(old('zzmmm')) !!}
@@ -142,7 +142,7 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2">所在部门</label>
 			<div class="col-sm-10">
-				@inject('colleges', 'Tis\Tutor\Entities\CollegeRepository')
+				@inject('colleges', 'Tis\Tutor\Repositories\CollegeRepository')
 				<select name="szbm" id="szbm" class="form-control">
 					@foreach ($colleges->getAll() as $college)
 						{!! $college->present()->option(old('szbm')) !!}
@@ -180,7 +180,7 @@
 		<div class="form-group">
 			<label for="zyzc" class="control-label col-sm-2">专业职称</label>
 			<div class="col-sm-10">
-				@inject('positions', 'Tis\Tutor\Entities\PositionRepository')
+				@inject('positions', 'Tis\Tutor\Repositories\PositionRepository')
 				<select name="zyzc" id="zyzc" class="form-control">
 					@foreach ($positions->getAll() as $position)
 						{!! $position->present()->option(old('zyzc')) !!}
