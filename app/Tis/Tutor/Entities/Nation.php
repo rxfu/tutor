@@ -3,8 +3,13 @@
 namespace Tis\Tutor\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
 
 class Nation extends Model {
+
+	use PresentableTrait;
+
+	protected $presenter = 'Tis\Tutor\Presenters\NationPresenter';
 
 	protected $table = 'y_mzm';
 

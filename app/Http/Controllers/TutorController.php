@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Tis\Tutor\Repositories\TutorRepository;
+
 class TutorController extends Controller {
 
 	protected $tutors;

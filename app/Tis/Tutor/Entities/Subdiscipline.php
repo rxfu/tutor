@@ -3,8 +3,13 @@
 namespace Tis\Tutor\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Laracasts\Presenter\PresentableTrait;
 
 class Subdiscipline extends Model {
+
+	use PresentableTrait;
+
+	protected $presenter = 'Tis\Tutor\Presenters\SubdisciplinePresenter';
 
 	protected $table = 'y_ejxk';
 

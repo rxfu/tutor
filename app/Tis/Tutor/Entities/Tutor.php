@@ -52,7 +52,7 @@ class Tutor extends Model {
 		return $this->belongsTo('App\Tis\Tutor\Entities\Discipline', 'yjxkdm', 'dm');
 	}
 
-	public function discipline() {
+	public function subdiscipline() {
 		return $this->belongsTo('App\Tis\Tutor\Entities\Subdiscipline', 'ejxkdm', 'dm');
 	}
 }
