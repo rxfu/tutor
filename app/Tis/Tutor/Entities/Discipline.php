@@ -14,6 +14,10 @@ class Discipline extends Model {
 
 	public $timestamps = false;
 
+	protected $fillable = [
+		'dm', 'mc',
+	];
+
 	public function tutors() {
 		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'yjxkdm', 'dm');
 	}

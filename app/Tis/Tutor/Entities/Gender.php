@@ -14,7 +14,9 @@ class Gender extends Model {
 
 	public $timestamps = false;
 
-	protected $fillable = ['xbdm', 'xbmc'];
+	protected $fillable = [
+		'xbdm', 'xbmc',
+	];
 
 	public function tutors() {
 		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'xb', 'xbdm');

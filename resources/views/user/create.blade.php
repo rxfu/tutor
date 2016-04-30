@@ -27,12 +27,12 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="role" class="control-label col-sm-2">所属角色</label>
+			<label for="role_id" class="control-label col-sm-2">所属角色</label>
 			<div class="col-sm-10">
 				@inject('roles', 'Tis\Account\Repositories\RoleRepository')
-				<select name="role" class="form-control">
+				<select name="role_id" id="role_id" class="form-control">
 					@foreach ($roles->getAll() as $role)
-						<option value="{{ $role->id }}"{{ old('role') === $role->id ? ' selected' : '' }}>{{ $role->name }}</option>
+						{!! $role->present()->option(old('role')) !!}
 					@endforeach
 				</select>
 			</div>
@@ -41,10 +41,10 @@
 			<label for="is_super" class="control-label col-sm-2">是否超级管理员</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
-					<input type="radio" name="is_super" value="1" checked>&nbsp;是
+					<input type="radio" name="is_super" value="1">&nbsp;是
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="is_super" value="0">&nbsp;否
+					<input type="radio" name="is_super" value="0" checked>&nbsp;否
 				</label>
 			</div>
 		</div>

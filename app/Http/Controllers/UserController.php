@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\SaveUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Tis\Account\Repositories\UserRepository;
 use Tis\Account\Services\UserService;
@@ -56,7 +57,7 @@ class UserController extends Controller {
 		return view('user.create', compact('title'));
 	}
 
-	public function store(SaveRoleRequest $request) {
+	public function store(SaveUserRequest $request) {
 		$title = '用户';
 
 		if ($this->users->store($request->all())) {
@@ -73,7 +74,7 @@ class UserController extends Controller {
 		return view('user.edit', compact('title', 'item'));
 	}
 
-	public function update(SaveRoleRequest $request, $id) {
+	public function update(SaveUserRequest $request, $id) {
 		$title = '用户';
 
 		if ($this->users->update($id, $request->all())) {

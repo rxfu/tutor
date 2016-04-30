@@ -1,7 +1,7 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('subtitle')
-编辑{{ $title }}“{{ $item->name }}”信息
+编辑{{ $title }}“{{ $item->username }}”信息
 @stop
 
 @section('content')
@@ -10,21 +10,44 @@
 	{{ csrf_field() }}
 	<fieldset>
 		<div class="form-group">
-			<label for="slug" class="control-label col-sm-2">标识符</label>
+			<label class="control-label col-sm-2">ID</label>
 			<div class="col-sm-10">
-				<input type="text" name="slug" id="slug" class="form-control" placeholder="标识符" value="{{ $item->slug }}">
+				<p class="form-control-static">{{ $item->id }}</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="name" class="control-label col-sm-2">名称</label>
+			<label for="username" class="control-label col-sm-2">用户名</label>
 			<div class="col-sm-10">
-				<input type="text" name="name" id="name" class="form-control" placeholder="名称" value="{{ $item->name }}">
+				<input type="text" name="username" id="username" class="form-control" placeholder="用户名" value="{{ $item->username }}">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="description" class="control-label col-sm-2">描述</label>
+			<label for="xm" class="control-label col-sm-2">姓名</label>
 			<div class="col-sm-10">
-				<textarea name="description" cols="50" rows="10" class="form-control" placeholder="描述">{{ $item->description }}</textarea>
+				<input type="text" name="xm" id="xm" class="form-control" placeholder="姓名" value="{{ $item->xm }}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="sfzh" class="control-label col-sm-2">身份证号</label>
+			<div class="col-sm-10">
+				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="身份证号" value="{{ $item->sfzh }}">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="role_id" class="control-label col-sm-2">所属角色</label>
+			<div class="col-sm-10">
+				@inject('roles', 'Tis\Account\Repositories\RoleRepository')
+				<select name="role_id" id="role_id" class="form-control">
+					@foreach ($roles->getAll() as $role)
+						{!! $role->present()->option($item->role_id) !!}
+					@endforeach
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="is_super" class="control-label col-sm-2">是否超级管理员</label>
+			<div class="col-sm-10">
+				{!! $item->present()->super_radio($item->is_super) !!}
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">

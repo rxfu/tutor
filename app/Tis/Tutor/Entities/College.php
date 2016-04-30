@@ -14,6 +14,10 @@ class College extends Model {
 
 	public $timestamps = false;
 
+	protected $fillable = [
+		'dm', 'mc', 'bz',
+	];
+
 	public function tutors() {
 		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'szbm', 'dm');
 	}

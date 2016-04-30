@@ -42,7 +42,7 @@
 					<td><a href="{{ route('user.show', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('user.edit', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>
-						<form id="delete" name="delete" method="post" action="{{ route('user.delete', $item->id) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->name }}”这条记录吗？')">
+						<form id="delete" name="delete" method="post" action="{{ route('user.delete', $item->id) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->username }}”这条记录吗？')">
 							{{ method_field('delete') }}
 							{{ csrf_field() }}
 							<button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>

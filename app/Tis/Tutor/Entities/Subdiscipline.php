@@ -14,6 +14,10 @@ class Subdiscipline extends Model {
 
 	public $timestamps = false;
 
+	protected $fillable = [
+		'dm', 'mc',
+	];
+
 	public function tutors() {
 		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'ejxkdm', 'dm');
 	}
