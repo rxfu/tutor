@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Tis\Account\Repositories\UserRepository;
 use Tis\Tutor\Repositories\TutorRepository;
 
 class TutorController extends Controller {
 
+	protected $users;
+
 	protected $tutors;
 
-	public function __construct(TutorRepository $tutors) {
+	public function __construct(UserRepository $users, TutorRepository $tutors) {
+		$this->users  = $users;
 		$this->tutors = $tutors;
 	}
 
@@ -26,10 +30,10 @@ class TutorController extends Controller {
 		return view('tutor.show', compact('title', 'item'));
 	}
 
-	public function create() {
+	public function create($id) {
 		$title = '导师';
 
-		return view('tutor.create', compact('title'));
+		return view('tutor.create', compact('title', 'id'));
 	}
 
 	public function store(SaveTutorRequest $request) {
@@ -67,5 +71,12 @@ class TutorController extends Controller {
 		} else {
 			return back()->withInput()->withError('删除' . $title . '失败');
 		}
+	}
+
+	public function getApplication() {
+		$items = $this->users->getTutors();
+		$title = '导师申请列表';
+
+		return view('tutor.application', compact('title', 'items'));
 	}
 }

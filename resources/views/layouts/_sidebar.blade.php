@@ -10,7 +10,7 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{ route('tutor.list') }}">导师列表</a>
-                        <a href="#">导师申请</a>
+                        <a href="{{ route('tutor.application') }}">导师申请</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

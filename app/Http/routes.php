@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
 		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
 		Route::put('reset-password/{user}', ['as' => 'reset', 'uses' => 'UserController@resetPassword']);
+
 		Route::get('list', ['as' => 'list', 'uses' => 'UserController@getList']);
 		Route::get('create', ['as' => 'create', 'uses' => 'UserController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'UserController@store']);
@@ -56,8 +57,10 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 
 	Route::group(['prefix' => 'tutor', 'as' => 'tutor.'], function () {
+		Route::get('application', ['as' => 'application', 'uses' => 'TutorController@getApplication']);
+
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
-		Route::get('create', ['as' => 'create', 'uses' => 'TutorController@create']);
+		Route::get('create/{id}', ['as' => 'create', 'uses' => 'TutorController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'TutorController@store']);
 		Route::get('{id}', ['as' => 'show', 'uses' => 'TutorController@show']);
 		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
