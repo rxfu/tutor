@@ -22,7 +22,7 @@
         		<tr>
                     <td>{{ $item->sfzh }}</td>
                     <td>{{ $item->xm }}</td>
-					<td><a href="{{ route('tutor.create', $item->sfzh) }}" class="btn btn-success" role="button" title="申请导师">申请导师</td>
+					<td><a href="{{ route('tutor.create', $item) }}" class="btn btn-success" role="button" title="申请导师">申请导师</td>
         		</tr>
         	@endforeach
         </tbody>

@@ -11,7 +11,7 @@
 		<div class="form-group">
 			<label for="zjhm" class="control-label col-sm-2">证件号码</label>
 			<div class="col-sm-10">
-				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $id }}" readonly>
+				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $user->sfzh }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -74,7 +74,7 @@
 		<div class="form-group">
 			<label for="xm" class="control-label col-sm-2">姓名</label>
 			<div class="col-sm-10">
-				<input type="text" name="xm" id="xm" class="form-control" placeholder="姓名" value="{{ old('xm') }}">
+				<input type="text" name="xm" id="xm" class="form-control" placeholder="姓名" value="{{ $user->xm }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -136,7 +136,7 @@
 		<div class="form-group">
 			<label for="xxmc" class="control-label col-sm-2">学校名称</label>
 			<div class="col-sm-10">
-				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="10602">
+				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="广西师范大虚">
 			</div>
 		</div>
 		<div class="form-group">

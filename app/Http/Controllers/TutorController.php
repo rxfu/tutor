@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
 use Tis\Tutor\Repositories\TutorRepository;
 
@@ -30,10 +31,10 @@ class TutorController extends Controller {
 		return view('tutor.show', compact('title', 'item'));
 	}
 
-	public function create($id) {
+	public function create(User $user) {
 		$title = '导师';
 
-		return view('tutor.create', compact('title', 'id'));
+		return view('tutor.create', compact('title', 'user'));
 	}
 
 	public function store(SaveTutorRequest $request) {

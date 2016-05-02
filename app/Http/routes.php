@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('application', ['as' => 'application', 'uses' => 'TutorController@getApplication']);
 
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
-		Route::get('create/{id}', ['as' => 'create', 'uses' => 'TutorController@create']);
+		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'TutorController@store']);
 		Route::get('{id}', ['as' => 'show', 'uses' => 'TutorController@show']);
 		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
