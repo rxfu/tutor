@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
 		Route::get('password', ['as' => 'password', 'uses' => 'UserController@showChangePasswordForm']);
 		Route::put('change-password', ['as' => 'change', 'uses' => 'UserController@changePassword']);
+		Route::put('reset-password/{user}', ['as' => 'reset', 'uses' => 'UserController@resetPassword']);
 		Route::get('list', ['as' => 'list', 'uses' => 'UserController@getList']);
 		Route::get('create', ['as' => 'create', 'uses' => 'UserController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'UserController@store']);

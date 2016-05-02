@@ -21,4 +21,10 @@ class UserService {
 
 		return false;
 	}
+
+	public function resetPassword(User $user) {
+		$user->password = bcrypt(config('constants.default_password'));
+
+		return $user->save();
+	}
 }

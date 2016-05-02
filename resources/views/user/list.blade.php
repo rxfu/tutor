@@ -14,6 +14,7 @@
                 <th class="active">身份证号</th>
                 <th class="active">角色</th>
                 <th class="active">是否超级管理员</th>
+                <th class="active">重置密码</th>
                 <th class="active">查看记录</th>
                 <th class="active">编辑记录</th>
             	<th class="active">删除记录</th>
@@ -26,6 +27,7 @@
                 <th>身份证号</th>
                 <th>角色</th>
                 <th>是否超级管理员</th>
+                <th>重置密码</th>
                 <th>查看记录</th>
                 <th>编辑记录</th>
                 <th>删除记录</th>
@@ -39,6 +41,13 @@
                     <td>{{ $item->sfzh }}</td>
                     <td>{{ $item->role->name }}</td>
         			<td>{{ $item->present()->super }}</td>
+                    <td>
+                        <form id="reset" name="reset" method="post" action="{{ route('user.reset', $item) }}" role="form" onsubmit="return confirm('你确定要重置“{{ $title }}：{{ $item->username }}”密码吗？')">
+                            {{ method_field('put') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-warning" title="重置密码"><i class="fa fa-random fa-fw"></i></button>
+                        </form>
+                    </td>
 					<td><a href="{{ route('user.show', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('user.edit', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\SaveUserRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
 use Tis\Account\Services\UserService;
 
@@ -30,9 +32,20 @@ class UserController extends Controller {
 			if ($this->userService->changePassword(Auth::user(), $request->input('old_password'), $request->input('password'))) {
 				return redirect()->route('user.password')->withSuccess('修改密码成功');
 			} else {
-				return redirect()->back()
+				return back()
 					->withInput()
 					->withErrors(['old_password' => '修改密码失败']);
+			}
+		}
+	}
+
+	public function resetPassword(Request $request, User $user) {
+		if ($request->isMethod('put')) {
+			if ($this->userService->resetPassword($user)) {
+				return redirect()->route('user.list')->withSuccess('重置密码成功');
+			} else {
+				return back()->withInput()
+					->withError('重置密码失败');
 			}
 		}
 	}
