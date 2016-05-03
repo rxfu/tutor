@@ -34,10 +34,10 @@
         		<tr>
                     <td>{{ $item->zjhm }}</td>
                     <td>{{ $item->xm }}</td>
-                    <td>{{ $item->dslb }}</td>
+                    <td>{{ $item->present()->type }}</td>
                     <td>{{ $item->subdiscipline->mc }}</td>
-                    <td>{{ $item->dsdl }}</td>
-        			<td>{{ $item->sfjzds }}</td>
+                    <td>{{ $item->present()->category }}</td>
+        			<td>{{ $item->present()->is_part_time }}</td>
 					<td><a href="{{ route('tutor.show', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('tutor.edit', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>
