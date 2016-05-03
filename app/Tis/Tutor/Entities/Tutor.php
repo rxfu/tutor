@@ -24,13 +24,12 @@ class Tutor extends Model {
 	];
 
 	protected $casts = [
-		'sfjzds' => 'boolean',
-		'sfpx'   => 'boolean',
-		'sftj'   => 'boolean',
-		'sfsh'   => 'boolean',
-		'sftg'   => 'boolean',
-		'sfpy'   => 'boolean',
-		'sfgs'   => 'boolean',
+		'sfpx' => 'boolean',
+		'sftj' => 'boolean',
+		'sfsh' => 'boolean',
+		'sftg' => 'boolean',
+		'sfpy' => 'boolean',
+		'sfgs' => 'boolean',
 	];
 
 	public function gender() {

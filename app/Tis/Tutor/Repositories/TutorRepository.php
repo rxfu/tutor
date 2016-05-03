@@ -21,4 +21,13 @@ class TutorRepository extends Repository {
 
 		return parent::store($data);
 	}
+
+	public function getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+		return $this->object->whereZjhm($zjhm)
+			->whereDslb($dslb)
+			->whereDsdl($dsdl)
+			->whereEjxkdm($ejxkdm)
+			->whereSfjzds($sfjzds)
+			->firstOrFail();
+	}
 }

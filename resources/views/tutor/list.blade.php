@@ -38,7 +38,7 @@
                     <td>{{ $item->subdiscipline->mc }}</td>
                     <td>{{ $item->present()->category }}</td>
         			<td>{{ $item->present()->is_part_time }}</td>
-					<td><a href="{{ route('tutor.show', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
+					<td><a href="{{ route('tutor.show', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('tutor.edit', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>
 						<form id="delete" name="delete" method="post" action="{{ route('tutor.delete', $item->id) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->xm }}”这条记录吗？')">

@@ -25,8 +25,8 @@ class TutorController extends Controller {
 		return view('tutor.list', compact('title', 'items'));
 	}
 
-	public function show($id) {
-		$item  = $this->tutors->get($id);
+	public function show($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
 		$title = '导师';
 
 		return view('tutor.show', compact('title', 'item'));
