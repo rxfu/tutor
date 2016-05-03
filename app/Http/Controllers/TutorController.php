@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveTutorRequest;
 use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
 use Tis\Tutor\Repositories\TutorRepository;

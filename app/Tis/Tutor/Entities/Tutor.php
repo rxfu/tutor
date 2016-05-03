@@ -14,6 +14,10 @@ class Tutor extends Model {
 
 	public $timestamps = false;
 
+	protected $guarded = [
+		'_token',
+	];
+
 	protected $casts = [
 		'sfjzds' => 'boolean',
 		'sfpx'   => 'boolean',
@@ -25,34 +29,34 @@ class Tutor extends Model {
 	];
 
 	public function gender() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Gender', 'xb', 'xbdm');
+		return $this->belongsTo('Tis\Tutor\Entities\Gender', 'xb', 'xbdm');
 	}
 
 	public function country() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Country', 'gbm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Country', 'gbm', 'dm');
 	}
 
 	public function nation() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Nation', 'mzm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Nation', 'mzm', 'dm');
 	}
 
 	public function party() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Party', 'zzmmm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Party', 'zzmmm', 'dm');
 	}
 
 	public function college() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\College', 'szbm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\College', 'szbm', 'dm');
 	}
 
 	public function position() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Position', 'zyzc', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Position', 'zyzc', 'dm');
 	}
 
 	public function discipline() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Discipline', 'yjxkdm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Discipline', 'yjxkdm', 'dm');
 	}
 
 	public function subdiscipline() {
-		return $this->belongsTo('App\Tis\Tutor\Entities\Subdiscipline', 'ejxkdm', 'dm');
+		return $this->belongsTo('Tis\Tutor\Entities\Subdiscipline', 'ejxkdm', 'dm');
 	}
 }

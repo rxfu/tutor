@@ -91,7 +91,7 @@
 		<div class="form-group">
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ old('csny') }}">
+				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ substr($user->sfzh, 6, 6) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -136,7 +136,7 @@
 		<div class="form-group">
 			<label for="xxmc" class="control-label col-sm-2">学校名称</label>
 			<div class="col-sm-10">
-				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="广西师范大虚">
+				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="广西师范大学">
 			</div>
 		</div>
 		<div class="form-group">
@@ -165,9 +165,9 @@
 			<div class="col-sm-10">
 				<select name="zgxw" id="zgxw" class="form-control">
 					<option value="0">无</option>
-					<option value="1">本科</option>
-					<option value="2">硕士研究生</option>
-					<option value="3">博士研究生</option>
+					<option value="1">学士</option>
+					<option value="2">硕士</option>
+					<option value="3">博士</option>
 				</select>
 			</div>
 		</div>

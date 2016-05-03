@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SaveTutorRequest extends Request {
 
@@ -31,7 +32,7 @@ class SaveTutorRequest extends Request {
 			'dsdl'    => 'required',
 			'xm'      => 'required',
 			'xb'      => 'required',
-			'csny'    => 'required|date',
+			'csny'    => 'required|date_format:Ym',
 			'gbm'     => 'required',
 			'mzm'     => 'required',
 			'zzmmm'   => 'required',
