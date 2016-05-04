@@ -48,27 +48,27 @@ class TutorController extends Controller {
 		}
 	}
 
-	public function edit($id) {
-		$item  = $this->tutors->get($id);
+	public function edit($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
 		$title = '导师';
 
 		return view('tutor.edit', compact('title', 'item'));
 	}
 
-	public function update(SaveTutorRequest $request, $id) {
+	public function update(SaveTutorRequest $request, $zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
 		$title = '导师';
 
-		if ($this->tutors->update($id, $request->all())) {
+		if ($this->tutors->updateTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds, $request->all())) {
 			return redirect()->route('tutor.list')->withSuccess('更新' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('更新' . $title . '失败');
 		}
 	}
 
-	public function delete($id) {
+	public function delete($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
 		$title = '导师';
 
-		if ($this->tutors->delete($id)) {
+		if ($this->tutors->deleteTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds)) {
 			return redirect()->route('tutor.list')->withSuccess('删除' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('删除' . $title . '失败');

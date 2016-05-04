@@ -63,8 +63,8 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'TutorController@store']);
 		Route::get('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'show', 'uses' => 'TutorController@show']);
-		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
-		Route::put('{id}', ['as' => 'update', 'uses' => 'TutorController@update']);
-		Route::delete('{id}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
+		Route::get('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
+		Route::put('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'update', 'uses' => 'TutorController@update']);
+		Route::delete('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
 	});
 });

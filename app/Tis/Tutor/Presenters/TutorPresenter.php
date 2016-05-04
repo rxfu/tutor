@@ -53,7 +53,7 @@ class TutorPresenter extends Presenter {
 	}
 
 	public function degree() {
-		switch ($this->zgxl) {
+		switch ($this->zgxw) {
 		case 0:
 			return '无';
 
@@ -61,10 +61,10 @@ class TutorPresenter extends Presenter {
 			return '本科';
 
 		case 2:
-			return '硕士研究生';
+			return '硕士';
 
 		case 3:
-			return '博士研究生';
+			return '博士';
 
 		default:
 			return '';

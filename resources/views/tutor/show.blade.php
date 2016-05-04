@@ -241,7 +241,7 @@
 		</div>
 	</div>
 	<div class="col-sm-offset-2 col-sm-10">
-		<a href="{{ route('tutor.edit', $item->zjhm) }}" title="编辑" class="btn btn-primary" role="button">编辑</a>
+		<a href="{{ route('tutor.edit', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" title="编辑" class="btn btn-primary" role="button">编辑</a>
 	</div>
 </form>
 @stop
