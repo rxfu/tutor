@@ -55,4 +55,8 @@ class TutorRepository extends Repository {
 			->whereSfjzds($sfjzds)
 			->delete();
 	}
+
+	public function getAll() {
+		return $this->object->with('subdiscipline')->orderBy('zjhm')->get();
+	}
 }
