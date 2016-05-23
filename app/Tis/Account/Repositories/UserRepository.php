@@ -25,4 +25,8 @@ class UserRepository extends Repository {
 			->orderBy('username')
 			->get();
 	}
+
+	public function getAll() {
+		return $this->object->with('role')->orderBy('id')->get();
+	}
 }
