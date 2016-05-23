@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Tis\Account\Entities\User;
+use Tis\Tutor\Entities\Tutor;
 
 class UsersTableSeeder extends Seeder {
 
@@ -20,5 +21,16 @@ class UsersTableSeeder extends Seeder {
 			'role_id'  => 1,
 			'is_super' => true,
 		]);
+
+		$tutors = Tutor::select('xm', 'zjhm')->distinct()->get();
+		foreach ($tutors as $tutor) {
+			User::create([
+				'username' => $tutor->zjhm,
+				'password' => bcrypt(config('constants.default_password')),
+				'sfzh'     => $tutor->username,
+				'xm'       => $tutor->xm,
+				'role_id'  => 4,
+			]);
+		}
 	}
 }
