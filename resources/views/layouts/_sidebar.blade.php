@@ -37,7 +37,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 信息统计<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">按男女比例统计</a>
+                        <a href="#">按年龄统计</a>
                     </li>
                     <li>
                         <a href="#">按学院统计</a>
