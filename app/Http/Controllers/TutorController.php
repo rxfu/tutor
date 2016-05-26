@@ -81,4 +81,5 @@ class TutorController extends Controller {
 
 		return view('tutor.application', compact('title', 'items'));
 	}
+
 }

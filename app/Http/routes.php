@@ -67,4 +67,8 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::put('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'update', 'uses' => 'TutorController@update']);
 		Route::delete('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
 	});
+
+	Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function () {
+		Route::get('by-age', ['as' => 'age', 'uses' => 'StatisticsController@getStatisticsByAge']);
+	});
 });
