@@ -18,4 +18,11 @@ class StatisticsController extends Controller {
 
 		return view('statistics.age', compact('title', 'items'));
 	}
+
+	public function getStatisticsByPosition() {
+		$items = $this->statistics->countByPosition();
+		$title = '按职称统计';
+
+		return view('statistics.position', compact('title', 'items'));
+	}
 }

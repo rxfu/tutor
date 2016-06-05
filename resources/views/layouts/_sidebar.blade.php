@@ -46,7 +46,7 @@
                         <a href="#">按学位统计</a>
                     </li>
                     <li>
-                        <a href="#">按职称统计</a>
+                        <a href="{{ route('statistics.position') }}">按职称统计</a>
                     </li>
                     <li>
                         <a href="#">按学科统计</a>
