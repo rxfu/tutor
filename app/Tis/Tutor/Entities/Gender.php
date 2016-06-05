@@ -13,17 +13,17 @@ class Gender extends Model {
 
 	protected $table = 'y_xb';
 
-	protected $primaryKey = 'xbdm';
+	protected $primaryKey = 'dm';
 
 	public $incrementing = false;
 
 	public $timestamps = false;
 
 	protected $fillable = [
-		'xbdm', 'xbmc',
+		'dm', 'mc',
 	];
 
 	public function tutors() {
-		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'xb', 'xbdm');
+		return $this->hasMany('App\Tis\Tutor\Entities\Tutor', 'xb', 'dm');
 	}
 }

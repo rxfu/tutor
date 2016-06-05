@@ -71,5 +71,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function () {
 		Route::get('by-age', ['as' => 'age', 'uses' => 'StatisticsController@getStatisticsByAge']);
 		Route::get('by-position', ['as' => 'position', 'uses' => 'StatisticsController@getStatisticsByPosition']);
+		Route::get('by-degree', ['as' => 'degree', 'uses' => 'StatisticsController@getStatisticsByDegree']);
 	});
 });

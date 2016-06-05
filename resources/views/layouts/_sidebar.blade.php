@@ -43,7 +43,7 @@
                         <a href="#">按学院统计</a>
                     </li>
                     <li>
-                        <a href="#">按学位统计</a>
+                        <a href="{{ route('statistics.degree') }}">按学位统计</a>
                     </li>
                     <li>
                         <a href="{{ route('statistics.position') }}">按职称统计</a>
