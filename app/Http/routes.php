@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
- */
+	|--------------------------------------------------------------------------
+	| Application Routes
+	|--------------------------------------------------------------------------
+	|
+	| Here is where you can register all of the routes for an application.
+	| It's a breeze. Simply tell Laravel the URIs it should respond to
+	| and give it the controller to call when that URI is requested.
+	|
+*/
 
 Route::get('/', function () {
 	return redirect()->route('home');
@@ -69,8 +69,11 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 
 	Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function () {
-		Route::get('by-age', ['as' => 'age', 'uses' => 'StatisticsController@getStatisticsByAge']);
+		Route::get('by-gender', ['as' => 'gender', 'uses' => 'StatisticsController@getStatisticsByGender']);
 		Route::get('by-position', ['as' => 'position', 'uses' => 'StatisticsController@getStatisticsByPosition']);
 		Route::get('by-degree', ['as' => 'degree', 'uses' => 'StatisticsController@getStatisticsByDegree']);
+		Route::get('by-college', ['as' => 'college', 'uses' => 'StatisticsController@getStatisticsByCollege']);
+		Route::get('by-discipline', ['as' => 'discipline', 'uses' => 'StatisticsController@getStatisticsByDiscipline']);
+		Route::get('by-subdiscipline', ['as' => 'subdiscipline', 'uses' => 'StatisticsController@getStatisticsBySubdiscipline']);
 	});
 });

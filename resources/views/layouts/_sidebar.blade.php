@@ -37,10 +37,10 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 信息统计<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('statistics.age') }}">按年龄统计</a>
+                        <a href="{{ route('statistics.gender') }}">按性别统计</a>
                     </li>
                     <li>
-                        <a href="#">按学院统计</a>
+                        <a href="{{ route('statistics.college') }}">按学院统计</a>
                     </li>
                     <li>
                         <a href="{{ route('statistics.degree') }}">按学位统计</a>
@@ -49,10 +49,10 @@
                         <a href="{{ route('statistics.position') }}">按职称统计</a>
                     </li>
                     <li>
-                        <a href="#">按学科统计</a>
+                        <a href="{{ route('statistics.discipline') }}">按学科统计</a>
                     </li>
                     <li>
-                        <a href="#">按二级学科统计</a>
+                        <a href="{{ route('statistics.subdiscipline') }}">按二级学科统计</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

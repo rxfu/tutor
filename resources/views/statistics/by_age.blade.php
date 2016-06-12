@@ -27,14 +27,15 @@
                 <tr>
                     <?php $total = 0?>
                     @foreach ($types as $type)
-                        <?php $total += $item[$type->dm]?>
+                        <?php $count{$type->dm} = isset($item[$type->dm]) ? $item[$type->dm] : 0?>
+                        <?php $total += $count{$type->dm}?>
                     @endforeach
 
                     <th>{{ $item['title'] }}</th>
 
                     @foreach ($types as $type)
-                        <td>{{ $item[$type->dm] }}</td>
-                        <td>{{ $total ? round($item[$type->dm] / $total * 100, 2) : $total }}%</td>
+                        <td>{{ $count{$type->dm} }}</td>
+                        <td>{{ $total ? round($count{$type->dm} / $total * 100, 2) : $total }}%</td>
                     @endforeach
 
                     <td>{{ $total }}</td>

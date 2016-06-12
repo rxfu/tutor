@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Tis\Tutor\Repositories\DisciplineRepository;
 use Tis\Tutor\Repositories\GenderRepository;
 use Tis\Tutor\Repositories\PositionRepository;
 use Tis\Tutor\Services\StatisticsService;
@@ -14,18 +15,22 @@ class StatisticsController extends Controller {
 
 	protected $positions;
 
+	protected $disciplines;
+
 	public function __construct(StatisticsService $statistics,
 		GenderRepository $genders,
-		PositionRepository $positions) {
+		PositionRepository $positions,
+		DisciplineRepository $disciplines) {
 		$this->statistics = $statistics;
-		$this->genders    = $genders;
-		$this->positions  = $positions;
+		$this->genders = $genders;
+		$this->positions = $positions;
+		$this->disciplines = $disciplines;
 	}
 
-	public function getStatisticsByAge() {
-		$items = $this->statistics->countByAge();
+	public function getStatisticsByGender() {
+		$items = $this->statistics->countByGender();
 		$types = $this->genders->getAll();
-		$title = '按年龄统计';
+		$title = '按性别统计';
 
 		return view('statistics.by_age', compact('title', 'items', 'types'));
 	}
@@ -47,6 +52,14 @@ class StatisticsController extends Controller {
 		$items = $this->statistics->countByPosition();
 		$types = $this->positions->getAll();
 		$title = '按职称统计';
+
+		return view('statistics.by_age', compact('title', 'items', 'types'));
+	}
+
+	public function getStatisticsByDiscipline() {
+		$items = $this->statistics->countByDiscipline();
+		$types = $this->disciplines->getAll();
+		$title = '按学科统计';
 
 		return view('statistics.by_age', compact('title', 'items', 'types'));
 	}
