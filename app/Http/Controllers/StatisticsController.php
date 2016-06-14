@@ -21,9 +21,9 @@ class StatisticsController extends Controller {
 		GenderRepository $genders,
 		PositionRepository $positions,
 		DisciplineRepository $disciplines) {
-		$this->statistics = $statistics;
-		$this->genders = $genders;
-		$this->positions = $positions;
+		$this->statistics  = $statistics;
+		$this->genders     = $genders;
+		$this->positions   = $positions;
 		$this->disciplines = $disciplines;
 	}
 
