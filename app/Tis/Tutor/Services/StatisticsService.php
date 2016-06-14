@@ -137,7 +137,10 @@ class StatisticsService {
 		return $counts;
 	}
 
-	public function statBySubdiscipline() {
+	public function countBySubdiscipline() {
+		$query   = 'SELECT szbm, mc, dslb, dsdl, ejxkdm, ejxkmc, count(*) AS rs FROM y_ds_dsxx INNER JOIN y_xy ON szbm = dm GROUP BY szbm, dslb, dsdl, ejxkdm ORDER BY szbm, dslb, dsdl, ejxkdm';
+		$results = DB::select($query);
 
+		return $results;
 	}
 }

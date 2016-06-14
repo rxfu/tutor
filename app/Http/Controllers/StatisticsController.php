@@ -70,4 +70,11 @@ class StatisticsController extends Controller {
 
 		return view('statistics.by_college', compact('title', 'items'));
 	}
+
+	public function getStatisticsBySubdiscipline() {
+		$items = $this->statistics->countBySubdiscipline();
+		$title = '按二级学科统计';
+
+		return view('statistics.by_subdiscipline', compact('title', 'items'));
+	}
 }
