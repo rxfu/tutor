@@ -63,4 +63,11 @@ class StatisticsController extends Controller {
 
 		return view('statistics.by_age', compact('title', 'items', 'types'));
 	}
+
+	public function getStatisticsByCollege() {
+		$items = $this->statistics->countByCollege();
+		$title = '按学院统计';
+
+		return view('statistics.by_college', compact('title', 'items'));
+	}
 }
