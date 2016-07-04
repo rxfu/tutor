@@ -29,39 +29,53 @@ class StatisticsController extends Controller {
 
 	public function getStatisticsByGender() {
 		$items = $this->statistics->countByGender();
-		$types = $this->genders->getAll();
 		$title = '按性别统计';
 
-		return view('statistics.by_age', compact('title', 'items', 'types'));
+		return view('statistics.by_age', compact('title', 'items'));
 	}
 
 	public function getStatisticsByDegree() {
 		$items = $this->statistics->countByDegree();
-		$types = [
-			(object) ['dm' => 0, 'mc' => '无'],
-			(object) ['dm' => 1, 'mc' => '学士'],
-			(object) ['dm' => 2, 'mc' => '硕士'],
-			(object) ['dm' => 3, 'mc' => '博士'],
-		];
+		foreach ($items as &$item) {
+			switch ($item->zgxw) {
+			case 0:
+				$item->mc = '无';
+				break;
+
+			case 1:
+				$item->mc = '学士';
+				break;
+
+			case 2:
+				$item->mc = '硕士';
+				break;
+
+			case 3:
+				$item->mc = '博士';
+				break;
+
+			default:
+				$item->mc = '无';
+				break;
+			}
+		}
 		$title = '按学位统计';
 
-		return view('statistics.by_age', compact('title', 'items', 'types'));
+		return view('statistics.by_age', compact('title', 'items'));
 	}
 
 	public function getStatisticsByPosition() {
 		$items = $this->statistics->countByPosition();
-		$types = $this->positions->getAll();
 		$title = '按职称统计';
 
-		return view('statistics.by_age', compact('title', 'items', 'types'));
+		return view('statistics.by_age', compact('title', 'items'));
 	}
 
 	public function getStatisticsByDiscipline() {
 		$items = $this->statistics->countByDiscipline();
-		$types = $this->disciplines->getAll();
 		$title = '按学科统计';
 
-		return view('statistics.by_age', compact('title', 'items', 'types'));
+		return view('statistics.by_age', compact('title', 'items'));
 	}
 
 	public function getStatisticsByCollege() {
