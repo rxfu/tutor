@@ -108,6 +108,14 @@ class TutorPresenter extends Presenter {
 	}
 
 	public function is_publicity() {
-		return $this->sfpy ? '正在公示' : '不公示';
+		return $this->sfgs ? '正在公示' : '不公示';
+	}
+
+	public function publish() {
+		if ($this->sfgs) {
+			return '<a href="' . route('tutor.unpublish') . '" class="btn btn-danger" role="button" title="取消公示">取消公示';
+		} else {
+			return '<a href="' . route('tutor.publish') . '" class="btn btn-primary" role="button" title="公示">公示';
+		}
 	}
 }

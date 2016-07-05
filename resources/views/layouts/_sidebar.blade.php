@@ -28,7 +28,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师公示<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">导师公示</a>
+                        <a href="{{ route('tutor.publicity') }}">导师公示</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

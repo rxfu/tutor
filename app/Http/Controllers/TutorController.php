@@ -82,4 +82,11 @@ class TutorController extends Controller {
 		return view('tutor.application', compact('title', 'items'));
 	}
 
+	public function getPublicity() {
+		$items = $this->tutors->getTutorsByAppdate();
+		$title = '导师公示列表';
+
+		return view('tutor.publicity', compact('title', 'items'));
+	}
+
 }

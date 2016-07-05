@@ -1,15 +1,15 @@
 <?php
 
 /*
-	|--------------------------------------------------------------------------
-	| Application Routes
-	|--------------------------------------------------------------------------
-	|
-	| Here is where you can register all of the routes for an application.
-	| It's a breeze. Simply tell Laravel the URIs it should respond to
-	| and give it the controller to call when that URI is requested.
-	|
-*/
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+ */
 
 Route::get('/', function () {
 	return redirect()->route('home');
@@ -58,6 +58,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 	Route::group(['prefix' => 'tutor', 'as' => 'tutor.'], function () {
 		Route::get('application', ['as' => 'application', 'uses' => 'TutorController@getApplication']);
+		Route::get('publicity', ['as' => 'publicity', 'uses' => 'TutorController@getPublicity']);
+		Route::get('publish', ['as' => 'publish', 'uses' => 'TutorController@getPublish']);
+		Route::get('unpublish', ['as' => 'unpublish', 'uses' => 'TutorController@getUnpublish']);
 
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
 		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);
