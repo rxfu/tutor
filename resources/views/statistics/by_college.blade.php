@@ -33,13 +33,13 @@
             @endforeach
             <tr>
                 <th>总计</th>
-                <td>{{ array_sum(collect($items)->pluck('xnsdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('jzsdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('xnsdrs')->all()) + array_sum(collect($items)->pluck('jzsdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('xnbdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('jzbdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('xnbdrs')->all()) + array_sum(collect($items)->pluck('jzbdrs')->all()) }}</td>
-                <td>{{ array_sum(collect($items)->pluck('xnsdrs')->all()) + array_sum(collect($items)->pluck('jzsdrs')->all()) + array_sum(collect($items)->pluck('xnbdrs')->all()) + array_sum(collect($items)->pluck('jzbdrs')->all()) }}</td>
+                <td>{{ $items->sum('xnsdrs') }}</td>
+                <td>{{ $items->sum('jzsdrs') }}</td>
+                <td>{{ $items->sum('xnsdrs') + $items->sum('jzsdrs') }}</td>
+                <td>{{ $items->sum('xnbdrs') }}</td>
+                <td>{{ $items->sum('jzbdrs') }}</td>
+                <td>{{ $items->sum('xnbdrs') + $items->sum('jzbdrs') }}</td>
+                <td>{{ $items->sum('xnsdrs') + $items->sum('jzsdrs') + $items->sum('xnbdrs') + $items->sum('jzbdrs') }}</td>
             </tr>
         </tbody>
     </table>

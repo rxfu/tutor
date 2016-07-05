@@ -17,7 +17,7 @@ class StatisticsService {
 		$query   = 'SELECT szbm, mc, SUM(IF(dslb = 1 AND sfjzds = 0, 1, 0)) AS xnsdrs, SUM(IF(dslb = 1 AND sfjzds = 1, 1, 0)) AS jzsdrs, SUM(IF(dslb = 2 AND sfjzds = 0, 1, 0)) AS xnbdrs, SUM(IF(dslb = 2 AND sfjzds = 1, 1, 0)) AS jzbdrs FROM y_ds_dsxx INNER JOIN y_xy ON szbm = dm GROUP BY szbm ORDER BY szbm';
 		$results = DB::select($query);
 
-		return $results;
+		return collect($results);
 	}
 
 	public function countByDegree() {
