@@ -33,7 +33,7 @@ class Tutor extends Model {
 	];
 
 	public function gender() {
-		return $this->belongsTo('Tis\Tutor\Entities\Gender', 'xb', 'xbdm');
+		return $this->belongsTo('Tis\Tutor\Entities\Gender', 'xb', 'dm');
 	}
 
 	public function country() {
