@@ -17,7 +17,7 @@ class User extends Authenticatable {
 	 * @var array
 	 */
 	protected $fillable = [
-		'username', 'password', 'xm', 'sfzh', 'role_id', 'is_super',
+		'username', 'password', 'xm', 'sfzh', 'role_id', 'is_super', 'xy',
 	];
 
 	/**
@@ -37,5 +37,9 @@ class User extends Authenticatable {
 
 	public function role() {
 		return $this->belongsTo('Tis\Account\Entities\Role');
+	}
+
+	public function college() {
+		return $this->belongsTo('Tis\Tutor\Entities\College', 'xy', 'dm');
 	}
 }

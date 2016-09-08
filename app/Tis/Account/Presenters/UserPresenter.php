@@ -24,4 +24,8 @@ class UserPresenter extends Presenter {
 
 		return $radio_beg . '<input type="radio" name="is_super" value="1"' . $yes . '>&nbsp;是' . $radio_end . $radio_beg . '<input type="radio" name="is_super" value="0"' . $no . '>&nbsp;否' . $radio_end;
 	}
+
+	public function college() {
+		return is_null($this->xy) ? '无' : $this->entity->college->mc;
+	}
 }

@@ -45,6 +45,17 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="xy" class="control-label col-sm-2">所在学院</label>
+			<div class="col-sm-10">
+				@inject('colleges', 'Tis\Tutor\Repositories\CollegeRepository')
+				<select name="xy" id="xy" class="form-control">
+					@foreach ($colleges->getAll() as $college)
+						{!! $college->present()->option($item->xy) !!}
+					@endforeach
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
 			<label for="is_super" class="control-label col-sm-2">是否超级管理员</label>
 			<div class="col-sm-10">
 				{!! $item->present()->super_radio($item->is_super) !!}

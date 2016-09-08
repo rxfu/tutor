@@ -13,6 +13,7 @@
                 <th class="active">姓名</th>
                 <th class="active">身份证号</th>
                 <th class="active">角色</th>
+                <th class="active">所在学院</th>
                 <th class="active">是否超级管理员</th>
                 <th class="active">重置密码</th>
                 <th class="active">查看记录</th>
@@ -26,6 +27,7 @@
                 <th>姓名</th>
                 <th>身份证号</th>
                 <th>角色</th>
+                <th>所在学院</th>
                 <th>是否超级管理员</th>
                 <th>重置密码</th>
                 <th>查看记录</th>
@@ -40,6 +42,7 @@
                     <td>{{ $item->xm }}</td>
                     <td>{{ $item->sfzh }}</td>
                     <td>{{ $item->role->name }}</td>
+                    <td>{{ $item->present()->college }}</td>
         			<td>{{ $item->present()->super }}</td>
                     <td>
                         <form id="reset" name="reset" method="post" action="{{ route('user.reset', $item) }}" role="form" onsubmit="return confirm('你确定要重置“{{ $title }}：{{ $item->username }}”密码吗？')">

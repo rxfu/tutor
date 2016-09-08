@@ -22,12 +22,20 @@ class UsersTableSeeder extends Seeder {
 			'is_super' => true,
 		]);
 
+		User::create([
+			'username' => 'john',
+			'password' => bcrypt('666666'),
+			'xm'       => '教学秘书',
+			'role_id'  => 2,
+			'xy'       => '001',
+		]);
+
 		$tutors = Tutor::select('xm', 'zjhm')->distinct()->get();
 		foreach ($tutors as $tutor) {
 			User::create([
 				'username' => $tutor->zjhm,
 				'password' => bcrypt(config('constants.default_password')),
-				'sfzh'     => $tutor->username,
+				'sfzh'     => $tutor->zjhm,
 				'xm'       => $tutor->xm,
 				'role_id'  => 4,
 			]);

@@ -37,6 +37,12 @@
 		</div>
 	</div>
 	<div class="form-group">
+		<label class="control-label col-sm-2">所在学院</label>
+		<div class="col-sm-10">
+			<p class="form-control-static">{{ $item->present()->college }}</p>
+		</div>
+	</div>
+	<div class="form-group">
 		<label class="control-label col-sm-2">是否超级管理员</label>
 		<div class="col-sm-10">
 			<p class="form-control-static">{{ $item->present()->super }}</p>
