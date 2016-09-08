@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveTutorRequest;
+use Illuminate\Support\Facades\Auth;
 use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
 use Tis\Tutor\Repositories\TutorRepository;
@@ -19,7 +20,12 @@ class TutorController extends Controller {
 	}
 
 	public function getList() {
-		$items = $this->tutors->getAll();
+		if (Auth::user()->can('college-access')) {
+			$items = $this->tutors->getAllByCollege(Auth::user()->xy);
+		} else {
+			$items = $this->tutors->getAll();
+		}
+
 		$title = '导师';
 
 		return view('tutor.list', compact('title', 'items'));
