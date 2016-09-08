@@ -1,7 +1,6 @@
 <!-- Sidebar -->
 <aside class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
-        @inject('user', 'Tis\Account\Services\UserService')
         <ul id="side-menu" class="nav">
             <li>
                 <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> 仪表盘</a>
@@ -16,7 +15,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            @if ($user->hasRole(Auth::user(), 'admin'))
+            @can('admin-access')
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师遴选<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -89,18 +88,18 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            @endif
+            @endcan
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{ route('user.list') }}">用户列表</a>
                     </li>
-                    @if ($user->hasRole(Auth::user(), 'admin'))
+                    @can('admin-access')
                     <li>
                         <a href="{{ route('role.list') }}">角色列表</a>
                     </li>
-                    @endif
+                    @endcan
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

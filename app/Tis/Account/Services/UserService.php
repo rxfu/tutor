@@ -28,7 +28,4 @@ class UserService {
 		return $user->save();
 	}
 
-	public function hasRole(User $user, $role) {
-		return $role == $user->role->slug;
-	}
 }
