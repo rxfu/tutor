@@ -9,8 +9,8 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('tutor.list') }}">导师列表</a>
-                        <a href="{{ route('tutor.application') }}">导师申请</a>
+                        <a href="{{ route('tutor.list') }}">导师信息</a>
+                        <a href="{{ route('tutor.application') }}">新增导师申请</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -26,10 +26,10 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师公示<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师信息公示<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('tutor.publicity') }}">导师公示</a>
+                        <a href="{{ route('tutor.publicity') }}">导师信息公示</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -50,10 +50,19 @@
                         <a href="{{ route('statistics.position') }}">按职称统计</a>
                     </li>
                     <li>
-                        <a href="{{ route('statistics.discipline') }}">按学科统计</a>
+                        <a href="{{ route('statistics.discipline') }}">按一级学科统计</a>
                     </li>
                     <li>
                         <a href="{{ route('statistics.subdiscipline') }}">按二级学科统计</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 教育部专家库<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">教育部专家库</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -113,7 +122,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+                <a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
             </li>
         </ul>
         <!-- /#side-menu -->

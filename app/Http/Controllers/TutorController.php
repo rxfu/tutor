@@ -26,14 +26,14 @@ class TutorController extends Controller {
 			$items = $this->tutors->getAll();
 		}
 
-		$title = '导师';
+		$title = '导师信息';
 
 		return view('tutor.list', compact('title', 'items'));
 	}
 
 	public function show($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
 		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
-		$title = '导师';
+		$title = '导师信息';
 
 		return view('tutor.show', compact('title', 'item'));
 	}
@@ -56,7 +56,7 @@ class TutorController extends Controller {
 
 	public function edit($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
 		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
-		$title = '导师';
+		$title = '导师信息';
 
 		return view('tutor.edit', compact('title', 'item'));
 	}

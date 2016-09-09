@@ -5,7 +5,7 @@
     <table id="tutor-table" class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
-                <th class="active">证件号码</th>
+                <th class="active">所在部门</th>
                 <th class="active">姓名</th>
                 <th class="active">导师类别</th>
                 <th class="active">二级学科</th>
@@ -18,7 +18,7 @@
         </thead>
         <tfoot>
             <tr>
-                <th>证件号码</th>
+                <th>所在部门</th>
                 <th>姓名</th>
                 <th>导师类别</th>
                 <th>二级学科</th>
@@ -32,7 +32,7 @@
         <tbody>
         	@foreach ($items as $item)
         		<tr>
-                    <td>{{ $item->zjhm }}</td>
+                    <td>{{ $item->college->mc }}</td>
                     <td>{{ $item->xm }}</td>
                     <td>{{ $item->present()->type }}</td>
                     <td>{{ $item->subdiscipline->mc }}</td>
