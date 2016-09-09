@@ -130,13 +130,13 @@
 		<div class="form-group">
 			<label for="xxdm" class="control-label col-sm-2">学校代码</label>
 			<div class="col-sm-10">
-				<input type="text" name="xxdm" id="xxdm" class="form-control" placeholder="学校代码" value="10602">
+				<input type="text" name="xxdm" id="xxdm" class="form-control" placeholder="学校代码" value="10602" readonly>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="xxmc" class="control-label col-sm-2">学校名称</label>
 			<div class="col-sm-10">
-				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="广西师范大学">
+				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="学校名称" value="广西师范大学" readonly>
 			</div>
 		</div>
 		<div class="form-group">

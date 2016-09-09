@@ -39,7 +39,7 @@ class TutorController extends Controller {
 	}
 
 	public function create(User $user) {
-		$title = '导师';
+		$title = '导师信息';
 
 		return view('tutor.create', compact('title', 'user'));
 	}
