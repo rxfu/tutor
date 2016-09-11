@@ -79,4 +79,9 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('by-discipline', ['as' => 'discipline', 'uses' => 'StatisticsController@getStatisticsByDiscipline']);
 		Route::get('by-subdiscipline', ['as' => 'subdiscipline', 'uses' => 'StatisticsController@getStatisticsBySubdiscipline']);
 	});
+
+	Route::group(['prefix' => 'expert', 'as' => 'expert.'], function () {
+		Route::get('list', ['as' => 'list', 'uses' => 'ExpertController@getList']);
+		Route::get('create', ['as' => 'create', 'uses' => 'ExpertController@create']);
+	});
 });
