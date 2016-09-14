@@ -84,5 +84,6 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('list', ['as' => 'list', 'uses' => 'ExpertController@getList']);
 		Route::get('new', ['as' => 'new', 'uses' => 'ExpertController@getNew']);
 		Route::get('create', ['as' => 'create', 'uses' => 'ExpertController@create']);
+		Route::post('store', ['as' => 'store', 'uses' => 'ExpertController@store']);
 	});
 });

@@ -11,63 +11,37 @@
 		<div class="form-group">
 			<label for="zjxm" class="control-label col-sm-2">专家姓名*</label>
 			<div class="col-sm-10">
-				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ $item->xm }}" readonly>
+				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ isset($item) ? $item->xm . ' readonly' : '' }}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="xb" class="control-label col-sm-2">性别</label>
 			<div class="col-sm-10">
-				<select name="xb" id="xb" class="form-control">
-					<option value="男">男</option>
-					<option value="女">女</option>
-				</select>
+				{!! render_form_select('xb', ['男', '女'], '男') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Y-m-d', strtotime(substr($item->sfzh, 6, 8))) }}" readonly>
+				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Y-m-d', strtotime(substr($id, 6, 8))) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="gj" class="control-label col-sm-2">国籍*</label>
 			<div class="col-sm-10">
-				<select name="gj" id="gj" class="form-control">
-					<option value="印度">印度</option>
-					<option value="澳大利亚">澳大利亚</option>
-					<option value="日本">日本</option>
-					<option value="韩国">韩国</option>
-					<option value="俄罗斯">俄罗斯</option>
-					<option value="法国">法国</option>
-					<option value="德国">德国</option>
-					<option value="英国">英国</option>
-					<option value="加拿大">加拿大</option>
-					<option value="美国">美国</option>
-					<option value="中国台湾">中国台湾</option>
-					<option value="中国澳门">中国澳门</option>
-					<option value="中国香港">中国香港</option>
-					<option value="中国">中国</option>
-					<option value="其他">其他</option>
-				</select>
+				{!! render_form_select('gj', ['印度', '澳大利亚', '日本', '韩国', '俄罗斯', '法国', '德国', '英国', '加拿大', '美国', '中国台湾', '中国澳门', '中国香港', '中国', '其他'], '中国') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="zjzl" class="control-label col-sm-2">证件种类*</label>
 			<div class="col-sm-10">
-				<select name="zjzl" id="zjzl" class="form-control">
-					<option value="身份证">身份证</option>
-					<option value="护照">护照</option>
-					<option value="军官证">军官证</option>
-					<option value="回乡证">回乡证</option>
-					<option value="台胞证">台胞证</option>
-					<option value="港澳通行证">港澳通行证</option>
-				</select>
+				{!! render_form_select('zjzl', ['身份证', '护照', '军官证', '回乡证', '台胞证', '港澳通行证'], '身份证') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="sfzh" class="control-label col-sm-2">证件号码*</label>
 			<div class="col-sm-10">
-				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ $item->zjhm }}">
+				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ isset($item) ? $item->zjhm : $id }}">
 			</div>
 		</div>
 		<div class="form-group">
@@ -85,13 +59,13 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2">所在部门*</label>
 			<div class="col-sm-10">
-				<input type="text" name="xszbm" id="xszbm" class="form-control" placeholder="所在部门" value="{{ $item->szbm }}" readonly>
+				<input type="text" name="xszbm" id="xszbm" class="form-control" placeholder="所在部门" value="{{ isset($item) ? $item->szbm . ' readonly' : '' }}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="xzzw" class="control-label col-sm-2">行政职务</label>
 			<div class="col-sm-10">
-				<input type="text" name="xzzw" id="xzzw" class="form-control" placeholder="行政职务" value="{{ $item->szxw }}">
+				<input type="text" name="xzzw" id="xzzw" class="form-control" placeholder="行政职务" value="{{ isset($item) ? $item->szxw : '' }}">
 			</div>
 		</div>
 		<div class="form-group">
@@ -193,58 +167,35 @@
 		<div class="form-group">
 			<label for="zgxw" class="control-label col-sm-2">最高学位*</label>
 			<div class="col-sm-10">
-				<select name="zgxw" id="zgxw" class="form-control">
-					<option value="博士">博士</option>
-					<option value="硕士">硕士</option>
-					<option value="学士">学士</option>
-					<option value="无">无</option>
-				</select>
+				{!! render_form_select('zgxw', ['博士', '硕士', '学士', '无'], '博士') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="zyjszw" class="control-label col-sm-2">专业技术职务*</label>
 			<div class="col-sm-10">
-				<select name="zyjszw" id="zyjszw" class="form-control">
-					<option value="正高级">正高级</option>
-					<option value="副高级">副高级</option>
-					<option value="中级">中级</option>
-					<option value="初级">初级</option>
-					<option value="无">无</option>
-				</select>
+				{!! render_form_select('zyjszw', ['正高级', '副高级', '中级', '初级', '无'], '正高级') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="dslb" class="control-label col-sm-2">学术学位研究生导师类别*</label>
 			<div class="col-sm-10">
-				<select name="dslb" id="dslb" class="form-control">
-					<option value="博士生导师">博士生导师</option>
-					<option value="硕士生导师">硕士生导师</op
-					<option value="兼职博士生导师">兼职博士生导师</option>
-					<option value="兼职硕士生导师">兼职硕士生导师</option>
-					<option value="其他">其他</option>
-				</select>
+				{!! render_form_select('dslb', ['博士生导师', '硕士生导师', '兼职博士生导师', '兼职硕士生导师', '其他'], '博士生导师') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="dslb2" class="control-label col-sm-2">专业学位研究生导师类别*</label>
 			<div class="col-sm-10">
-				<select name="dslb2" id="dslb2" class="form-control">
-					<option value="博士生导师">博士生导师</option>
-					<option value="硕士生导师">硕士生导师</op
-					<option value="兼职博士生导师">兼职博士生导师</option>
-					<option value="兼职硕士生导师">兼职硕士生导师</option>
-					<option value="其他">其他</option>
-				</select>
+				{!! render_form_select('dslb2', ['博士生导师', '硕士生导师', '兼职博士生导师', '兼职硕士生导师', '其他'], '博士生导师') !!}
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="rsgxsfbx" class="control-label col-sm-2">人事关系所在单位是否本校*</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
-					<input type="radio" name="rsgxsfbx" value="1" checked>&nbsp;是
+					<input type="radio" name="rsgxsfbx" value="是" checked>&nbsp;是
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="rsgxsfbx" value="0">&nbsp;否
+					<input type="radio" name="rsgxsfbx" value="0否">&nbsp;否
 				</label>
 			</div>
 		</div>
@@ -252,17 +203,17 @@
 			<label for="szdwsfsyxw" class="control-label col-sm-2">人事关系所在单位是否学位授予单位*</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
-					<input type="radio" name="szdwsfsyxw" value="1" checked>&nbsp;是
+					<input type="radio" name="szdwsfsyxw" value="是" checked>&nbsp;是
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="szdwsfsyxw" value="0">&nbsp;否
+					<input type="radio" name="szdwsfsyxw" value="否">&nbsp;否
 				</label>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="rsgxszdw" class="control-label col-sm-2">人事关系所在单位</label>
 			<div class="col-sm-10">
-				<input type="text" name="rsgxszdw" id="rsgxszdw" class="form-control" placeholder="兼职导师单位" value="{{ old('rsgxszdw') }}">
+				<input type="text" name="rsgxszdw" id="rsgxszdw" class="form-control" placeholder="人事关系所在单位" value="{{ old('rsgxszdw') }}">
 			</div>
 		</div>
 		<div class="form-group">
