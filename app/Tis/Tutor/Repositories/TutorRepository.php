@@ -67,4 +67,8 @@ class TutorRepository extends Repository {
 	public function getAllByCollege($college) {
 		return $this->object->with('subdiscipline')->whereSzbm($college)->orderBy('zjhm')->get();
 	}
+
+	public function getTutorById($id) {
+		return $this->object->whereZjhm($id)->first();
+	}
 }

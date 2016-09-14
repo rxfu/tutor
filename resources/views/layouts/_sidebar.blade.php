@@ -62,7 +62,7 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 教育部专家库<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">教育部专家库</a>
+                        <a href="{{ route('expert.list') }}">教育部专家库</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
