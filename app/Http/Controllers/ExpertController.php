@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckExpertRequest;
+use App\Http\Requests\SaveExpertRequest;
 use Tis\Tutor\Repositories\ExpertRepository;
 use Tis\Tutor\Repositories\TutorRepository;
 
@@ -31,6 +32,13 @@ class ExpertController extends Controller {
 		return view('expert.new', compact('title'));
 	}
 
+	public function show($id) {
+		$item  = $this->experts->get($id);
+		$title = '专家信息';
+
+		return view('tutor.show', compact('title', 'item'));
+	}
+
 	public function create(CheckExpertRequest $request) {
 		$id = $request->input('sfzh');
 
@@ -44,7 +52,40 @@ class ExpertController extends Controller {
 		}
 	}
 
-	public function store($request) {
+	public function store(SaveExpertRequest $request) {
 		$title = '专家';
+
+		if ($this->experts->store($request->all())) {
+			return redirect()->route('expert.list')->withSuccess('添加' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('添加' . $title . '失败');
+		}
+	}
+	
+	public function edit($id) {
+		$item  = $this->experts->get($id);
+		$title = '专家信息';
+
+		return view('expert.edit', compact('title', 'item'));
+	}
+
+	public function update(SaveTutorRequest $request, $zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+		$title = '导师';
+
+		if ($this->tutors->updateTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds, $request->all())) {
+			return redirect()->route('tutor.list')->withSuccess('更新' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('更新' . $title . '失败');
+		}
+	}
+
+	public function delete($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+		$title = '导师';
+
+		if ($this->tutors->deleteTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds)) {
+			return redirect()->route('tutor.list')->withSuccess('删除' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('删除' . $title . '失败');
+		}
 	}
 }

@@ -14,7 +14,7 @@ class Expert extends Model {
 
 	public $timestamps = false;
 
-	protected $guard = [
+	protected $guarded = [
 		'_token',
 	];
 }

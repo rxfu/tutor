@@ -37,7 +37,7 @@
         	@foreach ($items as $item)
         		<tr>
                     <td>{{ $item->szbm }}</td>
-                    <td>{{ $item->xm }}</td>
+                    <td>{{ $item->zjxm }}</td>
                     <td>{{ $item->yjxkmc }}</td>
                     <td>{{ $item->zgxw }}</td>
                     <td>{{ $item->zyjszw }}</td>

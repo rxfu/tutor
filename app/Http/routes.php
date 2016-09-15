@@ -85,5 +85,9 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('new', ['as' => 'new', 'uses' => 'ExpertController@getNew']);
 		Route::get('create', ['as' => 'create', 'uses' => 'ExpertController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'ExpertController@store']);
+		Route::get('{id}', ['as' => 'show', 'uses' => 'ExpertController@show']);
+		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'ExpertController@edit']);
+		Route::put('{id}', ['as' => 'update', 'uses' => 'ExpertController@update']);
+		Route::delete('{id}', ['as' => 'delete', 'uses' => 'ExpertController@delete']);
 	});
 });
