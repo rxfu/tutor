@@ -293,3 +293,16 @@
 	</fieldset>
 </form>
 @stop
+
+@section('scripts')
+	@parent
+
+    <script src="{{ asset('js/jquery.chained.min.js') }}"></script>
+	<script>
+		$(function() {
+			$('#ejxkm').chained('#yjxkm');
+			$('#ejxkm2').chained('#yjxkm2');
+			$('#lydm1').chained('#mldm1');
+		});
+	</script>
+@stop

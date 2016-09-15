@@ -9,6 +9,6 @@ class SubdisciplinePresenter extends Presenter {
 	public function option($id) {
 		$selected = $this->dm === $id ? ' selected' : '';
 
-		return '<option value="' . $this->dm . '"' . $selected . '>' . $this->mc . '</option>';
+		return '<option value="' . $this->dm . '"' . $selected . ' class="' . $this->yjxkdm . '">' . $this->mc . '</option>';
 	}
 }

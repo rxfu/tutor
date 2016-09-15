@@ -1,7 +1,7 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('subtitle')
-编辑{{ $title }}“{{ $item->xm }}”信息
+编辑{{ $title }}“{{ $item->zjxm }}”信息
 @stop
 
 @section('content')
@@ -293,4 +293,17 @@
 		</div>
 	</fieldset>
 </form>
+@stop
+
+@section('scripts')
+	@parent
+
+    <script src="{{ asset('js/jquery.chained.min.js') }}"></script>
+	<script>
+		$(function() {
+			$('#ejxkm').chained('#yjxkm');
+			$('#ejxkm2').chained('#yjxkm2');
+			$('#lydm1').chained('#mldm1');
+		});
+	</script>
 @stop

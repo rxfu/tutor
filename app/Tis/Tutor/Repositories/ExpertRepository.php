@@ -21,12 +21,16 @@ class ExpertRepository extends Repository {
 		$data['ejxkmc'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
 		$discipline     = Discipline::find($data['yjxkm2']);
 		$data['yjxkmc2'] = is_object($discipline) ? $discipline->mc : '';
-		$subdiscipline  = Subdiscipline::find($data['ejxkm2']);
-		$data['ejxkmc2'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		if (isset($data['ejxkm2'])) {
+			$subdiscipline  = Subdiscipline::find($data['ejxkm2']);
+			$data['ejxkmc2'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		}
 		$discipline     = Discipline::find($data['mldm1']);
 		$data['mlmc1'] = is_object($discipline) ? $discipline->mc : '';
-		$subdiscipline  = Subdiscipline::find($data['lydm1']);
-		$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		if (isset($data['lydm1'])) {
+			$subdiscipline  = Subdiscipline::find($data['lydm1']);
+			$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		}
 		$data['sfzdsk'] = Tutor::whereZjhm($data['sfzh'])->exists();
 		$data['sftj']   = config('constants.disable');
 
@@ -41,12 +45,16 @@ class ExpertRepository extends Repository {
 		$data['ejxkmc'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
 		$discipline     = Discipline::find($data['yjxkm2']);
 		$data['yjxkmc2'] = is_object($discipline) ? $discipline->mc : '';
-		$subdiscipline  = Subdiscipline::find($data['ejxkm2']);
-		$data['ejxkmc2'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		if (isset($data['ejxkm2'])) {
+			$subdiscipline  = Subdiscipline::find($data['ejxkm2']);
+			$data['ejxkmc2'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		}
 		$discipline     = Discipline::find($data['mldm1']);
 		$data['mlmc1'] = is_object($discipline) ? $discipline->mc : '';
-		$subdiscipline  = Subdiscipline::find($data['lydm1']);
-		$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		if (isset($data['lydm1'])) {
+			$subdiscipline  = Subdiscipline::find($data['lydm1']);
+			$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		}
 		$tutor->fill($data);
 
 		return $tutor->save();
