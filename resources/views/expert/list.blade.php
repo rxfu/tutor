@@ -42,10 +42,10 @@
                     <td>{{ $item->zgxw }}</td>
                     <td>{{ $item->zyjszw }}</td>
         			<td>{{ $item->yddh }}</td>
-					<td><a href="{{ route('expert.show', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
-					<td><a href="{{ route('expert.edit', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
+					<td><a href="{{ route('expert.show', $item->sfzh) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
+					<td><a href="{{ route('expert.edit', $item->sfzh) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
 					<td>
-						<form id="delete" name="delete" method="post" action="{{ route('expert.delete', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->xm }}”这条记录吗？')">
+						<form id="delete" name="delete" method="post" action="{{ route('expert.delete', $item->sfzh) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->zjxm }}”这条记录吗？')">
 							{{ method_field('delete') }}
 							{{ csrf_field() }}
 							<button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>

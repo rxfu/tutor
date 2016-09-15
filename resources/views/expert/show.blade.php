@@ -39,7 +39,7 @@
 	<div class="form-group">
 		<label class="control-label col-sm-2">证件号码</label>
 		<div class="col-sm-10">
-			<p class="form-control-static">{{ $item->zjhm }}</p>
+			<p class="form-control-static">{{ $item->sfzh }}</p>
 		</div>
 	</div>
 	<div class="form-group">
@@ -223,15 +223,15 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label col-sm-2">电子邮箱1</label>
+		<label class="control-label col-sm-2">电子信箱1</label>
 		<div class="col-sm-10">
-			<p class="form-control-static">{{ $item->dzyx }}</p>
+			<p class="form-control-static">{{ $item->dzxx }}</p>
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label col-sm-2">电子邮箱2</label>
+		<label class="control-label col-sm-2">电子信箱2</label>
 		<div class="col-sm-10">
-			<p class="form-control-static">{{ $item->dzyx2 }}</p>
+			<p class="form-control-static">{{ $item->dzxx2 }}</p>
 		</div>
 	</div>
 	<div class="form-group">

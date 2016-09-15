@@ -36,7 +36,7 @@ class ExpertController extends Controller {
 		$item  = $this->experts->get($id);
 		$title = '专家信息';
 
-		return view('tutor.show', compact('title', 'item'));
+		return view('expert.show', compact('title', 'item'));
 	}
 
 	public function create(CheckExpertRequest $request) {
@@ -69,21 +69,21 @@ class ExpertController extends Controller {
 		return view('expert.edit', compact('title', 'item'));
 	}
 
-	public function update(SaveTutorRequest $request, $zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
-		$title = '导师';
+	public function update(SaveExpertRequest $request, $id) {
+		$title = '专家';
 
-		if ($this->tutors->updateTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds, $request->all())) {
-			return redirect()->route('tutor.list')->withSuccess('更新' . $title . '成功！');
+		if ($this->experts->update($id, $request->all())) {
+			return redirect()->route('expert.list')->withSuccess('更新' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('更新' . $title . '失败');
 		}
 	}
 
-	public function delete($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
-		$title = '导师';
+	public function delete($id) {
+		$title = '专家';
 
-		if ($this->tutors->deleteTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds)) {
-			return redirect()->route('tutor.list')->withSuccess('删除' . $title . '成功！');
+		if ($this->experts->delete($id)) {
+			return redirect()->route('expert.list')->withSuccess('删除' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('删除' . $title . '失败');
 		}

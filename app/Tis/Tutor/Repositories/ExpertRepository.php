@@ -24,4 +24,11 @@ class ExpertRepository extends Repository {
 
 		return parent::store($data);
 	}
+
+	public function update($id, $data) {
+		$tutor = $this->object->findOrFail($id);
+		$tutor->fill($data);
+
+		return $tutor->save();
+	}
 }

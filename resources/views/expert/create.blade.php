@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Y-m-d', strtotime(substr($id, 6, 8))) }}" readonly>
+				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Ym', strtotime(substr($id, 6, 6))) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -195,7 +195,7 @@
 					<input type="radio" name="rsgxsfbx" value="是" checked>&nbsp;是
 				</label>
 				<label class="radio-inline">
-					<input type="radio" name="rsgxsfbx" value="0否">&nbsp;否
+					<input type="radio" name="rsgxsfbx" value="否">&nbsp;否
 				</label>
 			</div>
 		</div>
@@ -265,15 +265,15 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="dzxx" class="control-label col-sm-2">电子邮箱1*</label>
+			<label for="dzxx" class="control-label col-sm-2">电子信箱1*</label>
 			<div class="col-sm-10">
-				<input type="text" name="dzxx" id="dzxx" class="form-control" placeholder="电子邮箱1" value="{{ old('dzxx') }}">
+				<input type="text" name="dzxx" id="dzxx" class="form-control" placeholder="电子信箱1" value="{{ old('dzxx') }}">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="dzxx2" class="control-label col-sm-2">电子邮箱2</label>
+			<label for="dzxx2" class="control-label col-sm-2">电子信箱2</label>
 			<div class="col-sm-10">
-				<input type="text" name="dzxx2" id="dzxx2" class="form-control" placeholder="电子邮箱1" value="{{ old('dzxx2') }}">
+				<input type="text" name="dzxx2" id="dzxx2" class="form-control" placeholder="电子信箱1" value="{{ old('dzxx2') }}">
 			</div>
 		</div>
 		<div class="form-group">
