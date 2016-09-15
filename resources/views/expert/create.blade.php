@@ -11,7 +11,7 @@
 		<div class="form-group">
 			<label for="zjxm" class="control-label col-sm-2">专家姓名*</label>
 			<div class="col-sm-10">
-				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ isset($item) ? $item->xm . ' readonly' : '' }}">
+				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ isset($item) ? $item->xm : '' }}"{{ isset($item) ? ' readonly' : '' }}>
 			</div>
 		</div>
 		<div class="form-group">
@@ -59,7 +59,7 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2">所在部门*</label>
 			<div class="col-sm-10">
-				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ isset($item) ? $item->szbm . ' readonly' : '' }}">
+				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ isset($item) ? $item->szbm : '' }}"{{ isset($item) ? ' readonly' : '' }}>
 			</div>
 		</div>
 		<div class="form-group">
@@ -90,6 +90,7 @@
 			<div class="col-sm-10">
 				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="ejxkm" id="ejxkm" class="form-control">
+					<option value="">无</option>
 					@foreach ($subdisciplines->getAll() as $subdiscipline)
 						{!! $subdiscipline->present()->option(old('ejxkm')) !!}
 					@endforeach
@@ -101,6 +102,7 @@
 			<div class="col-sm-10">
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="yjxkm2" id="yjxkm2" class="form-control">
+					<option value="">无</option>
 					@foreach ($disciplines->getAll() as $discipline)
 						{!! $discipline->present()->option(old('yjxkm2')) !!}
 					@endforeach
@@ -112,6 +114,7 @@
 			<div class="col-sm-10">
 				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="ejxkm2" id="ejxkm2" class="form-control">
+					<option value="">无</option>
 					@foreach ($subdisciplines->getAll() as $subdiscipline)
 						{!! $subdiscipline->present()->option(old('ejxkm2')) !!}
 					@endforeach
@@ -123,6 +126,7 @@
 			<div class="col-sm-10">
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="mldm1" id="mldm1" class="form-control">
+					<option value="">无</option>
 					@foreach ($disciplines->getAll() as $discipline)
 						{!! $discipline->present()->option(old('mldm1')) !!}
 					@endforeach
@@ -134,6 +138,7 @@
 			<div class="col-sm-10">
 				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="lydm1" id="lydm1" class="form-control">
+					<option value="">无</option>
 					@foreach ($subdisciplines->getAll() as $subdiscipline)
 						{!! $subdiscipline->present()->option(old('lydm1')) !!}
 					@endforeach
