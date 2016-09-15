@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Ym', strtotime(substr($id, 6, 6))) }}" readonly>
+				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Ym', strtotime(substr($id, 6, 8))) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -59,7 +59,7 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2">所在部门*</label>
 			<div class="col-sm-10">
-				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ isset($item) ? $item->szbm : '' }}"{{ isset($item) ? ' readonly' : '' }}>
+				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ Auth::user()->college->mc }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
