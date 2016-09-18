@@ -13,5 +13,6 @@
             <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 退出</li>
         </ul>
     </li>
+    <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 退出</li>
 </ul>
 <!-- /.navbar-top-links -->

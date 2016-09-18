@@ -10,6 +10,12 @@
 	{{ csrf_field() }}
 	<fieldset>
 		<div class="form-group">
+			<label class="control-label col-sm-2">专家编号</label>
+			<div class="col-sm-10">
+				<p class="form-control-static">{{ $item->zjbh }}</p>
+			</div>
+		</div>
+		<div class="form-group">
 			<label for="zjxm" class="control-label col-sm-2">专家姓名*</label>
 			<div class="col-sm-10">
 				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ $item->zjxm }}">
@@ -128,7 +134,7 @@
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="mldm1" id="mldm1" class="form-control">
 					<option value="">无</option>
-					@foreach ($disciplines->getAll() as $discipline)
+					@foreach ($disciplines->getAllByPMD() as $discipline)
 						{!! $discipline->present()->option($item->mldm1) !!}
 					@endforeach
 				</select>
@@ -140,7 +146,7 @@
 				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="lydm1" id="lydm1" class="form-control">
 					<option value="">无</option>
-					@foreach ($subdisciplines->getAll() as $subdiscipline)
+					@foreach ($subdisciplines->getAllByPMD() as $subdiscipline)
 						{!! $subdiscipline->present()->option($item->lydm1) !!}
 					@endforeach
 				</select>

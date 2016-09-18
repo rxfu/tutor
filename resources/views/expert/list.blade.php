@@ -9,6 +9,7 @@
     <table id="expert-table" class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
+                <th class="active">专家编号</th>
                 <th class="active">所在部门</th>
                 <th class="active">姓名</th>
                 <th class="active">主要学科</th>
@@ -22,6 +23,7 @@
         </thead>
         <tfoot>
             <tr>
+                <th>专家编号</th>
                 <th>所在部门</th>
                 <th>姓名</th>
                 <th>主要学科</th>
@@ -36,6 +38,7 @@
         <tbody>
         	@foreach ($items as $item)
         		<tr>
+                    <td>{{ $item->zjbh }}</td>
                     <td>{{ $item->szbm }}</td>
                     <td>{{ $item->zjxm }}</td>
                     <td>{{ $item->yjxkmc }}</td>

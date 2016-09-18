@@ -7,6 +7,12 @@
 @section('content')
 <form class="form-horizontal">
 	<div class="form-group">
+		<label class="control-label col-sm-2">专家编号</label>
+		<div class="col-sm-10">
+			<p class="form-control-static">{{ $item->zjbh }}</p>
+		</div>
+	</div>
+	<div class="form-group">
 		<label class="control-label col-sm-2">姓名</label>
 		<div class="col-sm-10">
 			<p class="form-control-static">{{ $item->zjxm }}</p>

@@ -127,7 +127,7 @@
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="mldm1" id="mldm1" class="form-control">
 					<option value="">无</option>
-					@foreach ($disciplines->getAll() as $discipline)
+					@foreach ($disciplines->getAllByPMD() as $discipline)
 						{!! $discipline->present()->option(old('mldm1')) !!}
 					@endforeach
 				</select>
@@ -139,7 +139,7 @@
 				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
 				<select name="lydm1" id="lydm1" class="form-control">
 					<option value="">无</option>
-					@foreach ($subdisciplines->getAll() as $subdiscipline)
+					@foreach ($subdisciplines->getAllByPMD() as $subdiscipline)
 						{!! $subdiscipline->present()->option(old('lydm1')) !!}
 					@endforeach
 				</select>
@@ -288,7 +288,7 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-success" title="添加">添加</button>
+			<button type="submit" class="btn btn-success" title="保存">保存</button>
 		</div>
 	</fieldset>
 </form>

@@ -20,7 +20,6 @@ class ExpertController extends Controller {
 
 	public function getList() {
 		$items = $this->experts->getAll();
-
 		$title = '专家信息';
 
 		return view('expert.list', compact('title', 'items'));
@@ -61,7 +60,7 @@ class ExpertController extends Controller {
 			return back()->withInput()->withError('添加' . $title . '失败');
 		}
 	}
-	
+
 	public function edit($id) {
 		$item  = $this->experts->get($id);
 		$title = '专家信息';
