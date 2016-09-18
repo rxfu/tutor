@@ -39,15 +39,19 @@ class ExpertController extends Controller {
 	}
 
 	public function create(CheckExpertRequest $request) {
-		$id = $request->input('sfzh');
-
-		$item  = $this->tutors->getTutorById($id);
+		$id    = $request->input('sfzh');
 		$title = '专家信息';
 
-		if (is_object($item)) {
-			return view('expert.create', compact('title', 'item', 'id'));
+		if ($this->experts->get($id)->exists()) {
+			return redirect()->route('expert.edit', $id);
 		} else {
-			return view('expert.create', compact('title', 'id'));
+			$item = $this->tutors->getTutorById($id);
+
+			if (is_object($item)) {
+				return view('expert.create', compact('title', 'item', 'id'));
+			} else {
+				return view('expert.create', compact('title', 'id'));
+			}
 		}
 	}
 
