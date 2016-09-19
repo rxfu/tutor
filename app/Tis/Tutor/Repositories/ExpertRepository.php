@@ -3,6 +3,7 @@
 namespace Tis\Tutor\Repositories;
 
 use Tis\Core\Repository;
+use Tis\Tutor\Entities\College;
 use Tis\Tutor\Entities\Discipline;
 use Tis\Tutor\Entities\Expert;
 use Tis\Tutor\Entities\Subdiscipline;
@@ -31,6 +32,10 @@ class ExpertRepository extends Repository {
 			$subdiscipline = Subdiscipline::find($data['lydm1']);
 			$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
 		}
+		if (isset($data['xydm'])) {
+			$college      = College::find($data['xydm']);
+			$data['szbm'] = is_object($college) ? $college->mc : '';
+		}
 		$data['sftj'] = config('constants.disable');
 
 		return parent::store($data);
@@ -53,6 +58,10 @@ class ExpertRepository extends Repository {
 		if (isset($data['lydm1'])) {
 			$subdiscipline = Subdiscipline::find($data['lydm1']);
 			$data['lymc1'] = is_object($subdiscipline) ? $subdiscipline->mc : '';
+		}
+		if (isset($data['xydm'])) {
+			$college      = College::find($data['xydm']);
+			$data['szbm'] = is_object($college) ? $college->mc : '';
 		}
 		$tutor->fill($data);
 

@@ -24,13 +24,13 @@ class SaveExpertRequest extends Request {
 	public function rules() {
 		return [
 			'zjxm'       => 'required',
-			'csny'       => 'numeric|date_format:Ym|size:6',
+			'csny'       => 'numeric|date_format:Ym|digits:6',
 			'gj'         => 'required',
 			'zjzl'       => 'required',
 			'sfzh'       => 'required|size:18',
 			'xxdm'       => 'required',
 			'xxmc'       => 'required',
-			'szbm'       => 'required',
+			'xydm'       => 'required',
 			'yjxkm'      => 'required',
 			'zgxw'       => 'required',
 			'zyjszw'     => 'required',
@@ -38,10 +38,10 @@ class SaveExpertRequest extends Request {
 			'dslb2'      => 'required',
 			'rsgxsfbx'   => 'required',
 			'szdwsfsyxw' => 'required',
-			'rdsny'      => 'numeric|date_format:Ym|size:6',
+			'rdsny'      => 'numeric|date_format:Ym|digits:6',
 			'txdz'       => 'required',
-			'yzbm'       => 'required|numeric|size:6',
-			'yddh'       => 'required|numeric|size:11',
+			'yzbm'       => 'required|numeric|digits:6',
+			'yddh'       => 'required|numeric|digits:11',
 			'dzxx'       => 'required|email',
 		];
 	}

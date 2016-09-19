@@ -59,13 +59,13 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="szbm" class="control-label col-sm-2 text-danger">所在部门*</label>
+			<label for="xydm" class="control-label col-sm-2 text-danger">所在部门*</label>
 			<div class="col-sm-10">
 				@if(Auth::user()->can('admin-access'))
 					@inject('colleges', 'Tis\Tutor\Repositories\CollegeRepository')
-					<select name="szbm" id="szbm" class="form-control">
+					<select name="xydm" id="xydm" class="form-control">
 						@foreach ($colleges->getAll() as $college)
-							{!! $college->present()->option(old('szbm')) !!}
+							{!! $college->present()->option($item->szbm) !!}
 						@endforeach
 					</select>
 				@else
