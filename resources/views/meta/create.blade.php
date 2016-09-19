@@ -17,7 +17,7 @@
 			</div>
 		@endforeach
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-success" title="添加"添加</button>
+			<button type="submit" class="btn btn-success" title="添加">添加</button>
 		</div>
 	</fieldset>
 </form>

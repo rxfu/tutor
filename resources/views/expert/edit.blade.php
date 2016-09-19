@@ -16,9 +16,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zjxm" class="control-label col-sm-2">专家姓名*</label>
+			<label for="zjxm" class="control-label col-sm-2 text-danger">专家姓名*</label>
 			<div class="col-sm-10">
 				<input type="text" name="zjxm" id="zjxm" class="form-control" placeholder="专家姓名" value="{{ $item->zjxm }}">
+				<p class="help-block">“姓”与“名”之间不要加空格</p>
 			</div>
 		</div>
 		<div class="form-group">
@@ -31,40 +32,41 @@
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
 				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ $item->csny }}" readonly>
+				<p class="help-block">6位数字，如“196803”</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="gj" class="control-label col-sm-2">国籍*</label>
+			<label for="gj" class="control-label col-sm-2 text-danger">国籍*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('gj', ['印度', '澳大利亚', '日本', '韩国', '俄罗斯', '法国', '德国', '英国', '加拿大', '美国', '中国台湾', '中国澳门', '中国香港', '中国', '其他'], $item->gj) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zjzl" class="control-label col-sm-2">证件种类*</label>
+			<label for="zjzl" class="control-label col-sm-2 text-danger">证件种类*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('zjzl', ['身份证', '护照', '军官证', '回乡证', '台胞证', '港澳通行证'], $item->zjlb) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="sfzh" class="control-label col-sm-2">证件号码*</label>
+			<label for="sfzh" class="control-label col-sm-2 text-danger">证件号码*</label>
 			<div class="col-sm-10">
 				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ $item->sfzh }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="xxdm" class="control-label col-sm-2">单位代码*</label>
+			<label for="xxdm" class="control-label col-sm-2 text-danger">单位代码*</label>
 			<div class="col-sm-10">
 				<input type="text" name="xxdm" id="xxdm" class="form-control" placeholder="单位代码" value="10602" readonly>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="xxmc" class="control-label col-sm-2">单位名称*</label>
+			<label for="xxmc" class="control-label col-sm-2 text-danger">单位名称*</label>
 			<div class="col-sm-10">
 				<input type="text" name="xxmc" id="xxmc" class="form-control" placeholder="单位名称" value="广西师范大学" readonly>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="szbm" class="control-label col-sm-2">所在部门*</label>
+			<label for="szbm" class="control-label col-sm-2 text-danger">所在部门*</label>
 			<div class="col-sm-10">
 				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ $item->szbm }}">
 			</div>
@@ -73,16 +75,18 @@
 			<label for="xzzw" class="control-label col-sm-2">行政职务</label>
 			<div class="col-sm-10">
 				<input type="text" name="xzzw" id="xzzw" class="form-control" placeholder="行政职务" value="{{ $item->xzzw }}">
+				<p class="help-block">“行政职务”应与“所在部门”对应，如所在部门填写“XXX学院”，此处可填写“院长”</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="zyshjz" class="control-label col-sm-2">主要社会兼职</label>
 			<div class="col-sm-10">
 				<textarea name="zyshjz" cols="50" rows="10" class="form-control" placeholder="主要社会兼职">{{ $item->zyshjz }}</textarea>
+				<p class="help-block">按照兼职单位+职务的形式填写，不同社会兼职用分号间隔，如“XXX学会，会长；XXX协会，秘书长”</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="yjxkm" class="control-label col-sm-2">主要学科一级学科*</label>
+			<label for="yjxkm" class="control-label col-sm-2 text-danger">主要学科一级学科*</label>
 			<div class="col-sm-10">
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="yjxkm" id="yjxkm" class="form-control">
@@ -177,31 +181,31 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zgxw" class="control-label col-sm-2">最高学位*</label>
+			<label for="zgxw" class="control-label col-sm-2 text-danger">最高学位*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('zgxw', ['博士', '硕士', '学士', '无'], $item->zgxw) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zyjszw" class="control-label col-sm-2">专业技术职务*</label>
+			<label for="zyjszw" class="control-label col-sm-2 text-danger">专业技术职务*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('zyjszw', ['正高级', '副高级', '中级', '初级', '无'], $item->zyjszw) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="dslb" class="control-label col-sm-2">学术学位研究生导师类别*</label>
+			<label for="dslb" class="control-label col-sm-2 text-danger">学术学位研究生导师类别*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('dslb', ['博士生导师', '硕士生导师', '兼职博士生导师', '兼职硕士生导师', '其他'], $item->dslb) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="dslb2" class="control-label col-sm-2">专业学位研究生导师类别*</label>
+			<label for="dslb2" class="control-label col-sm-2 text-danger">专业学位研究生导师类别*</label>
 			<div class="col-sm-10">
 				{!! render_form_select('dslb2', ['博士生导师', '硕士生导师', '兼职博士生导师', '兼职硕士生导师', '其他'], $item->dslb2) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="rsgxsfbx" class="control-label col-sm-2">人事关系所在单位是否本校*</label>
+			<label for="rsgxsfbx" class="control-label col-sm-2 text-danger">人事关系所在单位是否本校*</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
 					<input type="radio" name="rsgxsfbx" value="是"{{ $item->rsgxsfbx == '是' ? ' checked' : '' }}>&nbsp;是
@@ -212,7 +216,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="szdwsfsyxw" class="control-label col-sm-2">人事关系所在单位是否学位授予单位*</label>
+			<label for="szdwsfsyxw" class="control-label col-sm-2 text-danger">人事关系所在单位是否学位授予单位*</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
 					<input type="radio" name="szdwsfsyxw" value="是"{{ $item->szdwsfsyxw == '是' ? ' checked' : '' }}>&nbsp;是
@@ -223,15 +227,17 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="rsgxszdw" class="control-label col-sm-2">人事关系所在单位</label>
+			<label for="rsgxszdw" class="control-label col-sm-2 text-danger">人事关系所在单位</label>
 			<div class="col-sm-10">
 				<input type="text" name="rsgxszdw" id="rsgxszdw" class="form-control" placeholder="人事关系所在单位" value="{{ $item->rsgxszdw }}">
+				<p class="help-block">限兼职导师填写</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="rdsny" class="control-label col-sm-2">任导师年月</label>
 			<div class="col-sm-10">
 				<input type="text" name="rdsny" id="rdsny" class="form-control" placeholder="任导师年月" value="{{ $item->rdsny }}">
+				<p class="help-block">6位数字，如“201103”</p>
 			</div>
 		</div>
 		<div class="form-group">
@@ -244,6 +250,7 @@
 			<label for="wgyzslcd" class="control-label col-sm-2">外语熟练程度</label>
 			<div class="col-sm-10">
 				{!! render_form_select('wgyzslcd', ['精通', '熟练', '良好', '一般'], $item->wgyzslcd) !!}
+				<p class="help-block">“精通”和“熟练”是指能评阅该语种的论文</p>
 			</div>
 		</div>
 		<div class="form-group">
@@ -253,39 +260,44 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="txdz" class="control-label col-sm-2">通讯地址*</label>
+			<label for="txdz" class="control-label col-sm-2 text-danger">通讯地址*</label>
 			<div class="col-sm-10">
 				<input type="text" name="txdz" id="txdz" class="form-control" placeholder="通讯地址" value="{{ $item->txdz }}">
+				<p class="help-block">请填写详细 的地理信息，建议先填写“省市、地区、街道”信息，再填写“单位、部门”信息</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="yzbm" class="control-label col-sm-2">邮政编码*</label>
+			<label for="yzbm" class="control-label col-sm-2 text-danger">邮政编码*</label>
 			<div class="col-sm-10">
 				<input type="text" name="yzbm" id="yzbm" class="form-control" placeholder="邮政编码" value="{{ $item->yzbm }}">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="yddh" class="control-label col-sm-2">移动电话*</label>
+			<label for="yddh" class="control-label col-sm-2 text-danger">移动电话*</label>
 			<div class="col-sm-10">
 				<input type="text" name="yddh" id="yddh" class="form-control" placeholder="移动电话" value="{{ $item->yddh }}">
+				<p class="help-block">手机号码前不要加“0”</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="bgdh" class="control-label col-sm-2">办公电话</label>
 			<div class="col-sm-10">
 				<input type="text" name="bgdh" id="bgdh" class="form-control" placeholder="办公电话" value="{{ $item->bgdh }}">
+				<p class="help-block">固定电话格式为“区号-号码-分机号”（连字符为半角）</p>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="dzxx" class="control-label col-sm-2">电子信箱1*</label>
+			<label for="dzxx" class="control-label col-sm-2 text-danger">电子信箱1*</label>
 			<div class="col-sm-10">
 				<input type="text" name="dzxx" id="dzxx" class="form-control" placeholder="电子信箱1" value="{{ $item->dzxx }}">
+				<p class="help-block">电子信箱中的“@”符号请使用“半角”方式填写</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="dzxx2" class="control-label col-sm-2">电子信箱2</label>
 			<div class="col-sm-10">
 				<input type="text" name="dzxx2" id="dzxx2" class="form-control" placeholder="电子信箱1" value="{{ $item->dzxx2 }}">
+				<p class="help-block">电子信箱中的“@”符号请使用“半角”方式填写</p>
 			</div>
 		</div>
 		<div class="form-group">

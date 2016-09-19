@@ -49,10 +49,10 @@ class ExpertController extends Controller {
 
 			if (is_object($item)) {
 				return view('expert.create', compact('title', 'item', 'id'));
-			} else {
-				return view('expert.create', compact('title', 'id'));
 			}
 		}
+
+		return back()->withInput()->withError('查无此人，请检查证件号码是否有误');
 	}
 
 	public function store(SaveExpertRequest $request) {
