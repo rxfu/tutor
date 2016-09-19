@@ -60,6 +60,10 @@ class ExpertRepository extends Repository {
 	}
 
 	public function getAll() {
-		return $this->object->orderBy('szbm', 'zjxm')->get();
+		return $this->object->orderByRaw('CONVERT(zjxm USING gbk)')->get();
+	}
+
+	public function getAllByCollege($college) {
+		return $this->object->whereXydm($college)->orderByRaw('CONVERT(zjxm USING gbk)')->get();
 	}
 }

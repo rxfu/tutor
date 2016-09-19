@@ -20,7 +20,7 @@ class Subdiscipline extends Model {
 	public $timestamps = false;
 
 	protected $fillable = [
-		'dm', 'mc',
+		'dm', 'mc', 'yjxkdm', 'sfzyxw',
 	];
 
 	public function tutors() {

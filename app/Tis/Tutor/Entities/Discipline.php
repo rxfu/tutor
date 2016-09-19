@@ -20,7 +20,7 @@ class Discipline extends Model {
 	public $timestamps = false;
 
 	protected $fillable = [
-		'dm', 'mc',
+		'dm', 'mc', 'xkmldm', 'sfzyxw',
 	];
 
 	public function tutors() {

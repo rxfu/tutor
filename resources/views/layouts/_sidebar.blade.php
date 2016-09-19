@@ -58,15 +58,20 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @endcan
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 教育部专家库<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="{{ route('expert.list') }}">教育部专家信息</a>
                     </li>
+                    <li>
+                        <a href="{{ route('expert.new') }}">添加专家信息</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @can('admin-access')
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 数据维护<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

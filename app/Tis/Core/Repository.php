@@ -46,4 +46,8 @@ abstract class Repository {
 
 		return $object->delete();
 	}
+
+	public function exists($id) {
+		return $this->object->where($this->object->getKeyname(), '=', $id)->exists();
+	}
 }

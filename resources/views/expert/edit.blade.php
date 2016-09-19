@@ -68,7 +68,16 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2 text-danger">所在部门*</label>
 			<div class="col-sm-10">
-				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ $item->szbm }}">
+				@if(Auth::user()->can('admin-access'))
+					@inject('colleges', 'Tis\Tutor\Repositories\CollegeRepository')
+					<select name="szbm" id="szbm" class="form-control">
+						@foreach ($colleges->getAll() as $college)
+							{!! $college->present()->option(old('szbm')) !!}
+						@endforeach
+					</select>
+				@else
+					<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ Auth::user()->college->mc }}" readonly>
+				@endif
 			</div>
 		</div>
 		<div class="form-group">

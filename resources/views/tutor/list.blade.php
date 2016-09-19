@@ -31,7 +31,7 @@
         </tfoot>
         <tbody>
         	@foreach ($items as $item)
-        		<tr>{{$item}}
+        		<tr>
                     <td>{{ $item->college->mc }}</td>
                     <td>{{ $item->xm }}</td>
                     <td>{{ $item->present()->type }}</td>

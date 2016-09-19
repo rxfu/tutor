@@ -61,13 +61,22 @@
 		<div class="form-group">
 			<label for="szbm" class="control-label col-sm-2 text-danger">所在部门*</label>
 			<div class="col-sm-10">
-				<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ Auth::user()->college->mc }}" readonly>
+				@if(Auth::user()->can('admin-access'))
+					@inject('colleges', 'Tis\Tutor\Repositories\CollegeRepository')
+					<select name="szbm" id="szbm" class="form-control">
+						@foreach ($colleges->getAll() as $college)
+							{!! $college->present()->option(old('szbm')) !!}
+						@endforeach
+					</select>
+				@else
+					<input type="text" name="szbm" id="szbm" class="form-control" placeholder="所在部门" value="{{ Auth::user()->college->mc }}" readonly>
+				@endif
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="xzzw" class="control-label col-sm-2">行政职务</label>
 			<div class="col-sm-10">
-				<input type="text" name="xzzw" id="xzzw" class="form-control" placeholder="行政职务" value="{{ isset($item) ? $item->szxw : '' }}">
+				<input type="text" name="xzzw" id="xzzw" class="form-control" placeholder="行政职务" value="{{ isset($item) ? $item->xzxw : '' }}">
 				<p class="help-block">“行政职务”应与“所在部门”对应，如所在部门填写“XXX学院”，此处可填写“院长”</p>
 			</div>
 		</div>
@@ -84,7 +93,7 @@
 				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
 				<select name="yjxkm" id="yjxkm" class="form-control">
 					@foreach ($disciplines->getAll() as $discipline)
-						{!! $discipline->present()->option(old('yjxkm')) !!}
+						{!! $discipline->present()->option($item->yjxkdm) !!}
 					@endforeach
 				</select>
 			</div>
@@ -229,7 +238,7 @@
 		<div class="form-group">
 			<label for="rdsny" class="control-label col-sm-2">任导师年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="rdsny" id="rdsny" class="form-control" placeholder="任导师年月" value="{{ old('rdsny') }}">
+				<input type="text" name="rdsny" id="rdsny" class="form-control" placeholder="任导师年月" value="{{ $item->rdsny }}">
 				<p class="help-block">6位数字，如“201103”</p>
 			</div>
 		</div>
@@ -255,20 +264,20 @@
 		<div class="form-group">
 			<label for="txdz" class="control-label col-sm-2 text-danger">通讯地址*</label>
 			<div class="col-sm-10">
-				<input type="text" name="txdz" id="txdz" class="form-control" placeholder="通讯地址" value="{{ old('txdz') }}">
+				<input type="text" name="txdz" id="txdz" class="form-control" placeholder="通讯地址" value="{{ $item->txdz }}">
 				<p class="help-block">请填写详细 的地理信息，建议先填写“省市、地区、街道”信息，再填写“单位、部门”信息</p>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="yzbm" class="control-label col-sm-2 text-danger">邮政编码*</label>
 			<div class="col-sm-10">
-				<input type="text" name="yzbm" id="yzbm" class="form-control" placeholder="邮政编码" value="{{ old('yzbm') }}">
+				<input type="text" name="yzbm" id="yzbm" class="form-control" placeholder="邮政编码" value="{{ $item->yzbm }}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="yddh" class="control-label col-sm-2 text-danger">移动电话*</label>
 			<div class="col-sm-10">
-				<input type="text" name="yddh" id="yddh" class="form-control" placeholder="移动电话" value="{{ old('yddh') }}">
+				<input type="text" name="yddh" id="yddh" class="form-control" placeholder="移动电话" value="{{ $item->lxdh }}">
 				<p class="help-block">手机号码前不要加“0”</p>
 			</div>
 		</div>
@@ -282,7 +291,7 @@
 		<div class="form-group">
 			<label for="dzxx" class="control-label col-sm-2 text-danger">电子信箱1*</label>
 			<div class="col-sm-10">
-				<input type="text" name="dzxx" id="dzxx" class="form-control" placeholder="电子信箱1" value="{{ old('dzxx') }}">
+				<input type="text" name="dzxx" id="dzxx" class="form-control" placeholder="电子信箱1" value="{{ $item->dzyx }}">
 				<p class="help-block">电子信箱中的“@”符号请使用“半角”方式填写</p>
 			</div>
 		</div>
@@ -296,7 +305,7 @@
 		<div class="form-group">
 			<label for="bz" class="control-label col-sm-2">备注</label>
 			<div class="col-sm-10">
-				<textarea name="bz" cols="50" rows="10" class="form-control" placeholder="备注">{{ old('bz') }}</textarea>
+				<textarea name="bz" cols="50" rows="10" class="form-control" placeholder="备注">{{ $item->bz }}</textarea>
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">

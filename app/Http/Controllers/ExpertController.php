@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckExpertRequest;
 use App\Http\Requests\SaveExpertRequest;
+use Illuminate\Support\Facades\Auth;
 use Tis\Tutor\Repositories\ExpertRepository;
 use Tis\Tutor\Repositories\TutorRepository;
 
@@ -19,7 +20,12 @@ class ExpertController extends Controller {
 	}
 
 	public function getList() {
-		$items = $this->experts->getAll();
+		if (Auth::user()->can('college-access')) {
+			$items = $this->experts->getAllByCollege(Auth::user()->xy);
+		} else {
+			$items = $this->experts->getAll();
+		}
+
 		$title = '专家信息';
 
 		return view('expert.list', compact('title', 'items'));
@@ -42,7 +48,7 @@ class ExpertController extends Controller {
 		$id    = $request->input('sfzh');
 		$title = '专家信息';
 
-		if ($this->experts->get($id)->exists()) {
+		if ($this->experts->exists($id)) {
 			return redirect()->route('expert.edit', $id);
 		} else {
 			$item = $this->tutors->getTutorById($id);
