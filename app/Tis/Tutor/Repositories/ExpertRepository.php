@@ -35,6 +35,9 @@ class ExpertRepository extends Repository {
 		if (isset($data['xydm'])) {
 			$college      = College::find($data['xydm']);
 			$data['szbm'] = is_object($college) ? $college->mc : '';
+		} elseif (isset($data['szbm'])) {
+			$college      = College::whereMc($data['szbm'])->first();
+			$data['xydm'] = is_object($college) ? $college->dm : '';
 		}
 		$data['sftj'] = config('constants.disable');
 
@@ -62,6 +65,9 @@ class ExpertRepository extends Repository {
 		if (isset($data['xydm'])) {
 			$college      = College::find($data['xydm']);
 			$data['szbm'] = is_object($college) ? $college->mc : '';
+		} elseif (isset($data['szbm'])) {
+			$college      = College::whereMc($data['szbm'])->first();
+			$data['xydm'] = is_object($college) ? $college->dm : '';
 		}
 		$tutor->fill($data);
 

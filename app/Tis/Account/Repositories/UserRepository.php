@@ -27,6 +27,10 @@ class UserRepository extends Repository {
 	}
 
 	public function getAll() {
-		return $this->object->with('role')->with('college')->orderBy('id')->get();
+		return $this->object->with('role', 'college')->orderBy('id')->get();
+	}
+
+	public function getAllByCollege($college) {
+		return $this->object->with('college')->whereXy($college)->orderBy('id')->get();
 	}
 }

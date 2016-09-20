@@ -51,7 +51,12 @@ class UserController extends Controller {
 	}
 
 	public function getList() {
-		$items = $this->users->getAll();
+		if (Auth::user()->can('college-access')) {
+			$items = $this->users->getAllByCollege(Auth::user()->xy);
+		} else {
+			$items = $this->users->getAll();
+		}
+
 		$title = '用户';
 
 		return view('user.list', compact('title', 'items'));
