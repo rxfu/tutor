@@ -12,8 +12,10 @@
                 <th class="active">导师大类</th>
                 <th class="active">是否兼职导师</th>
                 <th class="active">查看记录</th>
-                <th class="active">编辑记录</th>
-            	<th class="active">删除记录</th>
+                @can('admin-access')
+                    <th class="active">编辑记录</th>
+                	<th class="active">删除记录</th>
+                @endcan
             </tr>
         </thead>
         <tfoot>
@@ -25,8 +27,10 @@
                 <th>导师大类</th>
                 <th>是否兼职导师</th>
                 <th>查看记录</th>
-                <th>编辑记录</th>
-                <th>删除记录</th>
+                @can('admin-access')
+                    <th>编辑记录</th>
+                    <th>删除记录</th>
+                @endcan
             </tr>
         </tfoot>
         <tbody>
@@ -39,14 +43,18 @@
                     <td>{{ $item->present()->category }}</td>
         			<td>{{ $item->present()->is_part_time }}</td>
 					<td><a href="{{ route('tutor.show', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
-					<td><a href="{{ route('tutor.edit', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
-					<td>
-						<form id="delete" name="delete" method="post" action="{{ route('tutor.delete', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->xm }}”这条记录吗？')">
-							{{ method_field('delete') }}
-							{{ csrf_field() }}
-							<button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>
-						</form>
-					</td>
+                    @can('admin-access')
+    					<td>
+                            <a href="{{ route('tutor.edit', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a>
+                        </td>
+    					<td>
+    					  <form id="delete" name="delete" method="post" action="{{ route('tutor.delete', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" role="form" onsubmit="return confirm('你确定要删除“{{ $title }}：{{ $item->xm }}”这条记录吗？')">
+    							{{ method_field('delete') }}
+    							{{ csrf_field() }}
+    							<button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>
+    						</form>
+    					</td>
+                    @endcan
         		</tr>
         	@endforeach
         </tbody>

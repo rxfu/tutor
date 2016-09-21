@@ -91,7 +91,7 @@
 		<div class="form-group">
 			<label for="csny" class="control-label col-sm-2">出生年月</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Y-m-d', strtotime(substr($user->sfzh, 6, 8))) }}" readonly>
+				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Ym', strtotime(substr($user->sfzh, 6, 6))) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
