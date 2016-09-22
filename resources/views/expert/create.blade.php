@@ -43,7 +43,7 @@
 		<div class="form-group">
 			<label for="sfzh" class="control-label col-sm-2 text-danger">证件号码*</label>
 			<div class="col-sm-10">
-				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ isset($item) ? $item->zjhm : $id }}" readonly>
+				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ isset($item) ? $item->zjhm : $id }}"{{ 18 <> strlen($item->zjhm) ? '' : ' readonly' }}>
 			</div>
 		</div>
 		<div class="form-group">
@@ -258,7 +258,7 @@
 		<div class="form-group">
 			<label for="zjlb" class="control-label col-sm-2">专家类别</label>
 			<div class="col-sm-10">
-				{!! render_form_select('zjlb', ['中国科学院院士', '中国工程院院士', '万人计划杰出人才', '万人计划领军人才', '千人计划创新人才', '千人计划创业人才', '长江学者特聘教授', '长江学者讲座教授', '国家杰出青年基金获得者', '973项目首席科学家', '中宣部四个一批人才', '马工程首席专家', '百千万人才工程一二层次入选者或国家级人选', '教育部跨世纪人才', '中科院百人计划入选者', '青年千人计划入选者', '优秀青年基金获得者', '中组部青年拔尖人才', '青年973项目首席科学家', '全国百篇优博论文作者', '教育部新世纪人才', '万人计划青年拔尖人才', '其他'], '中国科学院院士') !!}
+				{!! render_form_select('zjlb', ['中国科学院院士', '中国工程院院士', '万人计划杰出人才', '万人计划领军人才', '千人计划创新人才', '千人计划创业人才', '长江学者特聘教授', '长江学者讲座教授', '国家杰出青年基金获得者', '973项目首席科学家', '中宣部四个一批人才', '马工程首席专家', '百千万人才工程一二层次入选者或国家级人选', '教育部跨世纪人才', '中科院百人计划入选者', '青年千人计划入选者', '优秀青年基金获得者', '中组部青年拔尖人才', '青年973项目首席科学家', '全国百篇优博论文作者', '教育部新世纪人才', '万人计划青年拔尖人才', '其他'], '其他') !!}
 			</div>
 		</div>
 		<div class="form-group">

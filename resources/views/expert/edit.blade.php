@@ -50,7 +50,7 @@
 		<div class="form-group">
 			<label for="sfzh" class="control-label col-sm-2 text-danger">证件号码*</label>
 			<div class="col-sm-10">
-				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ $item->sfzh }}" readonly>
+				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ $item->sfzh }}"{{ 18 <> strlen($item->sfzh) ? '' : ' readonly' }}>
 			</div>
 		</div>
 		<div class="form-group">
