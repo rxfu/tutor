@@ -32,7 +32,7 @@ class SaveTutorRequest extends Request {
 			'dsdl'    => 'required',
 			'xm'      => 'required',
 			'xb'      => 'required',
-			'csny'    => 'required|date_format:Ym',
+			'csny'    => 'required',
 			'gbm'     => 'required',
 			'mzm'     => 'required',
 			'zzmmm'   => 'required',

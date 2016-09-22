@@ -35,16 +35,14 @@ class TutorRepository extends Repository {
 	}
 
 	public function updateTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds, $data) {
-		$tutor = $this->object->whereZjhm($zjhm)
+		$data = array_except($data, ['_method', '_token']);
+
+		return DB::table('y_ds_dsxx')->whereZjhm($zjhm)
 			->whereDslb($dslb)
 			->whereDsdl($dsdl)
 			->whereEjxkdm($ejxkdm)
 			->whereSfjzds($sfjzds)
-			->firstOrFail();
-
-		$tutor->fill($data);
-
-		return $tutor->save();
+			->update($data);
 	}
 
 	public function deleteTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
