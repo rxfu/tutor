@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'expert', 'as' => 'expert.'], function () {
 		Route::get('list', ['as' => 'list', 'uses' => 'ExpertController@getList']);
 		Route::get('new', ['as' => 'new', 'uses' => 'ExpertController@getNew']);
+		Route::get('print', ['as' => 'print', 'uses' => 'ExpertController@getPrint']);
 		Route::get('create', ['as' => 'create', 'uses' => 'ExpertController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'ExpertController@store']);
 		Route::get('{id}', ['as' => 'show', 'uses' => 'ExpertController@show']);

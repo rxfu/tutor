@@ -97,4 +97,16 @@ class ExpertController extends Controller {
 			return back()->withInput()->withError('删除' . $title . '失败');
 		}
 	}
+
+	public function getPrint() {
+		$title = isset(Auth::user()->college) ? Auth::user()->college->mc : '' . '教育部专家名册';
+
+		if (Auth::user()->can('college-access')) {
+			$items = $this->experts->getAllByCollege(Auth::user()->xy);
+		} else {
+			$items = $this->experts->getAll();
+		}
+
+		return view('expert.print', compact('title', 'items'));
+	}
 }

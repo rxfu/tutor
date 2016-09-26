@@ -2,6 +2,7 @@
 
 @section('subtitle')
 <a href="{{ route('expert.new') }}" class="btn btn-success" role="button" title="添加{{ $title }}"><i class="fa fa-plus fa-fw"></i>添加{{ $title }}</a>
+<a href="{{ route('expert.print') }}" class="btn btn-primary" role="button" title="生成{{ $title }}报表" target="_blank"><i class="fa fa-print fa-fw"></i>生成{{ $title }}报表</a>
 @stop
 
 @section('content')
