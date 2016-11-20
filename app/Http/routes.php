@@ -91,4 +91,9 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::put('{id}', ['as' => 'update', 'uses' => 'ExpertController@update']);
 		Route::delete('{id}', ['as' => 'delete', 'uses' => 'ExpertController@delete']);
 	});
+
+	Route::group(['prefix' => 'setting', 'as' => 'setting.'], function () {
+		Route::get('edit', ['as' => 'edit', 'uses' => 'SettingController@edit']);
+		Route::put('update', ['as' => 'update', 'uses' => 'SettingController@update']);
+	});
 });

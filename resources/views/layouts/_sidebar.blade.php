@@ -123,6 +123,11 @@
                     <li>
                         <a href="{{ route('user.password') }}">修改密码</a>
                     </li>
+                    @can('admin-access')
+                    <li>
+                        <a href="{{ route('setting.edit') }}">系统设置</a>
+                    </li>
+                    @endcan
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
