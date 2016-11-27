@@ -20,7 +20,8 @@
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师遴选<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">导师遴选</a>
+                        <a href="{{ route('tutor.newSelection') }}">遴选申请</a>
+                        <a href="{{ route('tutor.listSelection') }}">遴选审批</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

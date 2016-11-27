@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckExpertRequest;
 use App\Http\Requests\SaveTutorRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tis\Account\Entities\User;
 use Tis\Account\Repositories\UserRepository;
+use Tis\Tutor\Repositories\SelectionRepository;
 use Tis\Tutor\Repositories\TutorRepository;
 
 class TutorController extends Controller {
@@ -14,9 +17,12 @@ class TutorController extends Controller {
 
 	protected $tutors;
 
-	public function __construct(UserRepository $users, TutorRepository $tutors) {
-		$this->users  = $users;
-		$this->tutors = $tutors;
+	protected $selections;
+
+	public function __construct(UserRepository $users, TutorRepository $tutors, SelectionRepository $selections) {
+		$this->users      = $users;
+		$this->tutors     = $tutors;
+		$this->selections = $selections;
 	}
 
 	public function getList() {
@@ -93,6 +99,44 @@ class TutorController extends Controller {
 		$title = '导师公示列表';
 
 		return view('tutor.publicity', compact('title', 'items'));
+	}
+
+	public function getNewSelection() {
+		$title = '遴选导师证件号码';
+
+		return view('tutor.new_selection', compact('title'));
+	}
+
+	public function createSelection(CheckExpertRequest $request) {
+		$id    = $request->input('sfzh');
+		$title = '遴选导师信息';
+
+		if ($this->tutors->exists($id)) {
+			$item = $this->tutors->getTutorById($id);
+
+			if (is_object($item)) {
+				return view('tutor.create_selection', compact('title', 'item', 'id'));
+			}
+		}
+
+		return back()->withInput()->withError('查无此人，请检查证件号码是否有误');
+	}
+
+	public function saveSelection(Request $request) {
+		$title = '遴选导师';
+
+		if ($this->selections->store($request->all())) {
+			return redirect()->route('tutor.listSelection')->withSuccess('添加' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('添加' . $title . '失败');
+		}
+	}
+
+	public function getSelection() {
+		$items = $this->selections->getAll();
+		$title = '导师遴选列表';
+
+		return view('tutor.list_selection', compact('title', 'items'));
 	}
 
 }
