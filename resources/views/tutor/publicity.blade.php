@@ -8,6 +8,10 @@
                 <th class="active">申请时间</th>
                 <th class="active">身份证号</th>
                 <th class="active">姓名</th>
+                <th class="active">所在部门</th>
+                <th class="active">导师大类</th>
+                <th class="active">导师类别</th>
+                <th class="active">备注</th>
                 <th class="active">公示</th>
             </tr>
         </thead>
@@ -16,6 +20,10 @@
                 <th>申请时间</th>
                 <th>身份证号</th>
                 <th>姓名</th>
+                <th>所在部门</th>
+                <th>导师大类</th>
+                <th>导师类别</th>
+                <th>备注</th>
                 <th>公示</th>
             </tr>
         </tfoot>
@@ -25,6 +33,10 @@
                     <td>{{ $item->sqny }}</td>
                     <td>{{ $item->zjhm }}</td>
                     <td>{{ $item->xm }}</td>
+                    <td>{{ $item->college->mc }}</td>
+                    <td>{{ $item->present()->category }}</td>
+                    <td>{{ $item->present()->type }}</td>
+                    <td>{{ $item->present()->bz }}</td>
 					<td>{!! $item->present()->publish !!}</td>
         		</tr>
         	@endforeach
