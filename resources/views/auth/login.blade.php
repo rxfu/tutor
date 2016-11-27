@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-        <div class="panel panel-default login-panel">
+        <div class="panel panel-info login-panel">
             <div class="panel-heading">
                 <h3 class="panel-title">登录系统</h3>
             </div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-9 col-sm-offset-3">
-                                <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
+                                <button type="submit" class="btn btn-lg btn-info btn-block">登录</button>
                             </div>
                         </div>
                     </fieldset>

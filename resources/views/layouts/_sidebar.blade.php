@@ -3,7 +3,7 @@
     <div class="sidebar-nav navbar-collapse">
         <ul id="side-menu" class="nav">
             <li>
-                <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> 仪表盘</a>
+                <a href="{{ route('home') }}"><i class="fa fa-dashboard fa-fw"></i> 使用说明</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师管理<span class="fa arrow"></span></a>

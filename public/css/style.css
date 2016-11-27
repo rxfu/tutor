@@ -44,3 +44,6 @@ body {
 .table tbody > tr > th, .table tbody > tr > td {
 	vertical-align: middle;
 }
+.site-header {
+	text-align: center;
+}

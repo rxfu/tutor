@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class HomeController extends Controller {
 
 	public function index() {
-		$title = '仪表盘';
+		$title = '使用说明';
 
 		return view('home.index', compact('title'));
 	}
