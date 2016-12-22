@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('create-selection', ['as' => 'createSelection', 'uses' => 'TutorController@createSelection']);
 		Route::post('save-selection', ['as' => 'saveSelection', 'uses' => 'TutorController@saveSelection']);
 		Route::get('list-selection', ['as' => 'listSelection', 'uses' => 'TutorController@getSelection']);
+		Route::get('{id}/{atype}/get-audit-selection', ['as' => 'getAuditSelection', 'uses' => 'TutorController@getAuditSelection']);
+		Route::put('audit-selection/{id}', ['as' => 'auditSelection', 'uses' => 'TutorController@auditSelection']);
 
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
 		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);

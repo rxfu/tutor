@@ -10,8 +10,11 @@
                 <th class="active">所在部门</th>
                 <th class="active">导师大类</th>
                 <th class="active">导师类别</th>
+                <th class="active">拟申报学科专业</th>
                 <th class="active">备注</th>
-                <th class="active">操作</th>
+                <th class="active">教研室审核</th>
+                <th class="active">学位评定分委会审核</th>
+                <th class="active">校学位评定委员会审核</th>
             </tr>
         </thead>
         <tfoot>
@@ -21,23 +24,43 @@
                 <th>所在部门</th>
                 <th>导师大类</th>
                 <th>导师类别</th>
+                <th>拟申报学科专业</th>
                 <th>备注</th>
-                <th>操作</th>
+                <th>教研室审核</th>
+                <th>学位评定分委会审核</th>
+                <th>校学位评定委员会审核</th>
             </tr>
         </tfoot>
         <tbody>
         	@foreach ($items as $item)
         		<tr>
                     <td>{{ $item->sfzh }}</td>
-                    <td>{{ $item->tutor->xm }}</td>
+                    <td><a href="{{ route('tutor.show', [$item->sfzh, $item->dslb, $item->dsdl, $item->tutor->ejxkdm, $item->tutor->sfjzds]) }}">{{ $item->tutor->xm }}</a></td>
                     <td>{{ $item->tutor->college->mc }}</td>
-                    <td>{{ $item->tutor->present()->category }}</td>
-                    <td>{{ $item->tutor->present()->type }}</td>
+                    <td>{{ $item->present()->category }}</td>
+                    <td>{{ $item->present()->type }}</td>
+                    <td>{{ $item->subdiscipline->mc }}</td>
                     <td>{{ $item->tutor->present()->bz }}</td>
                     <td>
-                        <a href="#" class="btn btn-primary" role="button" title="申请导师">教研室审核</a>
-                        <a href="#" class="btn btn-success" role="button" title="学位评定分委会审核">学位评定分委会审核</a>
-					    <a href="#" class="btn btn-info" role="button" title="校学位评定委员会审核">校学位评定委员会审核</a>
+                        @if ('' === $item->jysshyj)
+                            <a href="{{ route('tutor.getAuditSelection', [$item->id, 'jyssh']) }}" class="btn btn-primary" role="button" title="申请导师">教研室审核</a>
+                        @else
+                            {{ $item->present()->jyssh }}
+                        @endif
+                    </td>
+                    <td>
+                        @if ('' === $item->xwpdfwhshyj && 1 == $item->jysshyj)
+                            <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xwpdfwhsh']) }}" class="btn btn-success" role="button" title="学位评定分委会审核">学位评定分委会审核</a>
+                        @else
+                            {{ $item->present()->xwpdfwhsh }}
+                        @endif
+                    </td>
+                    <td>
+                        @if ('' === $item->xxwpdwyhshyj && 1 == $item->xwpdfwhshyj)
+					       <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xxwpdwyhsh']) }}" class="btn btn-info" role="button" title="校学位评定委员会审核">校学位评定委员会审核</a>
+                        @else
+                            {{ $item->present()->xxwpdwyhsh }}
+                        @endif
                     </td>
         		</tr>
         	@endforeach

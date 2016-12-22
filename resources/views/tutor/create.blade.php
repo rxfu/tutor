@@ -1,7 +1,7 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('subtitle')
-添加{{ $title }}
+申请{{ $title }}
 @stop
 
 @section('content')
@@ -253,7 +253,7 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-success" title="添加">添加</button>
+			<button type="submit" class="btn btn-success" title="申请">申请</button>
 		</div>
 	</fieldset>
 </form>

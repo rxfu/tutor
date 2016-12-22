@@ -139,4 +139,21 @@ class TutorController extends Controller {
 		return view('tutor.list_selection', compact('title', 'items'));
 	}
 
+	public function getAuditSelection($id, $type) {
+		$title = '遴选导师审核';
+		$item  = $this->selections->get($id);
+
+		return view('tutor.audit_selection', compact('title', 'type', 'item'));
+	}
+
+	public function auditSelection(Request $request, $id) {
+		$title = '遴选导师';
+
+		if ($this->selections->update($id, $request->all())) {
+			return redirect()->route('tutor.listSelection')->withSuccess('审核' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('审核' . $title . '失败');
+		}
+	}
+
 }
