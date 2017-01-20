@@ -1,7 +1,7 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('subtitle')
-申请{{ $title }}
+填写{{ $title }}
 @stop
 
 @section('content')
@@ -12,63 +12,6 @@
 			<label for="zjhm" class="control-label col-sm-2">证件号码</label>
 			<div class="col-sm-10">
 				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $user->sfzh }}">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="dslb" class="control-label col-sm-2">导师类别</label>
-			<div class="col-sm-10">
-				<select name="dslb" id="dslb" class="form-control">
-					<option value="1">硕士生导师</option>
-					<option value="2">博士生导师</option>
-				</select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="yjxkdm" class="control-label col-sm-2">一级学科</label>
-			<div class="col-sm-10">
-				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
-				<select name="yjxkdm" id="yjxkdm" class="form-control">
-					@foreach ($disciplines->getAll() as $discipline)
-						{!! $discipline->present()->option(old('yjxkdm')) !!}
-					@endforeach
-				</select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="ejxkdm" class="control-label col-sm-2">二级学科</label>
-			<div class="col-sm-10">
-				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
-				<select name="ejxkdm" id="ejxkdm" class="form-control">
-					@foreach ($subdisciplines->getAll() as $subdiscipline)
-						{!! $subdiscipline->present()->option(old('ejxkdm')) !!}
-					@endforeach
-				</select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="sfjzds" class="control-label col-sm-2">是否兼职导师</label>
-			<div class="col-sm-10">
-				<label class="radio-inline">
-					<input type="radio" name="sfjzds" value="1">&nbsp;是
-				</label>
-				<label class="radio-inline">
-					<input type="radio" name="sfjzds" value="0" checked>&nbsp;否
-				</label>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="jzdsdw" class="control-label col-sm-2">兼职导师单位</label>
-			<div class="col-sm-10">
-				<input type="text" name="jzdsdw" id="jzdsdw" class="form-control" placeholder="兼职导师单位" value="{{ old('jzdsdw') }}">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="dsdl" class="control-label col-sm-2">导师大类</label>
-			<div class="col-sm-10">
-				<select name="dsdl" id="dsdl" class="form-control">
-					<option value="1">科学学位</option>
-					<option value="2">专业学位</option>
-				</select>
 			</div>
 		</div>
 		<div class="form-group">
@@ -89,9 +32,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="csny" class="control-label col-sm-2">出生年月</label>
+			<label for="csrq" class="control-label col-sm-2">出生日期</label>
 			<div class="col-sm-10">
-				<input type="text" name="csny" id="csny" class="form-control" placeholder="出生年月" value="{{ date('Ym', strtotime(substr($user->sfzh, 6, 6))) }}" readonly>
+				<input type="text" name="csrq" id="csrq" class="form-control" placeholder="出生日期" value="{{ date('Y-m-d', strtotime(substr($user->sfzh, 6, 8))) }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -172,12 +115,6 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="sxzy" class="control-label col-sm-2">所学专业</label>
-			<div class="col-sm-10">
-				<input type="text" name="sxzy" id="sxzy" class="form-control" placeholder="所学专业" value="{{ old('sxzy') }}">
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="zyzc" class="control-label col-sm-2">专业职称</label>
 			<div class="col-sm-10">
 				@inject('positions', 'Tis\Tutor\Repositories\PositionRepository')
@@ -195,18 +132,6 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="rdsny" class="control-label col-sm-2">任导师年月</label>
-			<div class="col-sm-10">
-				<input type="text" name="rdsny" id="rdsny" class="form-control" placeholder="任导师年月" value="{{ old('rdsny') }}">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="yjfx" class="control-label col-sm-2">研究方向</label>
-			<div class="col-sm-10">
-				<input type="text" name="yjfx" id="yjfx" class="form-control" placeholder="研究方向" value="{{ old('yjfx') }}">
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="wgyyz" class="control-label col-sm-2">外国语语种</label>
 			<div class="col-sm-10">
 				<input type="text" name="wgyyz" id="wgyyz" class="form-control" placeholder="外国语语种" value="{{ old('wgyyz') }}">
@@ -216,9 +141,9 @@
 			<label for="wgyslcd" class="control-label col-sm-2">外国语熟练程度</label>
 			<div class="col-sm-10">
 				<select name="wgyslcd" id="wgyslcd" class="form-control">
-					<option value="1">一般</option>
-					<option value="2">熟练</option>
-					<option value="3">精通</option>
+					<option value="一般">一般</option>
+					<option value="熟练">熟练</option>
+					<option value="精通">精通</option>
 				</select>
 			</div>
 		</div>
@@ -253,7 +178,7 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-success" title="申请">申请</button>
+			<button type="submit" class="btn btn-success" title="下一步">下一步</button>
 		</div>
 	</fieldset>
 </form>

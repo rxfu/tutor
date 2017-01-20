@@ -28,6 +28,10 @@ abstract class Repository {
 		return $this->object->findOrFail($id);
 	}
 
+	public function create($data) {
+		return $this->object->create($data);
+	}
+
 	public function store($data) {
 		$this->object->fill($data);
 

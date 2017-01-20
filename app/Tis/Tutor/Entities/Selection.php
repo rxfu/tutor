@@ -11,7 +11,7 @@ class Selection extends Model {
 
 	protected $presenter = 'Tis\Tutor\Presenters\SelectionPresenter';
 
-	protected $table = 'y_dslx';
+	protected $table = 'y_ds_lxxx';
 
 	protected $primaryKey = 'id';
 
@@ -22,10 +22,18 @@ class Selection extends Model {
 	];
 
 	public function tutor() {
-		return $this->belongsTo('Tis\Tutor\Entities\Tutor', 'sfzh', 'zjhm');
+		return $this->belongsTo('Tis\Tutor\Entities\Tutor', 'zjhm', 'zjhm');
+	}
+
+	public function discipline() {
+		return $this->belongsTo('Tis\Tutor\Entities\Discipline', 'yjxkdm', 'dm');
 	}
 
 	public function subdiscipline() {
+		return $this->belongsTo('Tis\Tutor\Entities\Subdiscipline', 'ejxkdm', 'dm');
+	}
+
+	public function subdiscipline2() {
 		return $this->belongsTo('Tis\Tutor\Entities\Subdiscipline', 'nsbxkzy', 'dm');
 	}
 }

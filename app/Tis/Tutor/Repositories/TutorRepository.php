@@ -2,10 +2,9 @@
 
 namespace Tis\Tutor\Repositories;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Tis\Core\Repository;
-use Tis\Tutor\Entities\Discipline;
-use Tis\Tutor\Entities\Subdiscipline;
 use Tis\Tutor\Entities\Tutor;
 
 class TutorRepository extends Repository {
@@ -15,12 +14,13 @@ class TutorRepository extends Repository {
 	}
 
 	public function store($data) {
-		$discipline     = Discipline::find($data['yjxkdm']);
-		$data['yjxkmc'] = $discipline->mc;
-		$subdiscipline  = Subdiscipline::find($data['ejxkdm']);
-		$data['ejxkmc'] = $subdiscipline->mc;
-		$data['sqny']   = date('Ym');
-		$data['sftj']   = config('constants.enable');
+		/*$discipline     = Discipline::find($data['yjxkdm']);
+			$data['yjxkmc'] = $discipline->mc;
+			$subdiscipline  = Subdiscipline::find($data['ejxkdm']);
+			$data['ejxkmc'] = $subdiscipline->mc;
+			$data['sqny']   = date('Ym');
+		*/
+		$data['sqsj'] = Carbon::now();
 
 		return parent::store($data);
 	}
@@ -55,7 +55,7 @@ class TutorRepository extends Repository {
 	}
 
 	public function getAll() {
-		return $this->object->with('college', 'subdiscipline')->orderBy('zjhm')->get();
+		return $this->object->with('college')->orderBy('zjhm')->get();
 	}
 
 	public function getTutorsByAppdate() {
@@ -63,7 +63,7 @@ class TutorRepository extends Repository {
 	}
 
 	public function getAllByCollege($college) {
-		return $this->object->with('college', 'subdiscipline')->whereSzbm($college)->orderBy('zjhm')->get();
+		return $this->object->with('college')->whereSzbm($college)->orderBy('zjhm')->get();
 	}
 
 	public function getTutorById($id) {

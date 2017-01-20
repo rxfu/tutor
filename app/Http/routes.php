@@ -62,11 +62,17 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('publish', ['as' => 'publish', 'uses' => 'TutorController@getPublish']);
 		Route::get('unpublish', ['as' => 'unpublish', 'uses' => 'TutorController@getUnpublish']);
 		Route::get('new-selection', ['as' => 'newSelection', 'uses' => 'TutorController@getNewSelection']);
-		Route::get('create-selection', ['as' => 'createSelection', 'uses' => 'TutorController@createSelection']);
+		Route::get('create-selection/{id}', ['as' => 'createSelection', 'uses' => 'TutorController@createSelection']);
 		Route::post('save-selection', ['as' => 'saveSelection', 'uses' => 'TutorController@saveSelection']);
 		Route::get('list-selection', ['as' => 'listSelection', 'uses' => 'TutorController@getSelection']);
 		Route::get('{id}/{atype}/get-audit-selection', ['as' => 'getAuditSelection', 'uses' => 'TutorController@getAuditSelection']);
 		Route::put('audit-selection/{id}', ['as' => 'auditSelection', 'uses' => 'TutorController@auditSelection']);
+		Route::get('create-result/{id}', ['as' => 'createResult', 'uses' => 'TutorController@createResult']);
+		Route::post('save-result', ['as' => 'saveResult', 'uses' => 'TutorController@saveResult']);
+		Route::get('create-adward/{id}', ['as' => 'createAdward', 'uses' => 'TutorController@createAdward']);
+		Route::post('save-adward', ['as' => 'saveAdward', 'uses' => 'TutorController@saveAdward']);
+		Route::get('create-project/{id}', ['as' => 'createProject', 'uses' => 'TutorController@createProject']);
+		Route::post('save-project', ['as' => 'saveProject', 'uses' => 'TutorController@saveProject']);
 
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
 		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);

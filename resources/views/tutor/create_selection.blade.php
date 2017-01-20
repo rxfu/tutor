@@ -27,9 +27,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="sfzh" class="control-label col-sm-2">证件号码</label>
+			<label for="zjhm" class="control-label col-sm-2">证件号码</label>
 			<div class="col-sm-10">
-				<input type="text" name="sfzh" id="sfzh" class="form-control" placeholder="证件号码" value="{{ $item->zjhm }}" readonly>
+				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $item->zjhm }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">
@@ -48,6 +48,12 @@
 						{!! $subdiscipline->present()->option(old('nsbxkzy')) !!}
 					@endforeach
 				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="sxzy" class="control-label col-sm-2">所学专业</label>
+			<div class="col-sm-10">
+				<input type="text" name="sxzy" id="sxzy" class="form-control" placeholder="所学专业" value="{{ old('sxzy') }}">
 			</div>
 		</div>
 		<div class="form-group">
@@ -72,6 +78,28 @@
 			<label for="zyjszw" class="control-label col-sm-2">专业技术职务</label>
 			<div class="col-sm-10">
 				<p class="form-control-static">{{ $item->position->mc }}</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="yjxkdm" class="control-label col-sm-2">一级学科</label>
+			<div class="col-sm-10">
+				@inject('disciplines', 'Tis\Tutor\Repositories\DisciplineRepository')
+				<select name="yjxkdm" id="yjxkdm" class="form-control">
+					@foreach ($disciplines->getAll() as $discipline)
+						{!! $discipline->present()->option(old('yjxkdm')) !!}
+					@endforeach
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="ejxkdm" class="control-label col-sm-2">二级学科</label>
+			<div class="col-sm-10">
+				@inject('subdisciplines', 'Tis\Tutor\Repositories\SubdisciplineRepository')
+				<select name="ejxkdm" id="ejxkdm" class="form-control">
+					@foreach ($subdisciplines->getAll() as $subdiscipline)
+						{!! $subdiscipline->present()->option(old('ejxkdm')) !!}
+					@endforeach
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
@@ -140,24 +168,6 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zjdbxcg" class="control-label col-sm-2">最具代表性成果</label>
-			<div class="col-sm-10">
-				<textarea name="zjdbxcg" cols="50" rows="10" class="form-control" placeholder="最具代表性成果">{{ old('zjdbxcg') }}</textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="zyhjcgjzl" class="control-label col-sm-2">主要获奖成果及专利</label>
-			<div class="col-sm-10">
-				<textarea name="zyhjcgjzl" cols="50" rows="10" class="form-control" placeholder="主要获奖成果及专利">{{ old('zyhjcgjzl') }}</textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="zykyxm" class="control-label col-sm-2">主要科研项目</label>
-			<div class="col-sm-10">
-				<textarea name="zykyxm" cols="50" rows="10" class="form-control" placeholder="主要科研项目">{{ old('zykyxm') }}</textarea>
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="xzzdyjsqk" class="control-label col-sm-2">协助指导研究生情况</label>
 			<div class="col-sm-10">
 				<textarea name="xzzdyjsqk" cols="50" rows="10" class="form-control" placeholder="协助指导研究生情况">{{ old('xzzdyjsqk') }}</textarea>
@@ -176,7 +186,7 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-success" title="申请遴选">申请遴选</button>
+			<button type="submit" class="btn btn-success" title="下一步">下一步</button>
 		</div>
 	</fieldset>
 </form>

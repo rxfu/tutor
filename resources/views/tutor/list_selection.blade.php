@@ -34,12 +34,12 @@
         <tbody>
         	@foreach ($items as $item)
         		<tr>
-                    <td>{{ $item->sfzh }}</td>
+                    <td>{{ $item->zjhm }}</td>
                     <td><a href="{{ route('tutor.show', [$item->sfzh, $item->dslb, $item->dsdl, $item->tutor->ejxkdm, $item->tutor->sfjzds]) }}">{{ $item->tutor->xm }}</a></td>
                     <td>{{ $item->tutor->college->mc }}</td>
                     <td>{{ $item->present()->category }}</td>
                     <td>{{ $item->present()->type }}</td>
-                    <td>{{ $item->subdiscipline->mc }}</td>
+                    <td>{{ $item->subdiscipline2->mc }}</td>
                     <td>{{ $item->tutor->present()->bz }}</td>
                     <td>
                         @if ('' === $item->jysshyj)
