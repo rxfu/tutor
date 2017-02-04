@@ -35,7 +35,7 @@
         	@foreach ($items as $item)
         		<tr>
                     <td>{{ $item->zjhm }}</td>
-                    <td><a href="{{ route('tutor.show', [$item->sfzh, $item->dslb, $item->dsdl, $item->tutor->ejxkdm, $item->tutor->sfjzds]) }}">{{ $item->tutor->xm }}</a></td>
+                    <td><a href="{{ route('tutor.showSelection', $item->id) }}">{{ $item->tutor->xm }}</a></td>
                     <td>{{ $item->tutor->college->mc }}</td>
                     <td>{{ $item->present()->category }}</td>
                     <td>{{ $item->present()->type }}</td>

@@ -224,4 +224,11 @@ class TutorController extends Controller {
 		}
 	}
 
+	public function showSelection($id) {
+		$item  = $this->selections->get($id);
+		$title = '导师信息';
+
+		return view('tutor.show', compact('title', 'item'));
+	}
+
 }

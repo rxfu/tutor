@@ -36,4 +36,16 @@ class Selection extends Model {
 	public function subdiscipline2() {
 		return $this->belongsTo('Tis\Tutor\Entities\Subdiscipline', 'nsbxkzy', 'dm');
 	}
+
+	public function results() {
+		return $this->hasMany('Tis\Tutor\Entities\Result', 'zjhm', 'zjhm');
+	}
+
+	public function adwards() {
+		return $this->hasMany('Tis\Tutor\Entities\Adward', 'zjhm', 'zjhm');
+	}
+
+	public function projects() {
+		return $this->hasMany('Tis\Tutor\Entities\Project', 'zjhm', 'zjhm');
+	}
 }
