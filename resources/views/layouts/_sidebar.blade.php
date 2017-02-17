@@ -35,7 +35,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            <li>
+            <!-- <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 信息统计<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -57,8 +57,7 @@
                         <a href="{{ route('statistics.subdiscipline') }}">按二级学科统计</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
-            </li>
+            </li> -->
             @endcan
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 教育部专家库<span class="fa arrow"></span></a>

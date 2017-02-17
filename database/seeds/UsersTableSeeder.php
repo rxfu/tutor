@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder {
 		]);
 
 		User::create([
-			'username' => 'john',
+			'username' => 'test001',
 			'password' => bcrypt('666666'),
 			'xm'       => '教学秘书',
 			'role_id'  => 2,

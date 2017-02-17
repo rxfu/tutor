@@ -11,4 +11,8 @@ class DisciplinePresenter extends Presenter {
 
 		return '<option value="' . $this->dm . '"' . $selected . '>' . $this->mc . '</option>';
 	}
+
+	public function sfzyxw() {
+		return $this->sfzyxw ? '是' : '否';
+	}
 }

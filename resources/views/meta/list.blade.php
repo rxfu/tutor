@@ -31,7 +31,7 @@
         	@foreach ($items as $item)
         		<tr>
         			@foreach ($attributes as $attribute)
-        				<td>{{ $item->{$attribute} }}</td>
+        				<td>{{ $item->present()->{$attribute} }}</td>
         			@endforeach
 					<td><a href="{{ route('metadata.show', [$type, $item->{$attributes[0]}]) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
 					<td><a href="{{ route('metadata.edit', [$type, $item->{$attributes[0]}]) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
