@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-9 col-sm-offset-3">
-                                <button type="submit" class="btn btn-lg btn-info btn-block">登录</button>
+                                <button type="submit" class="btn btn-info btn-block">登录</button>
                             </div>
                         </div>
                     </fieldset>

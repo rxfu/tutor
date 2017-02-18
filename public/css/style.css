@@ -47,3 +47,6 @@ body {
 .site-header {
 	text-align: center;
 }
+.site-header img {
+	min-width: 100%;
+}
