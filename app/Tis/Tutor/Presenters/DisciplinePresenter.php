@@ -13,6 +13,6 @@ class DisciplinePresenter extends Presenter {
 	}
 
 	public function sfzyxw() {
-		return $this->sfzyxw ? '是' : '否';
+		return $this->entity->sfzyxw ? '是' : '否';
 	}
 }

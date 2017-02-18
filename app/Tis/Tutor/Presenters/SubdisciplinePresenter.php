@@ -11,4 +11,8 @@ class SubdisciplinePresenter extends Presenter {
 
 		return '<option value="' . $this->dm . '"' . $selected . ' class="' . $this->yjxkdm . '">' . $this->mc . '</option>';
 	}
+
+	public function sfzyxw() {
+		return $this->entity->sfzyxw ? '是' : '否';
+	}
 }
