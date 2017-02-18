@@ -11,7 +11,7 @@
 		<div class="form-group">
 			<label for="zjhm" class="control-label col-sm-2">证件号码</label>
 			<div class="col-sm-10">
-				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $user->sfzh }}">
+				<input type="text" name="zjhm" id="zjhm" class="form-control" placeholder="证件号码" value="{{ $user->sfzh }}" readonly>
 			</div>
 		</div>
 		<div class="form-group">

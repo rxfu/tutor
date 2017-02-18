@@ -103,10 +103,14 @@ class TutorController extends Controller {
 	}
 
 	public function getApplication() {
-		$items = $this->users->getTutors();
-		$title = '导师申请列表';
+		if (Auth::user()->can('tutor-access')) {
+			return redirect()->route('tutor.create', Auth::user());
+		} else {
+			$items = $this->users->getTutors();
+			$title = '导师申请列表';
 
-		return view('tutor.application', compact('title', 'items'));
+			return view('tutor.application', compact('title', 'items'));
+		}
 	}
 
 	public function getPublicity() {

@@ -15,17 +15,22 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            @can('admin-access')
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师遴选<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <!--a href="{{ route('tutor.newSelection') }}">遴选申请</a-->
-                        <a href="{{ route('tutor.listSelection') }}">遴选审批</a>
-                    </li>
+                    @can('tutor-access')
+                        <li>
+                            <a href="{{ route('tutor.createSelection', Auth::user()->sfzh) }}">添加遴选信息</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route('tutor.listSelection') }}">遴选审批</a>
+                        </li>
+                    @endcan
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @can('admin-access')
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 导师信息公示<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -103,6 +108,7 @@
                 <!-- /.nav-second-level -->
             </li>
             @endcan
+            @cannot('tutor-access')
             <li>
                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -110,13 +116,14 @@
                         <a href="{{ route('user.list') }}">用户列表</a>
                     </li>
                     @can('admin-access')
-                    <li>
-                        <a href="{{ route('role.list') }}">角色列表</a>
-                    </li>
+                        <li>
+                            <a href="{{ route('role.list') }}">角色列表</a>
+                        </li>
                     @endcan
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            @endcannot
             <li>
                 <a href="#"><i class="fa fa-gear fa-fw"></i> 系统管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
