@@ -15,6 +15,9 @@
                 <th class="active">教研室审核</th>
                 <th class="active">学位评定分委会审核</th>
                 <th class="active">校学位评定委员会审核</th>
+                <th class="active">查看记录</th>
+                <th class="active">编辑记录</th>
+                <th class="active">删除记录</th>
             </tr>
         </thead>
         <tfoot>
@@ -29,6 +32,9 @@
                 <th>教研室审核</th>
                 <th>学位评定分委会审核</th>
                 <th>校学位评定委员会审核</th>
+                <th>查看记录</th>
+                <th>编辑记录</th>
+                <th>删除记录</th>
             </tr>
         </tfoot>
         <tbody>
@@ -42,25 +48,46 @@
                     <td>{{ $item->subdiscipline2->mc }}</td>
                     <td>{{ $item->tutor->present()->bz }}</td>
                     <td>
-                        @if ('' === $item->jysshyj)
-                            <a href="{{ route('tutor.getAuditSelection', [$item->id, 'jyssh']) }}" class="btn btn-primary" role="button" title="申请导师">教研室审核</a>
+                        @cannot('tutor-access')
+                            @if ('' === $item->jysshyj)
+                                <a href="{{ route('tutor.getAuditSelection', [$item->id, 'jyssh']) }}" class="btn btn-primary" role="button" title="教研室审核">教研室审核</a>
+                            @else
+                                {{ $item->present()->jyssh }}
+                            @endif
                         @else
                             {{ $item->present()->jyssh }}
-                        @endif
+                        @endcannot
                     </td>
                     <td>
-                        @if ('' === $item->xwpdfwhshyj && 1 == $item->jysshyj)
-                            <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xwpdfwhsh']) }}" class="btn btn-success" role="button" title="学位评定分委会审核">学位评定分委会审核</a>
+                        @cannot('tutor-access')
+                            @if ('' === $item->xwpdfwhshyj && 1 == $item->jysshyj)
+                                <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xwpdfwhsh']) }}" class="btn btn-success" role="button" title="学位评定分委会审核">学位评定分委会审核</a>
+                            @else
+                                {{ $item->present()->xwpdfwhsh }}
+                            @endif
                         @else
                             {{ $item->present()->xwpdfwhsh }}
-                        @endif
+                        @endcannot
                     </td>
                     <td>
-                        @if ('' === $item->xxwpdwyhshyj && 1 == $item->xwpdfwhshyj)
-					       <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xxwpdwyhsh']) }}" class="btn btn-info" role="button" title="校学位评定委员会审核">校学位评定委员会审核</a>
+                        @cannot('tutor-access')
+                            @if ('' === $item->xxwpdwyhshyj && 1 == $item->xwpdfwhshyj)
+    					       <a href="{{ route('tutor.getAuditSelection', [$item->id, 'xxwpdwyhsh']) }}" class="btn btn-info" role="button" title="校学位评定委员会审核">校学位评定委员会审核</a>
+                            @else
+                                {{ $item->present()->xxwpdwyhsh }}
+                            @endif
                         @else
                             {{ $item->present()->xxwpdwyhsh }}
-                        @endif
+                        @endcannot
+                    </td>
+                    <td><a href="{{ route('tutor.showSelection', $item->id) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
+                    <td><a href="{{ route('tutor.editSelection', $item->id) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a></td>
+                    <td>
+                        <form id="delete" name="delete" method="post" action="{{ route('tutor.deleteSelection', $item->id) }}" role="form" onsubmit="return confirm('你确定要删除这条记录吗？')">
+                            {{ method_field('delete') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-danger" title="删除"><i class="fa fa-trash-o fa-fw"></i></button>
+                        </form>
                     </td>
         		</tr>
         	@endforeach

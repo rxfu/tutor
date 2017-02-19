@@ -30,7 +30,7 @@
         		<tr>
                     <td>{{ $item->college->mc }}</td>
                     <td>{{ $item->xm }}</td>
-					<td><a href="{{ route('tutor.show', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
+					<td><a href="{{ route('tutor.show', $item->zjhm) }}" class="btn btn-info" role="button" title="查看"><i class="fa fa-search fa-fw"></i></a></td>
                     @can('admin-access')
     					<td>
                             <a href="{{ route('tutor.edit', [$item->zjhm, $item->dslb, $item->dsdl, $item->ejxkdm, $item->sfjzds]) }}" class="btn btn-primary" role="button" title="编辑"><i class="fa fa-edit fa-fw"></i></a>

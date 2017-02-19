@@ -64,7 +64,10 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('new-selection', ['as' => 'newSelection', 'uses' => 'TutorController@getNewSelection']);
 		Route::get('create-selection/{id}', ['as' => 'createSelection', 'uses' => 'TutorController@createSelection']);
 		Route::post('save-selection', ['as' => 'saveSelection', 'uses' => 'TutorController@saveSelection']);
-		Route::get('list-selection', ['as' => 'listSelection', 'uses' => 'TutorController@getSelection']);
+		Route::get('list-selection/{id}', ['as' => 'listSelection', 'uses' => 'TutorController@getSelection']);
+		Route::get('edit-selection/{id}', ['as' => 'editSelection', 'uses' => 'TutorController@editSelection']);
+		Route::get('update-selection/{id}', ['as' => 'updateSelection', 'uses' => 'TutorController@updateSelection']);
+		Route::get('delete-selection/{id}', ['as' => 'deleteSelection', 'uses' => 'TutorController@deleteSelection']);
 		Route::get('show-selection/{id}', ['as' => 'showSelection', 'uses' => 'TutorController@showSelection']);
 		Route::get('{id}/{atype}/get-audit-selection', ['as' => 'getAuditSelection', 'uses' => 'TutorController@getAuditSelection']);
 		Route::put('audit-selection/{id}', ['as' => 'auditSelection', 'uses' => 'TutorController@auditSelection']);
@@ -78,10 +81,10 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('list', ['as' => 'list', 'uses' => 'TutorController@getList']);
 		Route::get('create/{user}', ['as' => 'create', 'uses' => 'TutorController@create']);
 		Route::post('store', ['as' => 'store', 'uses' => 'TutorController@store']);
-		Route::get('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'show', 'uses' => 'TutorController@show']);
-		Route::get('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
-		Route::put('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'update', 'uses' => 'TutorController@update']);
-		Route::delete('{zjhm}/{dslb}/{dsdl}/{ejxkdm}/{sfjzds}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
+		Route::get('{id}', ['as' => 'show', 'uses' => 'TutorController@show']);
+		Route::get('{id}/edit', ['as' => 'edit', 'uses' => 'TutorController@edit']);
+		Route::put('{id}', ['as' => 'update', 'uses' => 'TutorController@update']);
+		Route::delete('{id}', ['as' => 'delete', 'uses' => 'TutorController@delete']);
 	});
 
 	Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function () {

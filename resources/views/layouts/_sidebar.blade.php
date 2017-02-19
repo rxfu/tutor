@@ -20,7 +20,19 @@
                 <ul class="nav nav-second-level">
                     @can('tutor-access')
                         <li>
+                            <a href="{{ route('tutor.listSelection', Auth::user()->sfzh) }}">遴选信息列表</a>
+                        </li>
+                        <li>
                             <a href="{{ route('tutor.createSelection', Auth::user()->sfzh) }}">添加遴选信息</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tutor.createResult', Auth::user()->sfzh) }}">添加最具代表性成果</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tutor.createAdward', Auth::user()->sfzh) }}">添加主要获奖成果及专利</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('tutor.createProject', Auth::user()->sfzh) }}">添加主要科研项目</a>
                         </li>
                     @else
                         <li>

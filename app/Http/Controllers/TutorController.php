@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SaveTutorRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tis\Account\Entities\User;
@@ -37,19 +36,23 @@ class TutorController extends Controller {
 	}
 
 	public function getList() {
-		if (Auth::user()->can('college-access')) {
-			$items = $this->tutors->getAllByCollege(Auth::user()->xy);
+		if (Auth::user()->can('tutor-access')) {
+			return redirect()->route('tutor.show', Auth::user()->sfzh);
 		} else {
-			$items = $this->tutors->getAll();
+			if (Auth::user()->can('college-access')) {
+				$items = $this->tutors->getAllByCollege(Auth::user()->xy);
+			} else {
+				$items = $this->tutors->getAll();
+			}
+
+			$title = '导师信息';
+
+			return view('tutor.list', compact('title', 'items'));
 		}
-
-		$title = '导师信息';
-
-		return view('tutor.list', compact('title', 'items'));
 	}
 
-	public function show($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
-		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
+	public function show($id) {
+		$item  = $this->tutors->get($id);
 		$title = '导师信息';
 
 		return view('tutor.show', compact('title', 'item'));
@@ -75,27 +78,27 @@ class TutorController extends Controller {
 		}
 	}
 
-	public function edit($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
-		$item  = $this->tutors->getTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds);
+	public function edit($id) {
+		$item  = $this->tutors->get($id);
 		$title = '导师信息';
 
 		return view('tutor.edit', compact('title', 'item'));
 	}
 
-	public function update(SaveTutorRequest $request, $zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+	public function update(Request $request, $id) {
 		$title = '导师';
 
-		if ($this->tutors->updateTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds, $request->all())) {
+		if ($this->tutors->update($id, $request->all())) {
 			return redirect()->route('tutor.list')->withSuccess('更新' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('更新' . $title . '失败');
 		}
 	}
 
-	public function delete($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds) {
+	public function delete($id) {
 		$title = '导师';
 
-		if ($this->tutors->deleteTutor($zjhm, $dslb, $dsdl, $ejxkdm, $sfjzds)) {
+		if ($this->tutors->delete($id)) {
 			return redirect()->route('tutor.list')->withSuccess('删除' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('删除' . $title . '失败');
@@ -150,8 +153,12 @@ class TutorController extends Controller {
 		}
 	}
 
-	public function getSelection() {
-		$items = $this->selections->getAll();
+	public function getSelection($id) {
+		if (Auth::user()->can('tutor-access')) {
+			$items = $this->selections->getAllById($id);
+		} else {
+			$items = $this->selections->getAll();
+		}
 		$title = '导师遴选列表';
 
 		return view('tutor.list_selection', compact('title', 'items'));
@@ -232,7 +239,14 @@ class TutorController extends Controller {
 		$item  = $this->selections->get($id);
 		$title = '导师信息';
 
-		return view('tutor.show', compact('title', 'item'));
+		return view('tutor.show_selection', compact('title', 'item'));
+	}
+
+	public function editSelection($id) {
+		$item  = $this->selections->get($id);
+		$title = '导师信息';
+
+		return view('tutor.edit', compact('title', 'item'));
 	}
 
 }

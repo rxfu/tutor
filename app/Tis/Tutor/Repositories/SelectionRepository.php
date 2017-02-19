@@ -22,4 +22,8 @@ class SelectionRepository extends Repository {
 
 		return parent::store($data);
 	}
+
+	public function getAllById($id) {
+		return $this->object->whereZjhm($id)->get();
+	}
 }
