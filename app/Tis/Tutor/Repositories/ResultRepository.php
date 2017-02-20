@@ -20,4 +20,19 @@ class ResultRepository extends Repository {
 
 		return $saved;
 	}
+
+	public function getAllById($id) {
+		return $this->object->whereZjhm($id)->get();
+	}
+
+	public function update($id, $data) {
+		$saved = false;
+
+		foreach ($data['item'] as $k => $v) {
+			$saved = parent::update($v['id'], $v);
+		}
+
+		return $saved;
+	}
+
 }

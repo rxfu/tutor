@@ -246,7 +246,78 @@ class TutorController extends Controller {
 		$item  = $this->selections->get($id);
 		$title = '导师信息';
 
-		return view('tutor.edit', compact('title', 'item'));
+		return view('tutor.edit_selection', compact('title', 'item'));
+	}
+
+	public function deleteSelection($id) {
+		$title = '遴选导师';
+
+		if ($this->selections->delete($id)) {
+			return redirect()->route('tutor.list_selection')->withSuccess('删除' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('删除' . $title . '失败');
+		}
+	}
+
+	public function updateSelection(Request $request, $id) {
+		$title = '遴选导师';
+
+		if ($this->selections->update($id, $request->all())) {
+			return redirect()->route('tutor.editResult', $request->input('zjhm'))->withSuccess('更新' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('更新' . $title . '失败');
+		}
+	}
+
+	public function editResult($id) {
+		$items = $this->results->getAllById($id);
+		$title = '最具代表性成果';
+
+		return view('tutor.edit_result', compact('title', 'items'));
+	}
+
+	public function updateResult(Request $request, $id) {
+		$title = '最具代表性成果';
+
+		if ($this->results->update($id, $request->all())) {
+			return redirect()->route('tutor.editAdward', $request->input('zjhm'))->withSuccess('更新' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('更新' . $title . '失败');
+		}
+	}
+
+	public function editAdward($id) {
+		$items = $this->adwards->getAllById($id);
+		$title = '主要获奖成果及专利';
+
+		return view('tutor.edit_adward', compact('title', 'items'));
+	}
+
+	public function updateAdward(Request $request, $id) {
+		$title = '主要获奖成果及专利';
+
+		if ($this->adwards->update($id, $request->all())) {
+			return redirect()->route('tutor.editProject', $request->input('zjhm'))->withSuccess('更新' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('更新' . $title . '失败');
+		}
+	}
+
+	public function editProject($id) {
+		$items = $this->projects->getAllById($id);
+		$title = '目前承担的主要科研项目';
+
+		return view('tutor.edit_project', compact('title', 'items'));
+	}
+
+	public function updateProject(Request $request, $id) {
+		$title = '目前承担的主要科研项目';
+
+		if ($this->projects->update($id, $request->all())) {
+			return redirect()->route('tutor.listSelection', $request->input('zjhm'))->withSuccess('更新' . $title . '成功！');
+		} else {
+			return back()->withInput()->withError('更新' . $title . '失败');
+		}
 	}
 
 }

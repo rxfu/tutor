@@ -54,4 +54,8 @@ abstract class Repository {
 	public function exists($id) {
 		return $this->object->where($this->object->getKeyname(), '=', $id)->exists();
 	}
+
+	public function getId() {
+		return $this->object->id;
+	}
 }

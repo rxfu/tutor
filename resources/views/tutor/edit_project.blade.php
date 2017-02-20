@@ -1,13 +1,14 @@
 @extends('layouts._two_columns_left_sidebar')
 
 @section('subtitle')
-创建{{ $title }}
+编辑{{ $title }}
 @stop
 
 @section('content')
-<form action="{{ route('tutor.saveProject') }}" method="post" role="form" class="form-horizontal">
+<form action="{{ route('tutor.updateProject', $items[0]->zjhm) }}" method="post" role="form" class="form-horizontal">
+	{{ method_field('put') }}
 	{{ csrf_field() }}
-	<input type="hidden" name="zjhm" id="zjhm" value="{{ $id }}">
+	<input type="hidden" name="zjhm" id="zjhm" value="{{ $items[0]->zjhm }}">
 	<fieldset>
 		<div class="table-responsive">
 		    <table id="project-table" class="table table-bordered table-striped table-hover">
@@ -24,7 +25,8 @@
 		        <tbody>
 		        	@for($i = 0; $i < 5; ++$i)
 		        		<tr>
-							<input type="hidden" name="item[{{ $i }}][zjhm]" id="item[{{ $i }}][zjhm]"value="{{ $id }}">
+							<input type="hidden" name="item[{{ $i }}][zjhm]" id="item[{{ $i }}][zjhm]"value="{{ $items[$i]->zjhm }}">
+							<input type="hidden" name="item[{{ $i }}][id]" id="item[{{ $i }}][id]"value="{{ $items[$i]->id }}">
 		        			<td>
 								<input type="text" name="item[{{ $i }}][xh]" id="item[{{ $i }}][xh]" class="form-control" placeholder="序号" value="{{ $i + 1 }}" readonly>
 		        			</td>
