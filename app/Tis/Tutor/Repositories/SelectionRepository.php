@@ -26,4 +26,10 @@ class SelectionRepository extends Repository {
 	public function getAllById($id) {
 		return $this->object->whereZjhm($id)->get();
 	}
+
+	public function getAllByCollege($college) {
+		return $this->object->with(['tutor' => function ($query) use ($college) {
+			$query->whereSzbm($college);
+		}])->orderBy('id')->get();
+	}
 }

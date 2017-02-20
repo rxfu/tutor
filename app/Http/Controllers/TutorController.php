@@ -109,7 +109,12 @@ class TutorController extends Controller {
 		if (Auth::user()->can('tutor-access')) {
 			return redirect()->route('tutor.create', Auth::user());
 		} else {
-			$items = $this->users->getTutors();
+			if (Auth::user()->can('college-access')) {
+				$items = $this->users->getAllByCollege(Auth::user()->xy);
+			} else {
+				$items = $this->users->getTutors();
+			}
+
 			$title = '导师申请列表';
 
 			return view('tutor.application', compact('title', 'items'));
@@ -153,12 +158,17 @@ class TutorController extends Controller {
 		}
 	}
 
-	public function getSelection($id) {
+	public function getSelection($id = null) {
 		if (Auth::user()->can('tutor-access')) {
 			$items = $this->selections->getAllById($id);
 		} else {
-			$items = $this->selections->getAll();
+			if (Auth::user()->can('college-access')) {
+				$items = $this->selections->getAllByCollege(Auth::user()->xy);
+			} else {
+				$items = $this->selections->getAll();
+			}
 		}
+
 		$title = '导师遴选列表';
 
 		return view('tutor.list_selection', compact('title', 'items'));
@@ -253,7 +263,7 @@ class TutorController extends Controller {
 		$title = '遴选导师';
 
 		if ($this->selections->delete($id)) {
-			return redirect()->route('tutor.list_selection')->withSuccess('删除' . $title . '成功！');
+			return redirect()->route('tutor.listSelection')->withSuccess('删除' . $title . '成功！');
 		} else {
 			return back()->withInput()->withError('删除' . $title . '失败');
 		}
